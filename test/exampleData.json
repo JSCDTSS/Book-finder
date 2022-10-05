@@ -1,0 +1,141 @@
+{
+    "kind": "books#volumes",
+    "totalItems": 200,
+    "items": [
+        {
+            "kind": "books#volume",
+            "id": "OTtFAQAAIAAJ",
+            "etag": "ZUoH/SvpBss",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/OTtFAQAAIAAJ",
+            "volumeInfo": {
+                "title": "Field Guide to Edible Wild Plants",
+                "authors": [
+                    "Bradford Angier",
+                    "David K. Foster"
+                ],
+                "publishedDate": "2008",
+                "description": "Provides an illustrated guide to North American wild edible plants. In this edition, Foster revises Angier's foraging handbook, updating the taxonomy and adding more than a dozen species. Scientific information for a general audience and full-color illustrations combine with intriguing accounts of the plants' uses, making this a practical guide for modern-day foragers. --From publisher description.",
+                "industryIdentifiers": [
+                    {
+                        "type": "OTHER",
+                        "identifier": "STANFORD:36105131799889"
+                    }
+                ],
+                "readingModes": {
+                    "text": false,
+                    "image": false
+                },
+                "pageCount": 282,
+                "printType": "BOOK",
+                "categories": [
+                    "Cooking"
+                ],
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "0.1.1.0.preview.0",
+                "panelizationSummary": {
+                    "containsEpubBubbles": false,
+                    "containsImageBubbles": false
+                },
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=OTtFAQAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=OTtFAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.co.uk/books?id=OTtFAQAAIAAJ&dq=subject:nonfiction&hl=&cd=1&source=gbs_api",
+                "infoLink": "http://books.google.co.uk/books?id=OTtFAQAAIAAJ&dq=subject:nonfiction&hl=&source=gbs_api",
+                "canonicalVolumeLink": "https://books.google.com/books/about/Field_Guide_to_Edible_Wild_Plants.html?hl=&id=OTtFAQAAIAAJ"
+            },
+            "saleInfo": {
+                "country": "GB",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "GB",
+                "viewability": "NO_PAGES",
+                "embeddable": false,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://play.google.com/books/reader?id=OTtFAQAAIAAJ&hl=&printsec=frontcover&source=gbs_api",
+                "accessViewStatus": "NONE",
+                "quoteSharingAllowed": false
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "bARCzQEACAAJ",
+            "etag": "M+PC/txU/AE",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/bARCzQEACAAJ",
+            "volumeInfo": {
+                "title": "White Magic Spell Book",
+                "subtitle": "Wiccan White Magic Spell Book for Beginners",
+                "authors": [
+                    "Brittany Nightshade"
+                ],
+                "publishedDate": "2020-01-08",
+                "description": "White Magic Spell Book to grow your inner light and banish the Dark. White Magic is an ancient wiccan practice that focuses on healing, clairvoyance, protection, inner-growth and self-realization. It has the power to protect and the power to attack the dark. With the power of White Magic you will be on your way to being a beacon of light in a dark world. Brittan Nightshade's \"White Magic Spell Book\" contains a wealth of rituals and spell work to aid you in your search for peaceful power as you learn, practice and grow on your path of righteousness. While making clear that the power resides in the practitioner and their intentions, she gives us many useful spells for a multitude of situations. She recommends adapting these rituals she has collected to make your own unique personalized spells and has an entire chapter on the ancient Futhark Runes and how these ancient symbols of power can be used in crafting your own White Magic Spells and unlocking hidden knowledge. The Book of Shadows: White Magick contains many spells, including but not limited to: A home protection spell crystal ritual Banishment Spell to cast out dark spirits Spells for enchanting mundane objects with magick Tea Ritual for self confidence Potions and spells for protection Rituals for Communion with Hecate and Nyx Curse Removal and Cleansing Spells to find closure Entire Section on the Futhark Runes Various Candle, Crystal, and Rune Magic Spells Rituals to enhance your second sight Whether you are a beginner wiccan or an advanced practitioner this book is sure to be a great inspiration while walking the path the gods and goddesses have laid before you. Allow your light to shine forth in these dark times. \"The craft of Magick is a constant, fluctuating, living thing and our ancestors have borrowed, changed, and made from scratch what we practice today. Let this work be the hill that you use to construct a vast mountain. Aim your intentions to greatness and conquer the dark.\" -Brittany Nightshade Wiccan White Magic Spellbook for beginners.",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "1657312143"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9781657312142"
+                    }
+                ],
+                "readingModes": {
+                    "text": false,
+                    "image": false
+                },
+                "pageCount": 124,
+                "printType": "BOOK",
+                "averageRating": 5,
+                "ratingsCount": 1,
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "preview-1.0.0",
+                "panelizationSummary": {
+                    "containsEpubBubbles": false,
+                    "containsImageBubbles": false
+                },
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=bARCzQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=bARCzQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.co.uk/books?id=bARCzQEACAAJ&dq=subject:nonfiction&hl=&cd=2&source=gbs_api",
+                "infoLink": "http://books.google.co.uk/books?id=bARCzQEACAAJ&dq=subject:nonfiction&hl=&source=gbs_api",
+                "canonicalVolumeLink": "https://books.google.com/books/about/White_Magic_Spell_Book.html?hl=&id=bARCzQEACAAJ"
+            },
+            "saleInfo": {
+                "country": "GB",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "GB",
+                "viewability": "NO_PAGES",
+                "embeddable": false,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://play.google.com/books/reader?id=bARCzQEACAAJ&hl=&printsec=frontcover&source=gbs_api",
+                "accessViewStatus": "NONE",
+                "quoteSharingAllowed": false
+            }
+        }
+    ]
+}
