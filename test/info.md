@@ -16,3 +16,34 @@ The data we get back seems fairly comprehensive:
     page count
     author(s)
     and a whole bunch else
+
+--------------------------------------------------------------
+
+collections
+    userAccountInfo[
+        password
+        username
+        name
+        email
+        bookshelves[]
+        preferences
+            pages lowerbound
+            pages upperbound
+            types[]
+            genres[]
+            authors[]
+        friends[]
+        isModerator
+    ]
+
+    bookshelves [
+        isPublic
+        bookshelfName                         
+        bookshelfId
+        books [
+            name
+            genre
+            isbn
+        ]
+    ]
+    
