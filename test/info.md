@@ -46,4 +46,9 @@ collections
             isbn
         ]
     ]
-    
+
+MongoDB Atlas
+    UserName - samTest
+    password - f63eFIzy51WJoW2h
+
+    connection string - mongodb+srv://samTest:<password>@cluster0.yjwfdoa.mongodb.net/?retryWrites=true&w=majority
