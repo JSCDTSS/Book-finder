@@ -22,14 +22,16 @@ module.exports = class MongoDb {
     this.database = database
   }
 
-  getAllAccounts() {
-    return new Promise((resolve, reject) => {
-      this.database.collection('Accounts').find({}).toArray(
-        function (err, docs) {
-          if (err) reject(err)
-          else resolve(docs)
-        }
-      )
-    })
+  get accounts() { return this.database.collection('Accounts') }
+  get bookshelves() { return this.database.collection('Bookshelves') }
+
+  getAccounts(filter = {}) {
+    return this.database.collection('Accounts').find(filter).toArray()
   }
 }
+/*
+  insertOne(JSON)
+  insertMany([JSON])
+  find().limit(n)
+  find().sort({name: 1})
+*/

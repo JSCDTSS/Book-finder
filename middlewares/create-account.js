@@ -1,8 +1,9 @@
 
 module.exports = function (req, res) {
   const { database } = req.app.locals.settings
-  database.getAllAccounts()
-    .then(res => {
-      console.log(res)
+  database.getAccounts()
+    .then(accounts => {
+      console.log(accounts)
+      res.json(accounts)
     })
 }
