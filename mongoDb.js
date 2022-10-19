@@ -37,7 +37,7 @@ module.exports = class MongoDb {
     return this.accounts.insertOne(account)
   }
 
-
+  
 
 }
 

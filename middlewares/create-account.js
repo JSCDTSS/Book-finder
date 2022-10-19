@@ -3,10 +3,13 @@ module.exports = async function (req, res) {
   const newAccount = req.body
   const { database } = req.app.locals.settings
 
-  //verify if we should create an account with these details
+  //verify if we should create an account with these inputs
+  if (!checkAreFieldsValid(newAccount)) {
+    return res.status(200).json({ errors: ['invalid field'] })
+  }
   const duplicates = await getDuplicatesOfUniqueFields(newAccount, database)
   if (duplicates.length) {
-    return res.status(200).json(duplicates)
+    return res.status(200).json({ errors: duplicates })
   }
 
   database.addAccount(newAccount)
@@ -31,13 +34,10 @@ async function getDuplicatesOfUniqueFields(newAccount, database) {
   return duplicateTypes
 }
 
-
-
-
-/*
-  request to create account comes in
-  { userName, firstName, surname, email, password }
-  verify that new account is valid
-    does that userName / email exist
-  response with new account id
-*/
+function checkAreFieldsValid(newAccount) {
+  return (
+    newAccount.userName.length > 4 &&
+    newAccount.email.length > 4 &&
+    newAccount.password.length > 8
+  )
+}
