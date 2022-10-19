@@ -1,5 +1,5 @@
 
-const { MongoClient } = require('mongodb')
+const { MongoClient, ObjectId } = require('mongodb')
 
 const path = 'mongodb://localhost:27017'
 const config = { useNewUrlParser: true, useUnifiedTopology: true }
@@ -26,12 +26,18 @@ module.exports = class MongoDb {
   get bookshelves() { return this.database.collection('Bookshelves') }
 
   getAccounts(filter = {}) {
-    return this.database.collection('Accounts').find(filter).toArray()
+    return this.accounts.find(filter).toArray()
   }
+
+  getAccountById(id) {
+    return this.accounts.find({ _id: ObjectId(id) }).toArray()
+  }
+
+  addAccount(account) {
+    return this.accounts.insertOne(account)
+  }
+
+
+
 }
-/*
-  insertOne(JSON)
-  insertMany([JSON])
-  find().limit(n)
-  find().sort({name: 1})
-*/
+

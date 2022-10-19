@@ -46,12 +46,6 @@ collections
         ]
     ]
 
-## MongoDB Atlas
-
-UserName - samTest
-password - f63eFIzy51WJoW2h
-
-connection string - mongodb+srv://samTest:f63eFIzy51WJoW2h@cluster0.yjwfdoa.mongodb.net/?retryWrites=true&w=majority
 
 ## jobs for backend
 
@@ -80,3 +74,26 @@ GoogleApi
 
 
 
+
+## mongo commands
+
+    insertOne(JSON)
+    insertMany([JSON])
+
+    updateOne( {age: 26}, { $set: { age: 27 } } )
+
+    find().limit(n)
+    find().sort({name: 1})
+        sorted alphabetically
+    find().sort({name: 1, age: -1})
+        sorted name alphabetically, then age in reverse order
+    find().skip(n)
+        skip first n entries
+    find({name: "name"})
+        gets people where name equals "name"
+    find(JSON,{name:1,age:1})
+        second parameter chooses what to show
+    find( { name: {$eq: "sally" }})
+    find( { name: {$neq: "sally" }})
+    
+## end
