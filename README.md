@@ -96,4 +96,6 @@ GoogleApi
     find( { name: {$eq: "sally" }})
     find( { name: {$neq: "sally" }})
     
-## end
+## best practises
+
+pagination - limit size of returns

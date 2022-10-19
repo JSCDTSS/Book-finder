@@ -1,11 +1,10 @@
 
 const login = require('./middlewares/login')
 const createAccount = require('./middlewares/create-account')
-const listAccountsTest = require('./middlewares/list-accounts-test')
+const auth = require('./middlewares/auth')
 
 module.exports = function (app) {
-  app.get('/login', login)
-  app.get('/list-accounts', listAccountsTest)
+  app.get('/login', login, auth)
   app.post('/create-account', createAccount)
 
   app.get('/', (req, res) => {

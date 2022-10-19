@@ -1,5 +1,5 @@
 
-module.exports = async function (req, res) {
+module.exports = async function (req, res, next) {
   const newAccount = req.body
   const { database } = req.app.locals.settings
 
@@ -13,8 +13,10 @@ module.exports = async function (req, res) {
   }
 
   database.addAccount(newAccount)
-    .then(ans => res.json(ans))
-    .catch(console.log)
+  // .then(ans => res.json(ans))
+  // .catch(console.log)
+
+  next()
 }
 
 async function getDuplicatesOfUniqueFields(newAccount, database) {
