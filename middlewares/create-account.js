@@ -1,45 +1,16 @@
 
+const bcrypt = require('bcrypt')
+
 module.exports = async function (req, res, next) {
   const newAccount = req.body
   const { database } = req.app.locals.settings
 
-  //verify if we should create an account with these inputs
-  if (!checkAreFieldsValid(newAccount)) {
-    return res.status(200).json({ errors: ['invalid field'] })
-  }
-  const duplicates = await getDuplicatesOfUniqueFields(newAccount, database)
-  if (duplicates.length) {
-    return res.status(200).json({ errors: duplicates })
-  }
+  const salt = await bcrypt.genSalt(10)
+  const password = await bcrypt.hash(newAccount.password, salt)
 
-  database.addAccount(newAccount)
-  // .then(ans => res.json(ans))
-  // .catch(console.log)
+  console.log(password)
 
-  next()
-}
+  // database.createAccount(newAccount)
 
-async function getDuplicatesOfUniqueFields(newAccount, database) {
-  const duplicates = await database.getAccounts({
-    $or: [{ userName: newAccount.userName }, { email: newAccount.email }]
-  })
-
-  const duplicateTypes = []
-  duplicates.forEach(account => {
-    if (account.userName === newAccount.userName) {
-      duplicateTypes.push('userName is duplicated')
-    }
-    if (account.email === newAccount.email) {
-      duplicateTypes.push('email is duplicated')
-    }
-  })
-  return duplicateTypes
-}
-
-function checkAreFieldsValid(newAccount) {
-  return (
-    newAccount.userName.length > 4 &&
-    newAccount.email.length > 4 &&
-    newAccount.password.length > 8
-  )
+  res.json({ok:true})
 }

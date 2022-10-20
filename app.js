@@ -6,7 +6,11 @@ const MongoDb = require('./mongoDb')
 const app = express()
 app.use(express.json())
 
-MongoDb.connectToExpress(app)
+MongoDb.connect(function (err, client) {
+    if (err) console.log(err)
+    else app.set('database', new MongoDb(client.db('Book-Finder')))
+})
+
 routes(app)
 
 app.listen(3000)

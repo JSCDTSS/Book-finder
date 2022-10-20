@@ -5,17 +5,8 @@ const path = 'mongodb://localhost:27017'
 const config = { useNewUrlParser: true, useUnifiedTopology: true }
 
 module.exports = class MongoDb {
-  static connectToExpress(app) {
-    MongoClient.connect(
-      path, config,
-      function (err, client) {
-        if (err) console.log(err)
-        else {
-          const database = client.db('Book-Finder')
-          app.set('database', new MongoDb(database))
-        }
-      }
-    )
+  static connect(callback) {
+    MongoClient.connect(path, config, callback)
   }
 
   constructor(database) {
@@ -33,11 +24,9 @@ module.exports = class MongoDb {
     return this.accounts.find({ _id: ObjectId(id) }).toArray()
   }
 
-  addAccount(account) {
+  createAccount(account) {
     return this.accounts.insertOne(account)
   }
-
-  
 
 }
 
