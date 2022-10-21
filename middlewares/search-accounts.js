@@ -1,6 +1,4 @@
 
-const jwt = require('jsonwebtoken')
-const secret = 'flaragablarblarg'
 
 module.exports = async function (req, res) {
   console.log(req.account)

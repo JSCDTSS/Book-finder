@@ -41,7 +41,7 @@ function isEmailValid(email) {
 }
 
 function isUserNameValid(userName) {
-  return userName.length > 4
+  return userName.length > 4 && !userName.includes('@')
 }
 
 function isPasswordValid(password) {

@@ -1,27 +1,35 @@
 
+const bcrypt = require('bcrypt')
+
 module.exports = async function (req, res, next) {
   const loginInfo = req.query
   const { database } = req.app.locals.settings
 
-  const accounts = await getAccountByUniqueId(loginInfo.uniqueId, database)
-  if (accounts.length === 0) {
-    return res.json({ error: 'that account doesn\'t exist' })
-  } else if (accounts.length > 1) {
-    throw new Error('duplicate accounts found')
+  try {
+    req.account = await getAccountByUniqueId(loginInfo.uniqueId, database)
+    const isPasswordValid =
+      await bcrypt.compare(loginInfo.password, req.account.password)
+    if (isPasswordValid) {
+      next()
+    } else {
+      res.json({ error: 'invalid credentials' })
+    }
+  } catch (err) {
+    console.log(err)
+    res.json({ error: 'could not find account' })
   }
-
-  if (loginInfo.password !== accounts[0].password) {
-    res.json({ error: 'wrong password' })
-  }
-  req.account = accounts[0]
-
-  next()
 }
 
 async function getAccountByUniqueId(uniqueId, database) {
   const filter = (uniqueId.includes('@'))
     ? { email: uniqueId }
     : { userName: uniqueId }
-  return database.getAccounts(filter)
-
+  const accounts = await database.getAccounts(filter)
+  if (accounts.length === 0) {
+    throw new Error('account does not exist')
+  } else if (accounts.length > 1) {
+    throw new Error('duplicate accounts found')
+  } else {
+    return accounts[0]
+  }
 }
