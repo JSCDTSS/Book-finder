@@ -12,11 +12,11 @@ module.exports = async function (req, res, next) {
     if (isPasswordValid) {
       next()
     } else {
-      res.json({ error: 'invalid credentials' })
+      res.status(401).json({ error: 'invalid credentials' })
     }
   } catch (err) {
     console.log(err)
-    res.json({ error: 'could not find account' })
+    res.status(404).json({ error: 'could not find account' })
   }
 }
 

@@ -97,4 +97,33 @@ GoogleApi
     
 ## best practises
 
-pagination - limit size of returns
+    pagination - limit size of returns
+
+## api documentation
+
+    Login
+        GET /login
+        query parameters
+            uniqueId
+            password
+        returns
+            200: {ok, token}
+            401: {error: invalid credentials}
+            404: {error: could not find account}
+
+    Create Account
+        POST /create-account
+        parameters: {
+            userName, email, password, ?firstName, ?surname
+        }
+        returns
+            200: {ok, token}
+            400: {errors: []}
+            500: {error: internal server error}
+
+    Search Accounts
+        (todo)
+        get a list of accounts by search parameters (user name?)
+
+    Update Account Info
+    

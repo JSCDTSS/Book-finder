@@ -2,7 +2,6 @@
 const bcrypt = require('bcrypt')
 
 module.exports = async function (req, res, next) {
-  console.log(req.locals)
   req.account = req.body
   const { database } = req.app.locals.settings
 
@@ -13,10 +12,11 @@ module.exports = async function (req, res, next) {
     ...req.account,
     password
   })
-  if (result.insertedId){
+  console.log(result.insertedId.toString())
+  if (result.insertedId) {
     next()
   } else {
-    res.json({ok:false})
+    res.status(500).json({ error: 'internal server error' })
   }
-  
+
 }

@@ -21,7 +21,7 @@ module.exports = async function (req, res, next) {
     errors.push('email exists')
   }
 
-  if (errors.length) res.json({ errors })
+  if (errors.length) res.status(400).json({ errors })
   else next()
 }
 
