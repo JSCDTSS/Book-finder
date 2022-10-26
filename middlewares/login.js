@@ -6,7 +6,7 @@ module.exports = async function (req, res, next) {
   const { database } = req.app.locals.settings
 
   try {
-    req.account = await getAccountByUniqueId(loginInfo.uniqueId, database)
+    req.account = await database.getAccountByUniqueId(loginInfo.uniqueId)
     const isPasswordValid =
       await bcrypt.compare(loginInfo.password, req.account.password)
     if (isPasswordValid) {
@@ -14,22 +14,7 @@ module.exports = async function (req, res, next) {
     } else {
       res.status(401).json({ error: 'invalid credentials' })
     }
-  } catch (err) {
-    console.log(err)
-    res.status(404).json({ error: 'could not find account' })
-  }
-}
-
-async function getAccountByUniqueId(uniqueId, database) {
-  const filter = (uniqueId.includes('@'))
-    ? { email: uniqueId }
-    : { userName: uniqueId }
-  const accounts = await database.getAccounts(filter)
-  if (accounts.length === 0) {
-    throw new Error('account does not exist')
-  } else if (accounts.length > 1) {
-    throw new Error('duplicate accounts found')
-  } else {
-    return accounts[0]
+  } catch (error) {
+    res.status(404).json({ error: error.toString() })
   }
 }

@@ -1,18 +1,24 @@
 
-const bcrypt = require('bcrypt')
+const { hash } = require('../utils')
 
 module.exports = async function (req, res, next) {
-  req.account = req.body
+  const account = req.body
   const { database } = req.app.locals.settings
 
-  const salt = await bcrypt.genSalt(10)
-  const password = await bcrypt.hash(req.account.password, salt)
-
   const result = await database.createAccount({
-    ...req.account,
-    password
+    ...account,
+    isModerator: false,
+    password: await hash(account.password),
+    preferences: {
+      pagesLowerBound: 0,
+      pagesUpperBound: 0,
+      types: [],
+      genres: [],
+      authors: []
+    }
   })
-  console.log(result.insertedId.toString())
+  req.account = await database.getAccountById(result.insertedId)
+
   if (result.insertedId) {
     next()
   } else {

@@ -20,16 +20,35 @@ module.exports = class MongoDb {
     return this.accounts.find(filter).toArray()
   }
 
-  getAccountById(id) {
-    return this.accounts.find({ _id: ObjectId(id) }).toArray()
+  getAccountById(_id) {
+    if (typeof _id === 'string') {
+      _id = ObjectId(_id)
+    }
+    return this.accounts.findOne({ _id })
   }
 
   createAccount(account) {
     return this.accounts.insertOne(account)
   }
 
-  updateAccount(){
-    
+  updateAccount(_id, newFields) {
+    if (typeof _id === 'string') {
+      _id = ObjectId(_id)
+    }
+    return this.accounts.updateOne({ _id }, { $set: { ...newFields } })
+  }
+
+  async getAccountByUniqueId(uniqueId) {
+    const filter = uniqueId.includes('@')
+      ? { email: uniqueId } : { userName: uniqueId }
+    const accounts = await this.getAccounts(filter)
+    if (accounts.length === 0) {
+      throw new Error('couldn\'t find account')
+    } else if (accounts.length > 1) {
+      throw new Error('database error: duplicate accounts found')
+    } else {
+      return accounts[0]
+    }
   }
 
 }
