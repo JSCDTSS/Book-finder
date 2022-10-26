@@ -125,6 +125,18 @@ GoogleApi
         GET /accounts
         get a list of accounts by search parameters (user name?)
 
-    Update Account Info
+    Update Own Account Info
         POST /update-account
         parameters: (any property that belongs to an account)
+
+    To be Implemented
+
+    Guest Login
+        GET /login-guest
+        returns 
+            200: {ok, token}
+
+    Update Status of another account
+        POST /update-account-other
+        
+moderators should be able to change the info of another account
