@@ -122,8 +122,9 @@ GoogleApi
             500: {error: internal server error}
 
     Search Accounts
-        (todo)
+        GET /accounts
         get a list of accounts by search parameters (user name?)
 
     Update Account Info
-    
+        POST /update-account
+        parameters: (any property that belongs to an account)
