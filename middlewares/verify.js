@@ -11,5 +11,4 @@ module.exports = function (req, res, next) {
   } catch (err) {
     res.status(401).json({ ok: false, error: 'invalid authorization' })
   }
-
 }
