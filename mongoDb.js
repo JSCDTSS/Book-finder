@@ -1,5 +1,6 @@
 
 const { MongoClient, ObjectId } = require('mongodb')
+const { isStringAnEmail } = require('utils.js')
 
 const path = 'mongodb://localhost:27017'
 const config = { useNewUrlParser: true, useUnifiedTopology: true }
@@ -21,9 +22,7 @@ module.exports = class MongoDb {
   }
 
   getAccountById(_id) {
-    if (typeof _id === 'string') {
-      _id = ObjectId(_id)
-    }
+    if (typeof _id === 'string') _id = ObjectId(_id)
     return this.accounts.findOne({ _id })
   }
 
@@ -32,22 +31,24 @@ module.exports = class MongoDb {
   }
 
   updateAccount(_id, newFields) {
-    if (typeof _id === 'string') {
-      _id = ObjectId(_id)
-    }
-    return this.accounts.updateOne({ _id }, { $set: { ...newFields } })
+    if (typeof _id === 'string') _id = ObjectId(_id)
+    return this.accounts.updateOne(
+      { _id }, { $set: { ...newFields } }
+    )
   }
 
   async getAccountByUniqueId(uniqueId) {
-    const filter = uniqueId.includes('@')
+    const filter = isStringAnEmail(uniqueId)
       ? { email: uniqueId } : { userName: uniqueId }
     const accounts = await this.getAccounts(filter)
-    if (accounts.length === 0) {
-      throw new Error('couldn\'t find account')
-    } else if (accounts.length > 1) {
-      throw new Error('database error: duplicate accounts found')
-    } else {
-      return accounts[0]
+
+    switch (accounts.length) {
+      case 1:
+        return accounts[0]
+      case 0:
+        throw new Error('couldn\'t find account')
+      default: // this should never happen
+        throw new Error('database error: duplicate uniqueIds found')
     }
   }
 
