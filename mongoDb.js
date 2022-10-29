@@ -1,15 +1,8 @@
 
-const { MongoClient, ObjectId } = require('mongodb')
-const { isStringAnEmail } = require('utils.js')
-
-const path = 'mongodb://localhost:27017'
-const config = { useNewUrlParser: true, useUnifiedTopology: true }
+const { ObjectId } = require('mongodb')
+const { isStringAnEmail } = require('./utils.js')
 
 module.exports = class MongoDb {
-  static connect(callback) {
-    MongoClient.connect(path, config, callback)
-  }
-
   constructor(database) {
     this.database = database
   }
@@ -17,13 +10,22 @@ module.exports = class MongoDb {
   get accounts() { return this.database.collection('Accounts') }
   get bookshelves() { return this.database.collection('Bookshelves') }
 
-  getAccounts(filter = {}) {
-    return this.accounts.find(filter).toArray()
+  objectIdToString(objectId) {
+    return objectId.toString()
   }
 
-  getAccountById(_id) {
-    if (typeof _id === 'string') _id = ObjectId(_id)
-    return this.accounts.findOne({ _id })
+  async getAccounts(filter = {}) {
+    const accounts = await this.accounts.find(filter).toArray()
+    return accounts.map(account => {
+      account._id = this.objectIdToString(account._id)
+      return account
+    })
+  }
+
+  async getAccountById(id) {
+    const account = await this.accounts.findOne({ _id: ObjectId(id) })
+    account._id = this.objectIdToString(account._id)
+    return account
   }
 
   createAccount(account) {
@@ -31,9 +33,8 @@ module.exports = class MongoDb {
   }
 
   updateAccount(_id, newFields) {
-    if (typeof _id === 'string') _id = ObjectId(_id)
     return this.accounts.updateOne(
-      { _id }, { $set: { ...newFields } }
+      { _id: ObjectId(id) }, { $set: { ...newFields } }
     )
   }
 
