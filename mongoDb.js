@@ -32,7 +32,7 @@ module.exports = class MongoDb {
     return this.accounts.insertOne(account)
   }
 
-  updateAccount(_id, newFields) {
+  updateAccount(id, newFields) {
     return this.accounts.updateOne(
       { _id: ObjectId(id) }, { $set: { ...newFields } }
     )
