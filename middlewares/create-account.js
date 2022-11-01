@@ -7,8 +7,8 @@ module.exports = async function (req, res, next) {
 
   const result = await database.createAccount({
     ...account,
-    isModerator: false,
     password: await saltAndHash(account.password),
+    permissions: ['member','basic'],
     preferences: {
       pagesLowerBound: 0,
       pagesUpperBound: 0,
