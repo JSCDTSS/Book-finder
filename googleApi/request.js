@@ -1,14 +1,4 @@
 
-/**
- * preferences
- *      pages (upper, lower)
- *      genres
- *      authors
- *      types (fiction, non fiction)
- * 
- * when the user does a search, return books most appropriate to their search parameters
- * when the user enters the home page, return books more appropraite to their preferences
- */
 
 const axios = require('axios')
 const fs = require('fs')
@@ -52,6 +42,12 @@ function logInfo(res) {
   })
 }
 
+function logNames(res) {
+  res.data.items.forEach(item => {
+    console.log(item.volumeInfo.title)
+  })
+}
+
 function saveResponseData(res) {
   fs.writeFile(
     './exampleData.json',
@@ -63,15 +59,41 @@ function saveResponseData(res) {
 }
 
 const saveBasicInfo = createPipeAsync(
-    searchVolumes, saveResponseData
+  searchVolumes, saveResponseData
 )
 const logBookInfo = createPipeAsync(
-  searchVolumes, logInfo
+  searchVolumes, logNames
 )
 
 logBookInfo({
   q: 'subject:nonfiction',
 })
+
+function query(type, searchTerm) {
+  switch (type) {
+    case 'type':
+    case 'genre':
+      return logBookInfo({q: 'subject:' + searchTerm})
+    case 'authors':
+      return logBookInfo({q: 'inauthor:' + searchTerm})
+    default:
+      throw new Error(`invalid type: ${type}`)
+  }
+}
+
+query('type','fiction').then(console.log)
+
+/**
+ * preferences
+ *      genres
+ *      authors
+ *      types (fiction, non fiction)
+ *
+ * pages can't be queried for, so we filter afterwards
+ *
+ * when the user does a search, return books most appropriate to their search parameters
+ * when the user enters the home page, return books more appropraite to their preferences
+ */
 
 // genre: subject:<NAME>
 // title: pride+prejudice
