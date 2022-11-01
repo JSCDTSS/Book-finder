@@ -1,6 +1,8 @@
 const { saltAndHash } = require("../utils")
 
 module.exports = async function (req, res) {
+    console.log(req.token)
+
     const { database } = req.app.locals.settings
     const newAccountInfo = req.body
     const accountId = req.token._id
