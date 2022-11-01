@@ -14,9 +14,9 @@ module.exports = function (app) {
   app.get('/login', login, authenticate)
   app.post('/create-account', checkNewAccountValid, createAccount, authenticate)
 
-  app.get('/accounts', verify('basic'), searchAccounts)
-  app.post('/update-account', verify('member'), updateAccount)
-  app.post('/update-account-other', verify('admin'), updateAccountOther)
+  app.get('/accounts', verify, searchAccounts)
+  app.post('/update-account', verify, updateAccount)
+  app.post('/update-account-other', verify, updateAccountOther)
 
 }
 

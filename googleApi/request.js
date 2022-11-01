@@ -8,17 +8,15 @@
  * 
  * when the user does a search, return books most appropriate to their search parameters
  * when the user enters the home page, return books more appropraite to their preferences
- * 
- * 
  */
 
 const axios = require('axios')
 const fs = require('fs')
 
 const booksApi = axios.create({
-    baseURL: 'https://www.googleapis.com',
-    method: 'get',
-    timeout: 1000
+  baseURL: 'https://www.googleapis.com',
+  method: 'get',
+  timeout: 1000
 })
 
 /* 
@@ -32,47 +30,47 @@ const booksApi = axios.create({
     so we call f on v, then g on the result, then on the next result
 */
 function createPipeAsync(...functions) {
-    return function (initialValue) {
-        return functions.reduce(
-            (input, _function) => input.then(_function),
-            Promise.resolve(initialValue)
-        )
-    }
+  return function (initialValue) {
+    return functions.reduce(
+      (input, _function) => input.then(_function),
+      Promise.resolve(initialValue)
+    )
+  }
 }
 
 function searchVolumes(params) {
-    return booksApi.request({
-        url: '/books/v1/volumes',
-        params,
-    })
+  return booksApi.request({
+    url: '/books/v1/volumes',
+    params,
+  })
 }
 
 function logInfo(res) {
-    console.log(`total items: ${res.data.totalItems}`)
-    res.data.items.forEach(item => {
-        console.log(item)
-    })
+  console.log(`total items: ${res.data.totalItems}`)
+  res.data.items.forEach(item => {
+    console.log(item)
+  })
 }
 
 function saveResponseData(res) {
-    fs.writeFile(
-        './exampleData.json',
-        JSON.stringify(res.data),
-        function (err) {
-            if (err) return console.log(err);
-            console.log('Hello World > helloworld.txt');
-        });
+  fs.writeFile(
+    './exampleData.json',
+    JSON.stringify(res.data),
+    function (err) {
+      if (err) return console.log(err);
+      console.log('Hello World');
+    });
 }
 
-// const saveBasicInfo = createPipeAsync(
-//     searchVolumes, saveResponseData
-// )
+const saveBasicInfo = createPipeAsync(
+    searchVolumes, saveResponseData
+)
 const logBookInfo = createPipeAsync(
-    searchVolumes, logInfo
+  searchVolumes, logInfo
 )
 
-saveBasicInfo({
-    q: 'subject:nonfiction',
+logBookInfo({
+  q: 'subject:nonfiction',
 })
 
 // genre: subject:<NAME>
