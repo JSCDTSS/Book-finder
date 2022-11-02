@@ -1,0 +1,31 @@
+* {
+    background-color: #EBE9E9;
+    color: black;
+}
+
+/* Landing page */
+.LoginButton {
+    background-color: #C91C73;
+    border: #C91C73;
+    border-radius: 10%;
+    transition-duration: 0.4s;
+    text-align: center;
+}
+.LoginButton:hover {
+    background-color: #EBE9E9;
+    border: #C91C73;
+    color: #C91C73;
+    border-style: solid;
+}
+.SignUpButton {
+    background-color:#30CADE;
+    border: #30CADE;
+    border-radius: 10%;
+    text-align:center;
+}
+.SignUpButton:hover {
+    background-color: #EBE9E9;
+    border: #30CADE;
+    color: #30CADE;
+    border-style: solid;
+}

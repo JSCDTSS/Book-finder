@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
+import './Master.css'; 
 
 function LandingPage() {
     return (
         <>
-        <div className="LoginButton">
+        <div className="Login">
             <Link to="/LoginForm">
-                <button>Login</button>
+                <button class="LoginButton">Login</button>
             </Link>
         </div>
-        <div className="CreateAccountButton">
+        <div className="CreateAccount">
             <Link to="/CreateAccountForm">
-                <button>Sign Up</button>
+                <button class="SignUpButton">Sign Up</button>
             </Link>
         </div>
         </>
