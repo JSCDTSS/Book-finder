@@ -8,8 +8,11 @@ const verify = require('./middlewares/verify')
 const updateAccount = require('./middlewares/update-account')
 const guestAuth = require('./middlewares/guest-auth')
 const updateAccountOther = require('./middlewares/update-account-other')
+const createBookshelf = require('./middlewares/create-bookshelf')
+const getUserBookshelves = require('./middlewares/get-user-bookshelves')
 
 module.exports = function (app) {
+  
   app.get('/login-guest', guestAuth)
   app.get('/login', login, authenticate)
   app.post('/create-account', checkNewAccountValid, createAccount, authenticate)
@@ -18,6 +21,8 @@ module.exports = function (app) {
   app.post('/update-account', verify, updateAccount)
   app.post('/update-account-other', verify, updateAccountOther)
 
+  app.post('/bookshelves/create', verify, createBookshelf)
+  app.get('/bookshelves/user', verify, getUserBookshelves)
 }
 
 

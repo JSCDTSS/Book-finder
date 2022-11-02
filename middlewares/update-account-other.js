@@ -3,7 +3,7 @@
 module.exports = async function (req, res) {
   const { database } = req.app.locals.settings
 
-  if (!req.token.isModerator) {
+  if (!req.account.isModerator) {
     return res.status(403).json({
       ok: false, error: 'insufficient permissions'
     })
@@ -15,12 +15,9 @@ module.exports = async function (req, res) {
     firstName, surname, preferences
   } = req.body
   
-  console.log()
   const result = await database.updateAccount(account._id,{
     firstName, surname, preferences
   })
-  console.log(result)
-
 
   res.json({ ok: true })
 

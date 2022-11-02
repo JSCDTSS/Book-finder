@@ -9,6 +9,7 @@ module.exports = async function (req, res, next) {
     ...account,
     password: await saltAndHash(account.password),
     permissions: ['member','basic'],
+    bookshelves: [],
     preferences: {
       pagesLowerBound: 0,
       pagesUpperBound: 0,
@@ -19,7 +20,6 @@ module.exports = async function (req, res, next) {
   })
   if (result.insertedId) {
     req.account = await database.getAccountById(result.insertedId)
-    console.log(req.account)
     next()
   } else {
     res.status(500).json({ error: 'internal server error' })

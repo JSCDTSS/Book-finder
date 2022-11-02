@@ -53,5 +53,21 @@ module.exports = class MongoDb {
     }
   }
 
+  async createBookshelf(ownerId,name){
+    if (!name) throw new Error('Bookshelves need a name')
+    ownerId = ObjectId(ownerId)
+    const result = await this.bookshelves.insertOne({ ownerId, name, books: [] })
+    const bookshelfId = result.insertedId
+    return this.accounts.updateOne( 
+      { _id: ownerId }, { $push: { bookshelves: bookshelfId }}
+    )
+  }
+
+  async getBookshelves(ids){
+    const filter = { $or: ids.map(id => ({_id: ObjectId(id)})) }
+    console.log(filter)
+    return this.bookshelves.find(filter).toArray()
+  }
+
 }
 
