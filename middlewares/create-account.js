@@ -8,7 +8,7 @@ module.exports = async function (req, res, next) {
   const result = await database.createAccount({
     ...account,
     password: await saltAndHash(account.password),
-    permissions: ['member','basic'],
+    permissions: ['member', 'basic'],
     bookshelves: [],
     preferences: {
       pagesLowerBound: 0,
@@ -18,8 +18,10 @@ module.exports = async function (req, res, next) {
       authors: []
     }
   })
+  console.log(result)
   if (result.insertedId) {
-    req.account = await database.getAccountById(result.insertedId)
+    const result = await database.getAccounts({ _id: result.insertedId })
+    req.account = result[0]
     next()
   } else {
     res.status(500).json({ error: 'internal server error' })

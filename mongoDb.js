@@ -10,26 +10,25 @@ module.exports = class MongoDb {
   get accounts() { return this.database.collection('Accounts') }
   get bookshelves() { return this.database.collection('Bookshelves') }
 
-  objectIdToString(objectId) {
-    return objectId.toString()
-  }
-
   async getAccounts(filter = {}) {
+    if (typeof filter._id === 'string') {
+      filter._id = ObjectId(filter._id)
+    }
+    console.log(filter)
     const accounts = await this.accounts.find(filter).toArray()
     return accounts.map(account => {
-      account._id = this.objectIdToString(account._id)
+      account._id = account._id.toString()
       return account
     })
   }
 
-  async getAccountById(id) {
-    const account = await this.accounts.findOne({ _id: ObjectId(id) })
-    account._id = this.objectIdToString(account._id)
-    return account
-  }
 
-  createAccount(account) {
-    return this.accounts.insertOne(account)
+  async createAccount(account) {
+    const result =  this.accounts.insertOne(account)
+    if (result.insertedId) {
+      result.insertedId = result.insertedId.toString()
+    }
+    return result
   }
 
   updateAccount(id, newFields) {
@@ -63,11 +62,7 @@ module.exports = class MongoDb {
     )
   }
 
-  async getBookshelves(ids){
-    const filter = { $or: ids.map(id => ({_id: ObjectId(id)})) }
-    console.log(filter)
-    return this.bookshelves.find(filter).toArray()
-  }
+
 
 }
 

@@ -10,14 +10,6 @@ const config = { useNewUrlParser: true, useUnifiedTopology: true }
 const app = express()
 app.use(express.json())
 
-app.use((req,res,next) => {
-  try {
-    next()
-  } catch(err){
-    console.log(err)
-  }
-})
-
 MongoClient.connect(path, config, function (err, client) {
   if (err) console.log(err)
   else app.set('database', new MongoDb(client.db('Book-Finder')))
