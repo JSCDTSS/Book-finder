@@ -6,6 +6,7 @@ const MongoDb = require('./mongoDb')
 
 const path = 'mongodb://localhost:27017'
 const config = { useNewUrlParser: true, useUnifiedTopology: true }
+const port = process.env.PORT
 
 const app = express()
 app.use(express.json())
@@ -17,7 +18,7 @@ MongoClient.connect(path, config, function (err, client) {
 
 routes(app)
 
-app.listen(3000)
-console.log("Express on 3000")
+app.listen(port)
+console.log("Express on " + port)
 
 module.exports = app

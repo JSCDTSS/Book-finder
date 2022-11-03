@@ -14,7 +14,6 @@ module.exports = class MongoDb {
     if (typeof filter._id === 'string') {
       filter._id = ObjectId(filter._id)
     }
-    console.log(filter)
     const accounts = await this.accounts.find(filter).toArray()
     return accounts.map(account => {
       account._id = account._id.toString()

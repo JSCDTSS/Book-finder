@@ -20,8 +20,8 @@ module.exports = async function (req, res, next) {
   })
   console.log(result)
   if (result.insertedId) {
-    const result = await database.getAccounts({ _id: result.insertedId })
-    req.account = result[0]
+    const data = await database.getAccounts({ _id: result.insertedId })
+    req.account = data[0]
     next()
   } else {
     res.status(500).json({ error: 'internal server error' })
