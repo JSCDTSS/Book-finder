@@ -101,42 +101,47 @@ GoogleApi
 
 ## api documentation
 
-    Login
-        GET /login
-        query parameters
-            uniqueId
-            password
-        returns
-            200: {ok, token}
-            401: {error: invalid credentials}
-            404: {error: could not find account}
+**Login**
+    GET /login
+    query parameters
+        uniqueId
+        password
+    returns
+        200: {ok, token}
+        401: {error: invalid credentials}
+    404: {error: could not find account}
 
-    Create Account
-        POST /create-account
-        parameters: {
-            userName, email, password, ?firstName, ?surname
-        }
-        returns
-            200: {ok, token}
-            400: {errors: []}
-            500: {error: internal server error}
+**Create Account**
+    POST /create-account
+    parameters: {
+        userName, email, password, ?firstName, ?surname
+    }
+    returns
+        200: {ok, token}
+        400: {errors: []}
+        500: {error: internal server error}
 
-    Search Accounts
-        GET /accounts
-        get a list of accounts by search parameters (user name?)
+**Search Accounts**
+    GET /accounts
+    headers
+        Authorization: "Bearer <Token>"
+    get a list of accounts by search parameters (user name?)
+    returns: {
+        ok, accounts[{
+            
+        }]
+    }
 
-    Update Own Account Info
-        POST /update-account
-        parameters: (any property that belongs to an account)
+**Update Own Account Info**
+    POST /update-account
+    parameters: (any property that belongs to an account)
 
-    To be Implemented
+**Guest Login**
+    GET /login-guest
+    returns 
+        200: {ok, token}
 
-    Guest Login
-        GET /login-guest
-        returns 
-            200: {ok, token}
-
-    Update Status of another account
-        POST /update-account-other
-        
+**Update Status of another account**
+    POST /update-account-other
+    
 moderators should be able to change the info of another account
