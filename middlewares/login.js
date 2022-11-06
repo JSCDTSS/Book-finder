@@ -6,7 +6,7 @@ module.exports = async function (req, res, next) {
   const { database } = req.app.locals.settings
 
   try {
-    req.account = await database.getAccountByUniqueId(loginInfo.uniqueId)
+    req.account = await database.accounts.getByUniqueId(loginInfo.uniqueId)
     const isPasswordValid =
       await bcrypt.compare(loginInfo.password, req.account.password)
     if (isPasswordValid) {

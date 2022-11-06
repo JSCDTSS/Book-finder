@@ -11,6 +11,11 @@ const updateAccountOther = require('./middlewares/update-account-other')
 const createBookshelf = require('./middlewares/create-bookshelf')
 const getUserBookshelves = require('./middlewares/get-user-bookshelves')
 
+/**
+ * use /account/xxxx for endpoints
+ * 
+ */
+
 module.exports = function (app) {
   
   app.get('/login-guest', guestAuth)
@@ -24,6 +29,15 @@ module.exports = function (app) {
   app.post('/bookshelves/create', verify, createBookshelf)
   app.get('/bookshelves/user', verify, getUserBookshelves)
   
+  /*
+  add endpoints
+    delete bookshelf
+    add to bookshelf
+    remove from bookshelf
+    delete bookshelf
+    community features
+    add friend, remove friend
+    */
 }
 
 
