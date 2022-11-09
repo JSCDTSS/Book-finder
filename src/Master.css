@@ -1,21 +1,30 @@
 *{
     background-color: snow;
     color: black;
+    text-align: center;
 } 
 .TopContainer {
-    width: 100%;
-    height: 50%;
+    height: 20vh;
+    border: solid;
+    border-color: green;
 }
 .MainContainer {
     text-align: center;
-    width: 100%;
-    height: 50%;
+    height: 70vh;
+    border: solid;
+    border-color: orange;
+}
+.NavBar {
+    list-style-type: none;
+    height: 10vh;
+    border: solid;
+    border-color: blueviolet;
 }
     
 /* Landing page */
 .IntroWords {
     text-align: center;
-    padding: 50px;
+    padding: 5em;
 }
 .Login {
     margin: 10% 10%;
@@ -23,11 +32,11 @@
 .LoginButton {
     background-color: #C91C73;
     border: #C91C73;
-    border-radius: 15px;
+    border-radius: 1em;
     transition-duration: 0.4s;
     text-align: center;
     width: 70%;
-    padding: 15px 32px;
+    padding: 1em 1em;
 }
 .LoginButton:hover {
     background-color: #EBE9E9;
@@ -41,10 +50,10 @@
 .SignUpButton {
     background-color:#30CADE;
     border: #30CADE;
-    border-radius: 15px;
+    border-radius: 1em;
     text-align:center;
     width: 70%;
-    padding: 15px 32px;
+    padding: 1em 1em;
 }
 .SignUpButton:hover {
     background-color: #EBE9E9;
@@ -60,5 +69,9 @@
     border: none;
     text-align:center;
     width: 70%;
-    padding: 15px 32px;
+    padding: 1em 1em;
 }
+
+/*Login Page */
+/*Sign-Up Page */
+/*Guest Account */

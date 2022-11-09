@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Master.css'; 
 import { useNavigate } from 'react-router-dom';
 
 function CreateAccountForm({ Create, error }) {
