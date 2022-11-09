@@ -26,12 +26,12 @@ module.exports = async function (req, res, next) {
 }
 
 async function doesUserNameExist(database,userName){
-  const duplicates = await database.getAccounts({ userName })
+  const duplicates = await database.accounts.list({ userName })
   return Boolean(duplicates.length)
 }
 
 async function doesEmailExist(database,email){
-  const duplicates = await database.getAccounts({ email })
+  const duplicates = await database.accounts.list({ email })
   return Boolean(duplicates.length)
 }
 

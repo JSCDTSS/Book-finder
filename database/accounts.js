@@ -1,6 +1,6 @@
 
-const { isStringAnEmail } = require('../utils.js')
 const { ObjectId } = require('mongodb')
+const { saltAndHash } = require('../utils')
 
 module.exports = class Accounts {
   constructor(database) {
@@ -11,7 +11,11 @@ module.exports = class Accounts {
 
   async list(filter = {}, projection = {}) {
     try {
-      const accounts = await this.accounts.find(filter).project(projection).toArray()
+      if (filter._id) {
+        filter._id = ObjectId(filter._id)
+      }
+      const accounts = await this.accounts.find(filter)
+        .project(projection).toArray()
       return accounts.map(account => {
         account._id = account._id.toString()
         return account
@@ -24,6 +28,7 @@ module.exports = class Accounts {
   }
 
   async create(newAccount) {
+    newAccount.password = await saltAndHash(newAccount.password)
     const result = await this.accounts.insertOne(newAccount)
     if (result.insertedId) {
       return result.insertedId.toString()
@@ -34,6 +39,9 @@ module.exports = class Accounts {
   }
 
   async update(id, newFields) {
+    if (newFields.password) {
+      newFields.password = await saltAndHash(newFields.password)
+    }
     const result = await this.accounts.updateOne(
       { _id: ObjectId(id) }, { $set: { ...newFields } }
     )
@@ -42,7 +50,7 @@ module.exports = class Accounts {
   }
 
   async getByUniqueId(uniqueId) {
-    const filter = isStringAnEmail(uniqueId)
+    const filter = uniqueId.includes('@')
       ? { email: uniqueId } : { userName: uniqueId }
     const accounts = await this.list(filter)
 
@@ -56,11 +64,24 @@ module.exports = class Accounts {
     }
   }
 
-  async addFollower(followerId,followedId){
-
+  async addBookshelf(ownerId, bookshelfId) {
+    return this.accounts.updateOne(
+      { _id: ObjectId(ownerId) }, { $push: { bookshelves: bookshelfId } }
+    )
   }
 
-  async removeFollower(followerId,followedId){
+  async removeBookshelf(ownerId,bookshelfId){
+    return this.accounts.updateOne(
+      { _id: ObjectId(ownerId) }, { $pull: { bookshelves: bookshelfId } }
+    )
+  }
+
+  async addFollower(followerId, followedId) {
+    const followerAccount = await this.list({ _id: followerId })
+    const followedAccount = await this.list({ _id: followedId })
+  }
+
+  async removeFollower(followerId, followedId) {
 
   }
 

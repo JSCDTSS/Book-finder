@@ -1,30 +1,51 @@
 
+const { ObjectId } = require('mongodb')
+
 module.exports = class Bookshelves {
-  constructor(data) {
-    this.data = data
+  constructor(database) {
+    this.database = database
   }
 
-  //figure out how to best access the data 
-  //of each collection
-  async create(ownerId,name){
+  get bookshelves() { return this.database.collection('Bookshelves') }
+
+  async list(filter = {}, projection = {}) {
+    try {
+      if (filter._id) {
+        filter._id = ObjectId(filter._id)
+      }
+      const bookshelves = await this.bookshelves.find(filter)
+        .project(projection).toArray()
+      return bookshelves.map(bookshelf => {
+        bookshelf._id = bookshelf._id.toString()
+
+        return bookshelf
+      })
+    }
+    catch (err) {
+      console.log(err)
+      throw new Error('failed to list bookshelves')
+    }
+  }
+
+  async create(ownerId, name) {
     if (!name) throw new Error('Bookshelves need a name')
-    ownerId = ObjectId(ownerId)
     const result = await this.bookshelves.insertOne({ ownerId, name, books: [] })
-    const bookshelfId = result.insertedId
-    return this.accounts.updateOne( 
-      { _id: ownerId }, { $push: { bookshelves: bookshelfId }}
-    )
+    if (result.insertedId) {
+      return result.insertedId.toString()
+    } else {
+      throw new Error('failed to create bookshelf')
+    }
   }
 
-  async remove(){
+  async remove(bookshelfId) {
+    this.bookshelves.deleteOne({ _id: ObjectId(bookshelfId) })
+  }
+
+  async addBook() {
 
   }
 
-  async addBook(){
-
-  }
-
-  async removeBook(){
+  async removeBook() {
 
   }
 

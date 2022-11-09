@@ -1,13 +1,10 @@
-const { saltAndHash } = require("../utils")
 
 module.exports = async function (req, res) {
-    const { database } = req.app.locals.settings
-    const newAccountInfo = req.body
-    const accountId = req.account._id
-    if (newAccountInfo.password){
-        newAccountInfo.password = await saltAndHash(newAccountInfo.password)
-    }
+  const { database } = req.app.locals.settings
+  const newAccountInfo = req.body
+  const accountId = req.account._id
 
-    const result = await database.updateAccount(accountId, newAccountInfo)
-    res.json({ ok: result.acknowledged })
+  const result = await database.accounts.update(accountId, newAccountInfo)
+  res.json({ ok: result })
+  
 }

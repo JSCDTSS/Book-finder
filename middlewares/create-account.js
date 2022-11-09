@@ -1,13 +1,9 @@
 
-const { saltAndHash } = require('../utils')
-
 module.exports = async function (req, res, next) {
-  const account = req.body
   const { database } = req.app.locals.settings
 
-  const result = await database.createAccount({
-    ...account,
-    password: await saltAndHash(account.password),
+  const accountId = await database.accounts.create({
+    ...req.body,
     permissions: ['member', 'basic'],
     bookshelves: [],
     preferences: {
@@ -16,11 +12,13 @@ module.exports = async function (req, res, next) {
       types: [],
       genres: [],
       authors: []
-    }
+    },
+    followers: [],
+    followedBy: []
   })
-  console.log(result)
-  if (result.insertedId) {
-    const data = await database.getAccounts({ _id: result.insertedId })
+  console.log(accountId)
+  if (accountId) {
+    const data = await database.accounts.list({ _id: accountId })
     req.account = data[0]
     next()
   } else {

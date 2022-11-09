@@ -3,22 +3,16 @@
 module.exports = async function (req, res) {
   const { database } = req.app.locals.settings
 
-  if (!req.account.isModerator) {
+  console.log(req.account)
+  if (!req.account.permissions.includes('admin')) {
     return res.status(403).json({
       ok: false, error: 'insufficient permissions'
     })
   }
 
-  const account = await database.getAccountByUniqueId(req.body.uniqueId)
-  console.log(account._id)
-  const {
-    firstName, surname, preferences
-  } = req.body
-  
-  const result = await database.updateAccount(account._id,{
-    firstName, surname, preferences
-  })
+  const account = await database.accounts.getByUniqueId(req.body.uniqueId)
+  const result = await database.accounts.update(account._id,req.body.fields)
 
-  res.json({ ok: true })
+  res.json({ ok: result })
 
 }

@@ -1,7 +1,7 @@
 
 const login = require('./middlewares/login')
 const createAccount = require('./middlewares/create-account')
-const authenticate = require('./middlewares/auth')
+const authenticate = require('./middlewares/authenticate')
 const checkNewAccountValid = require('./middlewares/check-new-account-valid')
 const searchAccounts = require('./middlewares/search-accounts')
 const verify = require('./middlewares/verify')
@@ -10,25 +10,22 @@ const guestAuth = require('./middlewares/guest-auth')
 const updateAccountOther = require('./middlewares/update-account-other')
 const createBookshelf = require('./middlewares/create-bookshelf')
 const getUserBookshelves = require('./middlewares/get-user-bookshelves')
-
-/**
- * use /account/xxxx for endpoints
- * 
- */
+const deleteBookshelf = require('./middlewares/delete-bookshelf')
 
 module.exports = function (app) {
-  
-  app.get('/login-guest', guestAuth)
-  app.get('/login', login, authenticate)
-  app.post('/create-account', checkNewAccountValid, createAccount, authenticate)
 
-  app.get('/accounts', verify, searchAccounts)
-  app.post('/update-account', verify, updateAccount)
-  app.post('/update-account-other', verify, updateAccountOther)
+  app.get('/guest-login', guestAuth)
+  app.get('/accounts/login', login, authenticate)
+  app.post('/accounts/create', checkNewAccountValid, createAccount, authenticate)
 
-  app.post('/bookshelves/create', verify, createBookshelf)
+  app.get('/accounts/list', verify, searchAccounts)
+  app.post('/accounts/update-self', verify, updateAccount)
+  app.post('/accounts/update-other', verify, updateAccountOther)
+
   app.get('/bookshelves/user', verify, getUserBookshelves)
-  
+  app.post('/bookshelves/create', verify, createBookshelf)
+  app.post('/bookshelves/delete', verify, deleteBookshelf)
+
   /*
   add endpoints
     delete bookshelf
@@ -37,7 +34,5 @@ module.exports = function (app) {
     delete bookshelf
     community features
     add friend, remove friend
-    */
+  */
 }
-
-
