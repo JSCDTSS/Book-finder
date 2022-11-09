@@ -13,7 +13,7 @@ function LoadingMessage () {
 }
 
 function withSplashScreen (WrappedComponent) {
-    return class extends component {
+    return className extends component {
         constructor(props) {
             super(props);
             this.state = {

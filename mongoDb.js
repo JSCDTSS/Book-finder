@@ -2,7 +2,7 @@
 const { ObjectId } = require('mongodb')
 const { isStringAnEmail } = require('./utils.js')
 
-module.exports = class MongoDb {
+module.exports = className MongoDb {
   constructor(database) {
     this.database = database
   }

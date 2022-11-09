@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Master.css'; 
 import GuestArrow from'./icons/arrow-right.svg';
+import Logo from "./Images/Logo.png"
 
 function LandingPage() {
     return (
@@ -14,18 +15,21 @@ function LandingPage() {
         <div className="MainContainer">
         <div className="Login">
             <Link to="/LoginForm">
-                <button class="LoginButton">Login</button>
+                <button className="LoginButton">Login</button>
             </Link>
         </div>
         <div className="CreateAccount">
             <Link to="/CreateAccountForm">
-                <button class="SignUpButton">Sign Up</button>
+                <button className="SignUpButton">Sign Up</button>
             </Link>
         </div>
         <div className="GuestLogin">
             <Link to="/Home">
-                <button className="GuestButton"><p>Continue as Guest</p><img src={GuestArrow} /></button>
+                <button className="GuestButton"><p>Continue as Guest</p><img src={GuestArrow} alt="Guest Account button" /></button>
             </Link>
+        </div>
+        <div>
+            <img src={Logo} alt="Five individuals reading"/>
         </div>
         </div>
         </>
