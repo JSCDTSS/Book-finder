@@ -1,16 +1,33 @@
-* {
-    background-color: #EBE9E9;
+*{
+    background-color: snow;
     color: black;
+} 
+.TopContainer {
+    width: 100%;
+    height: 50%;
 }
-
+.MainContainer {
+    text-align: center;
+    width: 100%;
+    height: 50%;
+}
+    
 /* Landing page */
+.IntroWords {
+    text-align: center;
+    padding: 50px;
+}
+.Login {
+    margin: 10% 10%;
+}
 .LoginButton {
     background-color: #C91C73;
     border: #C91C73;
-    border-radius: 10%;
+    border-radius: 15px;
     transition-duration: 0.4s;
     text-align: center;
-    width: 35%;
+    width: 70%;
+    padding: 15px 32px;
 }
 .LoginButton:hover {
     background-color: #EBE9E9;
@@ -18,16 +35,30 @@
     color: #C91C73;
     border-style: solid;
 }
+.CreateAccount {
+    margin: 10% 10%;
+}
 .SignUpButton {
     background-color:#30CADE;
     border: #30CADE;
-    border-radius: 10%;
+    border-radius: 15px;
     text-align:center;
-    width: 35%;
+    width: 70%;
+    padding: 15px 32px;
 }
 .SignUpButton:hover {
     background-color: #EBE9E9;
     border: #30CADE;
     color: #30CADE;
     border-style: solid;
+}
+.Guest {
+    margin: 10% 10%; 
+}
+.GuestButton {
+    color: #1E2753;
+    border: none;
+    text-align:center;
+    width: 70%;
+    padding: 15px 32px;
 }

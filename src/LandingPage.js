@@ -5,10 +5,13 @@ import GuestArrow from'./icons/arrow-right-o.svg';
 function LandingPage() {
     return (
         <>
-        <div className="IntroWords">
+        <div class="TopContainer">
+        <div class="IntroWords">
             <p>Start your reading journey</p>
             <p>Be part of our community...</p>
         </div>
+        </div>
+        <div class="MainContainer">
         <div className="Login">
             <Link to="/LoginForm">
                 <button class="LoginButton">Login</button>
@@ -23,6 +26,7 @@ function LandingPage() {
             <Link to="/Home">
                 <button class="GuestButton">Continue as Guest</button>
             </Link>
+        </div>
         </div>
         </>
         // TODO: Add arrow to guest button, import is wrong?
