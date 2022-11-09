@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Master.css'; 
-import GuestArrow from'./icons/arrow-right-o.svg';
+import GuestArrow from'./icons/arrow-right.svg';
 
 function LandingPage() {
     return (
@@ -24,7 +24,7 @@ function LandingPage() {
         </div>
         <div className="GuestLogin">
             <Link to="/Home">
-                <button class="GuestButton">Continue as Guest</button>
+                <button class="GuestButton"><p>Continue as Guest</p><img src={GuestArrow} /></button>
             </Link>
         </div>
         </div>
