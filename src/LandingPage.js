@@ -5,13 +5,13 @@ import GuestArrow from'./icons/arrow-right.svg';
 function LandingPage() {
     return (
         <>
-        <div class="TopContainer">
-        <div class="IntroWords">
+        <div className="TopContainer">
+        <div className="IntroWords">
             <p>Start your reading journey</p>
             <p>Be part of our community...</p>
         </div>
         </div>
-        <div class="MainContainer">
+        <div className="MainContainer">
         <div className="Login">
             <Link to="/LoginForm">
                 <button class="LoginButton">Login</button>
@@ -24,7 +24,7 @@ function LandingPage() {
         </div>
         <div className="GuestLogin">
             <Link to="/Home">
-                <button class="GuestButton"><p>Continue as Guest</p><img src={GuestArrow} /></button>
+                <button className="GuestButton"><p>Continue as Guest</p><img src={GuestArrow} /></button>
             </Link>
         </div>
         </div>

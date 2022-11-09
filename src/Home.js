@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LandingPage from './LandingPage';
+import NavBar from './NavBar';
 
 function Home() {
   const adminUser = {
@@ -41,7 +42,11 @@ function Home() {
       ) : (
         <LandingPage />
       )}
+            <div class="NavBar">
+        <NavBar />
+      </div>
     </div>
+
   );
 }
 
