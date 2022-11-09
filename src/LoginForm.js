@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Master.css";
-import CreateAccountForm from "./CreateAccountForm";
 import { Link, useNavigate } from "react-router-dom";
+import LoginImage from "./Images/Login.png";
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({
@@ -29,52 +29,58 @@ function LoginForm({ Login, error }) {
         <p>Please enter your account details here</p>
       </div>
       <div className="MainContainer">
-      <div className="form-inner">
-        {error != "" ? <div className="error">{error}</div> : ""}
-        <div className="form-group">
-          <label htmlFor="username">Username: </label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            onChange={(e) =>
-              setDetails({ ...details, username: e.target.value })
-            }
-            value={details.username}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email: </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            onChange={(e) => setDetails({ ...details, email: e.target.value })}
-            value={details.email}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={(e) =>
-              setDetails({ ...details, password: e.target.value })
-            }
-            value={details.password}
-          />
-        </div>
-        <input type="submit" value="LOGIN" class="LoginButton"/>
+        <div className="form-inner">
+          {error !== "" ? <div className="error">{error}</div> : ""}
+          <div className="form-group">
+            <label htmlFor="username">Username: </label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              onChange={(e) =>
+                setDetails({ ...details, username: e.target.value })
+              }
+              value={details.username}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email: </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              onChange={(e) =>
+                setDetails({ ...details, email: e.target.value })
+              }
+              value={details.email}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password: </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={(e) =>
+                setDetails({ ...details, password: e.target.value })
+              }
+              value={details.password}
+            />
+          </div>
+          <input type="submit" value="LOGIN" class="LoginButton" />
 
-        <div className="CreateAccountButton">
-          <Link to="/CreateAccountForm">
-            <button class= "SignUpButton">New user? Create Account</button>
-          </Link>
+          <div className="CreateAccountButton">
+            <Link to="/CreateAccountForm">
+              <button class="SignUpButton">New user? Create Account</button>
+            </Link>
+          </div>
         </div>
-        </div>
+        <div>
+        <img src={LoginImage} alt="Women logging into a computer"/>
+      </div>
       </div>
     </form>
+
     // TODO: Add forgot password button
   );
 }
