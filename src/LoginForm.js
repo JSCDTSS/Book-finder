@@ -21,7 +21,7 @@ function LoginForm({ Login, error }) {
 
   return (
     <form onSubmit={submitHandler}>
-      <div class="TopContainer">
+      <div className="TopContainer">
         <div className="BackArrow">
           <button onClick={() => navigate(-1)}>go back</button>
         </div>
@@ -67,11 +67,11 @@ function LoginForm({ Login, error }) {
               value={details.password}
             />
           </div>
-          <input type="submit" value="LOGIN" class="LoginButton" />
+          <input type="submit" value="LOGIN" className="LoginButton" />
 
           <div className="CreateAccountButton">
             <Link to="/CreateAccountForm">
-              <button class="SignUpButton">New user? Create Account</button>
+              <button className="SignUpButton">New user? Create Account</button>
             </Link>
           </div>
         </div>

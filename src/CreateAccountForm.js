@@ -15,7 +15,7 @@ function CreateAccountForm({ Create, error }) {
 
   return (
     <form onSubmit={submitHandler}>
-      <div class="TopContainer">
+      <div className="TopContainer">
         <div className="BackArrow">
           <button onClick={() => navigate(-1)}>go back</button>
         </div>
@@ -83,7 +83,7 @@ function CreateAccountForm({ Create, error }) {
             value={details.password}
           />
         </div>
-        <input type="submit" value="LOGIN" class="LoginButton" />
+        <input type="submit" value="LOGIN" className="LoginButton" />
         </div>
         <div>
           <img src={SignUpImage} alt="Man signing up on a tablet"/>
