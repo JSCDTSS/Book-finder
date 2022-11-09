@@ -29,7 +29,6 @@ function LandingPage() {
         </div>
         </div>
         </>
-        // TODO: Add arrow to guest button, import is wrong?
     );
 }
 
