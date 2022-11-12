@@ -65,24 +65,38 @@ module.exports = class Accounts {
   }
 
   async addBookshelf(ownerId, bookshelfId) {
-    return this.accounts.updateOne(
+    const result = await this.accounts.updateOne(
       { _id: ObjectId(ownerId) }, { $push: { bookshelves: bookshelfId } }
     )
+    return (result?.acknowledged)
   }
 
   async removeBookshelf(ownerId,bookshelfId){
-    return this.accounts.updateOne(
+    const result = await this.accounts.updateOne(
       { _id: ObjectId(ownerId) }, { $pull: { bookshelves: bookshelfId } }
     )
+    return result?.acknowledged
   }
 
   async addFollower(followerId, followedId) {
-    const followerAccount = await this.list({ _id: followerId })
-    const followedAccount = await this.list({ _id: followedId })
+
+    await this.accounts.updateOne(
+      { _id: ObjectId(followedId) }, { $push: { followers: followerId } }
+    )
+    const result = await this.accounts.updateOne(
+      { _id: ObjectId(followerId) }, { $push: { followedBy: followedId } }
+    )
+    return (result?.acknowledged)
   }
 
   async removeFollower(followerId, followedId) {
-
+    await this.accounts.updateOne(
+      { _id: ObjectId(followedId) }, { $pull: { followers: followerId } }
+    )
+    const result = await this.accounts.updateOne(
+      { _id: ObjectId(followerId) }, { $pull: { followedBy: followedId } }
+    )
+    return (result?.acknowledged)
   }
 
 }

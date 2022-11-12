@@ -1,7 +1,7 @@
 
 
 const { MongoClient } = require('mongodb')
-const Database = require('./database/database')
+const Database = require('./database')
 
 const path = 'mongodb://localhost:27017'
 const config = { useNewUrlParser: true, useUnifiedTopology: true }

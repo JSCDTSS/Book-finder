@@ -41,12 +41,19 @@ module.exports = class Bookshelves {
     this.bookshelves.deleteOne({ _id: ObjectId(bookshelfId) })
   }
 
-  async addBook() {
-
+  async addBook(bookshelfId,book) {
+    const result = await this.bookshelves.updateOne(
+      { _id: ObjectId(bookshelfId) }, { $push: { books: book } }
+    )
+    return result?.acknowledged
   }
 
-  async removeBook() {
-
+  //
+  async removeBook(bookshelfId) {
+    const result = await this.bookshelves.updateOne(
+      { _id: ObjectId(bookshelfId) }, { $push: { books: book } }
+    )
+    return result?.acknowledged
   }
 
 }

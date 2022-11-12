@@ -8,5 +8,5 @@ module.exports = async function deleteBookshelf(req, res) {
 
   await database.bookshelves.remove(bookshelfId)
   const result = await database.accounts.removeBookshelf(ownerId, bookshelfId)
-  res.json({ ok: true })
+  res.json({ ok: result })
 }

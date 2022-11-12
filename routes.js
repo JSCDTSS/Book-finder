@@ -1,16 +1,23 @@
 
-const login = require('./middlewares/login')
-const createAccount = require('./middlewares/create-account')
-const authenticate = require('./middlewares/authenticate')
-const checkNewAccountValid = require('./middlewares/check-new-account-valid')
-const searchAccounts = require('./middlewares/search-accounts')
 const verify = require('./middlewares/verify')
-const updateAccount = require('./middlewares/update-account')
 const guestAuth = require('./middlewares/guest-auth')
-const updateAccountOther = require('./middlewares/update-account-other')
-const createBookshelf = require('./middlewares/create-bookshelf')
-const getUserBookshelves = require('./middlewares/get-user-bookshelves')
-const deleteBookshelf = require('./middlewares/delete-bookshelf')
+
+const login = require('./middlewares/accounts/login')
+const createAccount = require('./middlewares/accounts/create-account')
+const authenticate = require('./middlewares/accounts/authenticate')
+const checkNewAccountValid = require('./middlewares/accounts/check-new-account-valid')
+const searchAccounts = require('./middlewares/accounts/search-accounts')
+const updateAccount = require('./middlewares/accounts/update-account')
+const updateAccountOther = require('./middlewares/accounts/update-account-other')
+
+const follow = require('./middlewares/accounts/follow')
+const unfollow = require('./middlewares/accounts/unfollow')
+
+const createBookshelf = require('./middlewares/bookshelves/create-bookshelf')
+const getUserBookshelves = require('./middlewares/bookshelves/get-user-bookshelves')
+const deleteBookshelf = require('./middlewares/bookshelves/delete-bookshelf')
+const addBook = require('./middlewares/bookshelves/add-book')
+const removeBook = require('./middlewares/bookshelves/remove-book')
 
 module.exports = function (app) {
 
@@ -26,13 +33,11 @@ module.exports = function (app) {
   app.post('/bookshelves/create', verify, createBookshelf)
   app.post('/bookshelves/delete', verify, deleteBookshelf)
 
-  /*
-  add endpoints
-    delete bookshelf
-    add to bookshelf
-    remove from bookshelf
-    delete bookshelf
-    community features
-    add friend, remove friend
-  */
+  app.post('/bookshelves/books/add', verify, addBook)
+  app.post('/bookshelves/books/remove', verify, removeBook)
+
+  app.post('/accounts/follow',verify, follow)
+  app.post('/accounts/unfollow',verify, unfollow)
+
+  
 }
