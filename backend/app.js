@@ -1,0 +1,32 @@
+
+const express = require('express')
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const routes = require('./routes')
+const Database = require('./database')
+
+const userName = 'JSC_DTSS'
+const password = 'dgNXIAxFm9xKDt6n'
+const usernameEncoded = encodeURIComponent(userName)
+const passwordEncoded = encodeURIComponent(password)
+
+const uri = `mongodb+srv://${usernameEncoded}:${passwordEncoded}@cluster0.n2dsm1v.mongodb.net/?retryWrites=true&w=majority`;
+
+const config =   {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1
+}
+const port = process.env.PORT
+const app = express()
+
+MongoClient.connect(uri, config, function (err, client) {
+  if (err) console.log(err)
+  else app.set('database', new Database(client.db('Book-Finder')))
+})
+
+app.use(express.json())
+routes(app)
+app.listen(port)
+console.log("Express on " + port)
+
+module.exports = app
