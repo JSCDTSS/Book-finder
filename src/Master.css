@@ -1,0 +1,81 @@
+*{
+    background-color: snow;
+    color: black;
+    text-align: center;
+} 
+.TopContainer {
+    height: 20vh;
+    border: solid;
+    border-color: green;
+}
+.MainContainer {
+    text-align: center;
+    height: 70vh;
+    border: solid;
+    border-color: orange;
+}
+.NavBar {
+    list-style-type: none;
+    height: 10vh;
+    border: solid;
+    border-color: blueviolet;
+}
+    
+/* Landing page */
+.IntroWords {
+    text-align: center;
+}
+.Login {
+    margin: 10% 10%;
+}
+.LoginButton {
+    background-color: #C91C73;
+    border: #C91C73;
+    border-radius: 1em;
+    transition-duration: 0.4s;
+    text-align: center;
+    width: 70%;
+    padding: 1em 1em;
+}
+.LoginButton:hover {
+    background-color: #EBE9E9;
+    border: #C91C73;
+    color: #C91C73;
+    border-style: solid;
+}
+.CreateAccount {
+    margin: 10% 10%;
+}
+.SignUpButton {
+    background-color:#30CADE;
+    border: #30CADE;
+    border-radius: 1em;
+    text-align:center;
+    width: 70%;
+    padding: 1em 1em;
+}
+.SignUpButton:hover {
+    background-color: #EBE9E9;
+    border: #30CADE;
+    color: #30CADE;
+    border-style: solid;
+}
+.Guest {
+    margin: 10% 10%; 
+}
+.GuestButton {
+    color: #1E2753;
+    border: none;
+    text-align:center;
+    width: 70%;
+    padding: 1em 1em;
+}
+
+/*Login Page */
+img {
+    max-width: 100vw;
+    opacity: 0.7;
+    margin-top: 2em;
+}
+/*Sign-Up Page */
+/*Guest Account */
