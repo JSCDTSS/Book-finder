@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import './Master.css'; 
-import GuestArrow from'./icons/arrow-right.svg';
-import Logo from "./Images/Logo.png"
+import '../Master.css'; 
+import GuestArrow from'../icons/arrow-right.svg';
+import Logo from "../Images/Logo.png"
 import SplashPage from "./SplashPage"
 
 function LandingPage() {

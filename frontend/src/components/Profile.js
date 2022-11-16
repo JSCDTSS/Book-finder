@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import NavBar from './NavBar';
-import './Master.css';
+import '../Master.css';
+
+import { Link } from "react-router-dom";
 
 
-function Bookshelves() {
+function Profile() {
 
     return (
-        <div className="Bookshelves">
+        <div className="profile">
             <div className="TopContainer">
-                <p>this is Bookshelves page</p>
+                <p>this is profile page</p>
             </div>
             <div className="MainContainer">
+            <Link to="/LandingPage">
+              <button className="SignUpButton">landinggggg</button>
+            </Link>
             </div>
             <div className="BottomContainer">
                 <NavBar />
@@ -19,4 +24,4 @@ function Bookshelves() {
     );
 }
 
-export default Bookshelves;
+export default Profile;

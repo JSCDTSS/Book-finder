@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Master.css';
+import '../Master.css';
 
 
 function ForgotPasswordForm() {

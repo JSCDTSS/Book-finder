@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import "./Master.css";
+import "../Master.css";
 import { Link, useNavigate, } from "react-router-dom";
-import LoginImage from "./Images/Login.png";
-<<<<<<< HEAD
+import LoginImage from "../Images/Login.png";
 import TextForm from "./TextForm";
-import { login } from './utils/backendRequest';
-=======
-import BackArrow from "./icons/arrow-left.svg"
->>>>>>> Cat
+import { login } from '../utils/backendRequest';
+import BackArrow from "../icons/arrow-left.svg"
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({

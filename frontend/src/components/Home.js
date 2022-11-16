@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import NavBar from './NavBar';
-import './Master.css';
+import '../Master.css';
 import { Link } from "react-router-dom";
-import Bell from './icons/bell.svg';
+import Bell from '../icons/bell.svg';
 
 function Home() {
 

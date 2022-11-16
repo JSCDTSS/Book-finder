@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Master.css';
 import { useNavigate, Link } from 'react-router-dom';
-import LoginForm from './LoginForm';
-import Home from './Home';
+import LoginForm from './components/LoginForm';
+import Home from './components/Home';
 
 function App() {
   const adminUser = {

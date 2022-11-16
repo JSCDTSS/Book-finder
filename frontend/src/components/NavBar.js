@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import HomeIcon from'./icons/home-alt.svg';
-import SearchIcon from'./icons/search.svg';
-import BookmarkIcon from'./icons/bookmark.svg';
-import ProfileIcon from'./icons/profile.svg';
+import HomeIcon from'../icons/home-alt.svg';
+import SearchIcon from'../icons/search.svg';
+import BookmarkIcon from'../icons/bookmark.svg';
+import ProfileIcon from'../icons/profile.svg';
 
 function NavBar() {
     return (
@@ -19,13 +19,8 @@ function NavBar() {
             </Link>
             </li>
             <li>
-<<<<<<< HEAD
             <Link to="/Bookshelves">
-                <button>My Books</button>
-=======
-            <Link to="/BookShelves">
                 <button>My Books</button><img src={BookmarkIcon}/>
->>>>>>> Cat
             </Link>
             </li>
             <Link to="/Profile">

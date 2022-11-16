@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./Master.css";
+import "../Master.css";
 import { useNavigate } from "react-router-dom";
-import SignUpImage from "./Images/SignUp.png";
+import SignUpImage from "../Images/SignUp.png";
 import TextForm from "./TextForm";
-import { createAccount } from './utils/backendRequest';
+import { createAccount } from '../utils/backendRequest';
 
 function CreateAccountForm({ Create, error }) {
   const [details, setDetails] = useState({ 
