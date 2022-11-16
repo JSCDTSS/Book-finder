@@ -35,7 +35,7 @@ function App() {
 
 
   return (
-    <div className="app">
+    <div className="App">
       {(user.email != "") ? (
         <div className="welcome">
           <Home />
@@ -43,7 +43,6 @@ function App() {
         </div>
       ) : (
         <LoginForm Login={Login} error={error} />
-        //<LandingPage />
       )}
     </div>
   );

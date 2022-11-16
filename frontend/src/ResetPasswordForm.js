@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Master.css';
 
 
-function ForgotPasswordForm() {
+function ResetPasswordForm() {
 
     return (
         <form>
@@ -12,11 +12,17 @@ function ForgotPasswordForm() {
             </div>
             <div className="MainContainer">
             <div className="form-group">
-            <label htmlFor="email">Email: </label>
+            <label htmlFor="password">Password: </label>
             <input
-              type="email"
-              name="email"
-              id="email"
+              type="password"
+              name="newPassword"
+              id="newPassword"
+            />
+            <label htmlFor="password">Password: </label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
             />
             </div>
             <button>Send Email</button>
@@ -27,4 +33,4 @@ function ForgotPasswordForm() {
     );
 }
 
-export default ForgotPasswordForm;
+export default ResetPasswordForm;

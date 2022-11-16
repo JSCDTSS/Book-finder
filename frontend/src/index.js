@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './index.css';
 import App from './app';
-import Home from './app';
+import Home from './Home';
 import CreateAccountForm from './CreateAccountForm';
 import ForgotPasswordForm from './ForgotPasswordForm';
+import ResetPasswordForm from './ResetPasswordForm';
 import LandingPage from './LandingPage';
 import LoginForm from './LoginForm';
 import Search from './Search';
@@ -24,6 +25,7 @@ root.render(
         <Route path="/LoginForm" element={<LoginForm/>} />
         <Route path="/CreateAccountForm" element={<CreateAccountForm/>} />
         <Route path="/ForgotPasswordForm" element={<ForgotPasswordForm/>} />
+        <Route path="/ResetPasswordForm" element={<ResetPasswordForm/>} />
         <Route path="/Search" element={<Search/>} />
         <Route path="/Bookshelves" element={<Bookshelves/>} />
         <Route path="/Profile" element={<Profile/>} />
