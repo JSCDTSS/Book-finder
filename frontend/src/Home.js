@@ -1,59 +1,27 @@
 import React, { useState } from 'react';
-import LoginForm from './LoginForm';
 import NavBar from './NavBar';
+import './Master.css';
+
+import { Link } from "react-router-dom";
+
 
 function Home() {
-  const adminUser = {
-    email: "a@a.com",
-    password: "123"
-  }
 
-  const [user, setUser] = useState({ username: "", email: "" });
-  const [error, setError] = useState("");
-
-  const Login = details => {
-    console.log(details);
-
-    if (details.email == adminUser.email && details.password == adminUser.password) {
-      console.log("Logged In");
-      setUser({
-        username: details.username,
-        email: details.email
-      });
-    } else {
-      console.log("Details do not match!");
-      setError("Details do not match!");
-    }
-  }
-
-  const Logout = () => {
-    console.log("Logout");
-    setUser({ username: "", email: "" });
-  }
-
-
-  return (
-    <div className="Home">
-        <div>
-          <p>this is home page</p>
+    return (
+        <div className="Home">
+            <div className="TopContainer">
+                <p>this is Home page</p>
+            </div>
+            <div className="MainContainer">
+            <Link to="/LandingPage">
+              <button className="SignUpButton">landinggggg</button>
+            </Link>
+            </div>
+            <div className="BottomContainer">
+                <NavBar />
+            </div>
         </div>
-
-
-      {(user.email != "") ? (
-        <div className="welcome">
-          <h2>Welcome, <span>{user.username}</span></h2>
-          <button onClick={Logout}>Logout</button>
-        </div>
-      ) : (
-        <LoginForm Login={Login} error={error} />
-        //<LandingPage />
-      )}
-            <div class="NavBar">
-        <NavBar />
-      </div>
-    </div>
-
-  );
+    );
 }
 
 export default Home;

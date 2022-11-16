@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './index.css';
-import Home from './Home';
+import App from './app';
+import Home from './app';
 import CreateAccountForm from './CreateAccountForm';
 import ForgotPasswordForm from './ForgotPasswordForm';
 import LandingPage from './LandingPage';
@@ -12,28 +13,13 @@ import Bookshelves from './Bookshelves.js';
 import Profile from './Profile';
 import reportWebVitals from './reportWebVitals';
 
-/*
-function isLoggedin(nextState, replace, next) {
-  if (!authenticated) {
-    replace({
-      pathname: "/LandingPage",
-      state: {nextPathname: nextState.location.pathname}
-    });
-  }
-  next();
-}
-
--- onEnter={isLoggedin}
-
-
-*/
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<App/>} />
+        <Route path="/Home" element={<Home/>} />
         <Route path="/LandingPage" element={<LandingPage/>} />
         <Route path="/LoginForm" element={<LoginForm/>} />
         <Route path="/CreateAccountForm" element={<CreateAccountForm/>} />
