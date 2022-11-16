@@ -145,3 +145,11 @@ GoogleApi
     POST /update-account-other
     
 moderators should be able to change the info of another account
+
+## 16/11
+need the frontend with the database
+  login
+  create account
+
+verify if someone is logged in
+  if not, direct them to landing page

@@ -36,8 +36,8 @@ module.exports = function (app) {
   app.post('/bookshelves/books/add', verify, addBook)
   app.post('/bookshelves/books/remove', verify, removeBook)
 
-  app.post('/accounts/follow',verify, follow)
-  app.post('/accounts/unfollow',verify, unfollow)
+  app.post('/accounts/follow', verify, follow)
+  app.post('/accounts/unfollow', verify, unfollow)
 
-  
+
 }

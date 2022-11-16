@@ -79,3 +79,7 @@ img {
 }
 /*Sign-Up Page */
 /*Guest Account */
+
+input {
+  border-radius:5px
+}

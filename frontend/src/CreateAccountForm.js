@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import "./Master.css";
 import { useNavigate } from "react-router-dom";
 import SignUpImage from "./Images/SignUp.png";
+import TextForm from "./TextForm";
+import { createAccount } from './utils/backendRequest';
 
 function CreateAccountForm({ Create, error }) {
-  const [details, setDetails] = useState({ name: "", email: "", password: "" });
+  const [details, setDetails] = useState({ 
+    username: "", firstName: "", lastName: "", email: "", password: "", 
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
-    Create(details);
+    createAccount(details);
+    //then redirect to other page
   };
 
   const navigate = useNavigate();
@@ -23,70 +28,44 @@ function CreateAccountForm({ Create, error }) {
         <p>Please enter your account details here</p>
       </div>
       <div className="MainContainer">
-      <div className="form-inner">
-        {error !== "" ? <div className="error">{error}</div> : ""}
-        <div className="form-group">
-          <label htmlFor="username">Username: </label>
-          <input
-            type="text"
-            name="username"
+        <div className="form-inner">
+          {error !== "" ? <div className="error">{error}</div> : ""}
+
+          <TextForm
             id="username"
-            onChange={(e) =>
-              setDetails({ ...details, username: e.target.value })
-            }
-            value={details.username}
+            text="Username"
+            details={details}
+            setDetails={setDetails}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="firstName">First Name: </label>
-          <input
-            type="text"
-            name="firstName"
+          <TextForm
             id="firstName"
-            onChange={(e) =>
-              setDetails({ ...details, firstName: e.target.value })
-            }
-            value={details.firstName}
+            text="First Name"
+            details={details}
+            setDetails={setDetails}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="lastName">Last Name: </label>
-          <input
-            type="text"
-            name="lastName"
+          <TextForm
             id="lastName"
-            onChange={(e) =>
-              setDetails({ ...details, lastName: e.target.value })
-            }
-            value={details.lastName}
+            text="Last Name"
+            details={details}
+            setDetails={setDetails}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email: </label>
-          <input
-            type="email"
-            name="email"
+          <TextForm
             id="email"
-            onChange={(e) => setDetails({ ...details, email: e.target.value })}
-            value={details.email}
+            text="Email"
+            details={details}
+            setDetails={setDetails}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            name="password"
+          <TextForm
             id="password"
-            onChange={(e) =>
-              setDetails({ ...details, password: e.target.value })
-            }
-            value={details.password}
+            text="Password"
+            details={details}
+            setDetails={setDetails}
           />
-        </div>
-        <input type="submit" value="LOGIN" className="LoginButton" />
+
+          <input type="submit" value="LOGIN" className="LoginButton" />
         </div>
         <div>
-          <img src={SignUpImage} alt="Man signing up on a tablet"/>
+          <img src={SignUpImage} alt="Man signing up on a tablet" />
         </div>
       </div>
     </form>

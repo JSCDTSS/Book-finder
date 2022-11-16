@@ -51,7 +51,7 @@ module.exports = class Accounts {
 
   async getByUniqueId(uniqueId) {
     const filter = uniqueId.includes('@')
-      ? { email: uniqueId } : { userName: uniqueId }
+      ? { email: uniqueId } : { username: uniqueId }
     const accounts = await this.list(filter)
 
     switch (accounts.length) {

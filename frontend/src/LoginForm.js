@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import "./Master.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, } from "react-router-dom";
 import LoginImage from "./Images/Login.png";
+import TextForm from "./TextForm";
+import { login } from './utils/backendRequest';
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({
-    username: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
+    uniqueId: "",
+    password: ""
   });
 
   const submitHandler = (e) => {
     e.preventDefault();
-    Login(details);
+    login(details)
+      .then(res => {
+        
+      })
   };
+
 
   const navigate = useNavigate();
 
@@ -31,42 +34,21 @@ function LoginForm({ Login, error }) {
       <div className="MainContainer">
         <div className="form-inner">
           {error !== "" ? <div className="error">{error}</div> : ""}
-          <div className="form-group">
-            <label htmlFor="username">Username: </label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              onChange={(e) =>
-                setDetails({ ...details, username: e.target.value })
-              }
-              value={details.username}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email: </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              onChange={(e) =>
-                setDetails({ ...details, email: e.target.value })
-              }
-              value={details.email}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password: </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              onChange={(e) =>
-                setDetails({ ...details, password: e.target.value })
-              }
-              value={details.password}
-            />
-          </div>
+
+          <TextForm
+            id="uniqueId"
+            text="Username/Email"
+            details={details}
+            setDetails={setDetails}
+          />
+
+          <TextForm
+            id="password"
+            text="Password"
+            details={details}
+            setDetails={setDetails}
+          />
+
           <input type="submit" value="LOGIN" className="LoginButton" />
 
           <div className="CreateAccountButton">
@@ -76,8 +58,8 @@ function LoginForm({ Login, error }) {
           </div>
         </div>
         <div>
-        <img src={LoginImage} alt="Women logging into a computer"/>
-      </div>
+          <img src={LoginImage} alt="Women logging into a computer" />
+        </div>
       </div>
     </form>
 

@@ -8,16 +8,16 @@ module.exports = async function (req, res, next) {
   if (!isEmailValid(newAccount.email)){
     errors.push('invalid email')
   }
-  if (!isUserNameValid(newAccount.userName)){
+  if (!isUsernameValid(newAccount.username)){
     errors.push('invalid username')
   }
   if (!isPasswordValid(newAccount.password)){
     errors.push('invalid password')
   }
-  if (await doesUserNameExist(database,newAccount.userName)){
-    errors.push('userName exists')
+  if (await doesUsernameExist(database,newAccount.username)){
+    errors.push('username exists')
   }
-  if (await doesEmailExist(database,newAccount.userName)){
+  if (await doesEmailExist(database,newAccount.username)){
     errors.push('email exists')
   }
 
@@ -25,8 +25,8 @@ module.exports = async function (req, res, next) {
   else next()
 }
 
-async function doesUserNameExist(database,userName){
-  const duplicates = await database.accounts.list({ userName })
+async function doesUsernameExist(database,username){
+  const duplicates = await database.accounts.list({ username })
   return Boolean(duplicates.length)
 }
 
@@ -40,8 +40,8 @@ function isEmailValid(email) {
   return email.includes('@')
 }
 
-function isUserNameValid(userName) {
-  return userName.length > 4 && !userName.includes('@')
+function isUsernameValid(username) {
+  return username.length > 4 && !username.includes('@')
 }
 
 function isPasswordValid(password) {

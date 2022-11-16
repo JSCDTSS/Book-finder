@@ -42,9 +42,9 @@ function Home() {
       ) : (
         <LandingPage />
       )}
-            <div class="NavBar">
-        <NavBar />
-      </div>
+
+      <NavBar />
+
     </div>
 
   );

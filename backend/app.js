@@ -1,13 +1,17 @@
 
+require('dotenv').config()
 const express = require('express')
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const routes = require('./routes')
 const Database = require('./database')
 
-const userName = 'JSC_DTSS'
-const password = 'dgNXIAxFm9xKDt6n'
+const userName = process.env.MONGODB_USERNAME
+const password = process.env.MONGODB_PASSWORD
 const usernameEncoded = encodeURIComponent(userName)
 const passwordEncoded = encodeURIComponent(password)
+
+console.log(userName)
+console.log(password)
 
 const uri = `mongodb+srv://${usernameEncoded}:${passwordEncoded}@cluster0.n2dsm1v.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -18,6 +22,14 @@ const config =   {
 }
 const port = process.env.PORT
 const app = express()
+
+const allowCrossDomain = (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+  res.header('Access-Control-Allow-Headers', 'Content-Type')
+  next()
+}
+app.use(allowCrossDomain)
 
 MongoClient.connect(uri, config, function (err, client) {
   if (err) console.log(err)
