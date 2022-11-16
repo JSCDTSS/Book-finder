@@ -24,7 +24,7 @@ function LandingPage() {
             </Link>
         </div>
         <div className="GuestLogin">
-            <Link to="/Home">
+            <Link to="/app">
                 <button className="GuestButton"><p>Continue as Guest</p><img src={GuestArrow} alt="Guest Account button" /></button>
             </Link>
         </div>

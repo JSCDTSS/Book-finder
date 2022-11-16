@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import NavBar from './NavBar';
 import './Master.css';
-import { Link } from "react-router-dom";
-import Bell from './icons/bell.svg';
 
-function Home() {
+import { Link } from "react-router-dom";
+
+
+function Profile() {
 
     return (
-        <div className="Home">
+        <div className="profile">
             <div className="TopContainer">
-                <p>Home</p>
-                <img src={Bell} alt="Notification Bell" />
+                <p>this is profile page</p>
             </div>
             <div className="MainContainer">
             <Link to="/LandingPage">
@@ -24,4 +24,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Profile;

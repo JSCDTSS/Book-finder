@@ -15,7 +15,7 @@ function NavBar() {
             </Link>
             </li>
             <li>
-            <Link to="/BookShelves">
+            <Link to="/Bookshelves">
                 <button>My Books</button>
             </Link>
             </li>

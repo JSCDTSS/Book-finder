@@ -56,14 +56,17 @@ function LoginForm({ Login, error }) {
               <button className="SignUpButton">New user? Create Account</button>
             </Link>
           </div>
+          <div className="ForgotPasswordButton">
+            <Link to="/ForgotPasswordForm">
+              <button className="ForgotPasswordButton">Forgot Password?</button>
+            </Link>
+          </div>
         </div>
         <div>
           <img src={LoginImage} alt="Women logging into a computer" />
         </div>
       </div>
     </form>
-
-    // TODO: Add forgot password button
   );
 }
 
