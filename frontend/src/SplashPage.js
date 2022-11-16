@@ -1,50 +1,34 @@
 /* First Spash Page Attempt */
-import React, {component} from 'react';
-import auth0Client from '../Auth';
-import '.spash-screen.css';
+import React, {useState, useEffect} from 'react';
+import PacmanLoader from "react-spinners/PacmanLoader";
+import ClockLoader from "react-spinners/ClockLoader";
+import './Master.css';
 
-function LoadingMessage () {
-    return (
-        <div className= "spash-screen">
-            Welcome to ShelfElf, the app is just loading.
-            <div className="loading-dot">.</div>
-        </div>
-    );
-}
+const App = () => {
 
-function withSplashScreen (WrappedComponent) {
-    return className extends component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                loading: true,
-            };
-        }
+    const [isLoading,setIsLoading] = useState(true);
 
-async componentDidMount () {
-    try {
-        await auth0Client.loadsession();
+    useEffect(() => {
         setTimeout(() => {
-            this.setState({
-                loading: false,
-            });
-        }, 1500)
-    } catch (err) {
-        console.log(err);
-        this.setState({
-            loading: false,
-        });
-    }
+            setIsLoading(false);
+        }, 3000);
+    }, []);
+
+    const override = `
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    `;
+
+    return isLoading ?
+
+    <PacmanLoader color={'#36D7B7'} isLoading={isLoading}
+        css={override} size={150} /> :
+    <h1 className="App">
+        This is Main Page
+        {<ClockLoader color={'#36D7B7'} isLoading={isLoading}
+        css={override} size={150} />}
+    </h1>
 }
 
-render() {
-    // while checking user session, show "loading" message
-    if (this.state.loading) return LoadingMessage();
-
-    // Otherwise, show the desired route
-    return <WrappedComponent {...this.props} />;
-        }
-    };
-}
-
-export default withSplashScreen;
+export default App;

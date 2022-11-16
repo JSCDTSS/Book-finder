@@ -40,5 +40,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JSCDTSS/Book-finder/issues"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import "./Master.css";
 import { Link, useNavigate, } from "react-router-dom";
 import LoginImage from "./Images/Login.png";
+<<<<<<< HEAD
 import TextForm from "./TextForm";
 import { login } from './utils/backendRequest';
+=======
+import BackArrow from "./icons/arrow-left.svg"
+>>>>>>> Cat
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({

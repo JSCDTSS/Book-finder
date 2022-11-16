@@ -20,7 +20,7 @@ const config =   {
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1
 }
-const port = process.env.PORT
+const port = 3001
 const app = express()
 
 const allowCrossDomain = (req, res, next) => {
