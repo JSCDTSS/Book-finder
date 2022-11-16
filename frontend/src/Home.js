@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LandingPage from './LandingPage';
+import LoginForm from './LoginForm';
 import NavBar from './NavBar';
 
 function Home() {
@@ -34,13 +34,19 @@ function Home() {
 
   return (
     <div className="Home">
+        <div>
+          <p>this is home page</p>
+        </div>
+
+
       {(user.email != "") ? (
         <div className="welcome">
           <h2>Welcome, <span>{user.username}</span></h2>
           <button onClick={Logout}>Logout</button>
         </div>
       ) : (
-        <LandingPage />
+        <LoginForm Login={Login} error={error} />
+        //<LandingPage />
       )}
             <div class="NavBar">
         <NavBar />

@@ -67,11 +67,16 @@ function LoginForm({ Login, error }) {
               value={details.password}
             />
           </div>
-          <input type="submit" value="LOGIN" className="LoginButton" />
+          <input type="submit" value="Login" className="LoginButton" />
 
           <div className="CreateAccountButton">
             <Link to="/CreateAccountForm">
               <button className="SignUpButton">New user? Create Account</button>
+            </Link>
+          </div>
+          <div className="ForgotPasswordButton">
+            <Link to="/ForgotPasswordForm">
+              <button className="ForgotPasswordButton">Forgot Password?</button>
             </Link>
           </div>
         </div>
@@ -80,8 +85,6 @@ function LoginForm({ Login, error }) {
       </div>
       </div>
     </form>
-
-    // TODO: Add forgot password button
   );
 }
 

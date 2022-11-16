@@ -4,9 +4,29 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './index.css';
 import Home from './Home';
 import CreateAccountForm from './CreateAccountForm';
+import ForgotPasswordForm from './ForgotPasswordForm';
 import LandingPage from './LandingPage';
 import LoginForm from './LoginForm';
+import Search from './Search';
+import Bookshelves from './Bookshelves.js';
+import Profile from './Profile';
 import reportWebVitals from './reportWebVitals';
+
+/*
+function isLoggedin(nextState, replace, next) {
+  if (!authenticated) {
+    replace({
+      pathname: "/LandingPage",
+      state: {nextPathname: nextState.location.pathname}
+    });
+  }
+  next();
+}
+
+-- onEnter={isLoggedin}
+
+
+*/
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +37,10 @@ root.render(
         <Route path="/LandingPage" element={<LandingPage/>} />
         <Route path="/LoginForm" element={<LoginForm/>} />
         <Route path="/CreateAccountForm" element={<CreateAccountForm/>} />
+        <Route path="/ForgotPasswordForm" element={<ForgotPasswordForm/>} />
+        <Route path="/Search" element={<Search/>} />
+        <Route path="/Bookshelves" element={<Bookshelves/>} />
+        <Route path="/Profile" element={<Profile/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
