@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Master.css";
 import { Link, useNavigate } from "react-router-dom";
 import LoginImage from "./Images/Login.png";
+import BackArrow from "./icons/arrow-left.svg"
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({

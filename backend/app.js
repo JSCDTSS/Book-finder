@@ -16,7 +16,7 @@ const config =   {
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1
 }
-const port = process.env.PORT
+const port = 3001
 const app = express()
 
 MongoClient.connect(uri, config, function (err, client) {
