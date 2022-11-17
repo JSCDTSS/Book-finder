@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Master.css';
 import { useNavigate, Link } from 'react-router-dom';
-import LoginForm from './components/LoginForm';
+import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
           <button onClick={Logout}>Logout</button>
         </div>
       ) : (
-        <LoginForm Login={Login} error={error} />
+        <LandingPage />
       )}
     </div>
   );
