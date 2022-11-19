@@ -20,14 +20,13 @@ function LoginForm({ Login, error }) {
       })
   };
 
-
   const navigate = useNavigate();
 
   return (
     <form onSubmit={submitHandler}>
       <div className="TopContainer">
-        <div className="BackArrow">
-          <button onClick={() => navigate(-1)}>go back</button>
+        <div classname="BackArrow">
+          <img src={BackArrow} onClick={() => navigate(-1)} />
         </div>
         <h2>Welcome back!</h2>
         <p>Please enter your account details here</p>
