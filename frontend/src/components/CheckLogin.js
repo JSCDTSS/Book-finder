@@ -8,7 +8,6 @@ export default function CheckLogin() {
 
   useEffect(() => { 
     if (!location.state){
-      
       navigate('/')
     }
   },[])

@@ -93,3 +93,17 @@ img {
 input {
   border-radius:5px
 }
+
+/* change these as you see fit */
+.DisplayContainer {
+  border-style: solid;
+  height: 150px;
+  background-color: rgb(182, 182, 144);
+  margin: 5px;
+}
+
+.DisplayContainer p {
+  text-align: left;
+  margin: 5px;
+  background: none;
+}

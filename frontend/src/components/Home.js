@@ -4,8 +4,13 @@ import '../Master.css';
 import { Link, useLocation } from "react-router-dom";
 import Bell from '../icons/bell.svg';
 import CheckLogin from './CheckLogin';
+import SearchBar from './SearchBar';
+import DisplayContainer from './DisplayContainer';
 
 function Home() {
+  const location = useLocation()
+  console.log(location.state)
+
   return (
     <>
       <CheckLogin/>
@@ -18,6 +23,10 @@ function Home() {
           <Link to="/LandingPage">
             <button className="SignUpButton">landinggggg</button>
           </Link>
+          <SearchBar/>
+          <DisplayContainer title='Suggested Books'/>
+          <DisplayContainer title='Trending Books'/>
+          <DisplayContainer title='Follower Updates'/>
         </div>
         <div className="BottomContainer">
           <NavBar />

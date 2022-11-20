@@ -9,7 +9,7 @@ import ForgotPasswordForm from './components/ForgotPasswordForm';
 import ResetPasswordForm from './components/ResetPasswordForm';
 import LandingPage from './components/LandingPage';
 import LoginForm from './components/LoginForm';
-import Search from './components/Search';
+import SearchPage from './components/SearchPage';
 import Bookshelves from './components/Bookshelves.js';
 import Profile from './components/Profile';
 import reportWebVitals from './reportWebVitals';
@@ -28,7 +28,7 @@ root.render(
         <Route path="/CreateAccountForm" element={<CreateAccountForm/>} />
         <Route path="/ForgotPasswordForm" element={<ForgotPasswordForm/>} />
         <Route path="/ResetPasswordForm" element={<ResetPasswordForm/>} />
-        <Route path="/Search" element={<Search/>} />
+        <Route path="/Search" element={<SearchPage/>} />
         <Route path="/Bookshelves" element={<Bookshelves/>} />
         <Route path="/Profile" element={<Profile/>} />
       </Routes>
