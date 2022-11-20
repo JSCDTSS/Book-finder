@@ -11,12 +11,16 @@ function LoginForm({ Login, error }) {
     uniqueId: "",
     password: ""
   });
+  const [validation, setValidation] = useState(false)
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     login(details)
       .then(res => {
-        
+        setValidation(res.data)
+      })
+      .catch(err => {
+        console.log('err')
       })
   };
 
@@ -24,50 +28,53 @@ function LoginForm({ Login, error }) {
   const navigate = useNavigate();
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className="TopContainer">
-        <div className="BackArrow">
-          <button onClick={() => navigate(-1)}>go back</button>
-        </div>
-        <h2>Welcome back!</h2>
-        <p>Please enter your account details here</p>
-      </div>
-      <div className="MainContainer">
-        <div className="form-inner">
-          {error !== "" ? <div className="error">{error}</div> : ""}
-
-          <TextForm
-            id="uniqueId"
-            text="Username/Email"
-            details={details}
-            setDetails={setDetails}
-          />
-
-          <TextForm
-            id="password"
-            text="Password"
-            details={details}
-            setDetails={setDetails}
-          />
-
-          <input type="submit" value="LOGIN" className="LoginButton" />
-
-          <div className="CreateAccountButton">
-            <Link to="/CreateAccountForm">
-              <button className="SignUpButton">New user? Create Account</button>
-            </Link>
+    <>
+      {validation && navigate('/Home')}
+      <form onSubmit={submitHandler}>
+        <div className="TopContainer">
+          <div className="BackArrow">
+            <button onClick={() => navigate(-1)}>go back</button>
           </div>
-          <div className="ForgotPasswordButton">
-            <Link to="/ForgotPasswordForm">
-              <button className="ForgotPasswordButton">Forgot Password?</button>
-            </Link>
+          <h2>Welcome back!</h2>
+          <p>Please enter your account details here</p>
+        </div>
+        <div className="MainContainer">
+          <div className="form-inner">
+            {error !== "" ? <div className="error">{error}</div> : ""}
+
+            <TextForm
+              id="uniqueId"
+              text="Username/Email"
+              details={details}
+              setDetails={setDetails}
+            />
+
+            <TextForm
+              id="password"
+              text="Password"
+              details={details}
+              setDetails={setDetails}
+            />
+
+            <input type="submit" value="LOGIN" className="LoginButton" />
+
+            <div className="CreateAccountButton">
+              <Link to="/CreateAccountForm">
+                <button className="SignUpButton">New user? Create Account</button>
+              </Link>
+            </div>
+            <div className="ForgotPasswordButton">
+              <Link to="/ForgotPasswordForm">
+                <button className="ForgotPasswordButton">Forgot Password?</button>
+              </Link>
+            </div>
+          </div>
+          <div>
+            <img src={LoginImage} alt="Women logging into a computer" />
           </div>
         </div>
-        <div>
-          <img src={LoginImage} alt="Women logging into a computer" />
-        </div>
-      </div>
-    </form>
+      </form>
+    </>
   );
 }
 
