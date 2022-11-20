@@ -11,7 +11,7 @@ function LoginForm({ Login }) {
     uniqueId: "",
     password: ""
   });
-  const [error,setError] = useState(false)
+  const [error, setError] = useState(false)
   const [validation, setValidation] = useState(false)
 
   const submitHandler = async (e) => {
@@ -30,13 +30,13 @@ function LoginForm({ Login }) {
 
   return (
     <>
+      <div className="BackArrow">
+        <button onClick={() => navigate(-1)}>go back</button>
+      </div>
       {validation && navigate('/Home')}
       {error && <p>{error}</p>}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">
-          <div className="BackArrow">
-            <button onClick={() => navigate(-1)}>go back</button>
-          </div>
           <h2>Welcome back!</h2>
           <p>Please enter your account details here</p>
         </div>
