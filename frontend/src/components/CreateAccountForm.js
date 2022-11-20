@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SignUpImage from "../Images/SignUp.png";
 import TextForm from "./TextForm";
 import { createAccount } from '../utils/backendRequest';
+import BackArrow from "./BackArrow";
 
 function CreateAccountForm() {
   const [details, setDetails] = useState({
@@ -29,12 +30,10 @@ function CreateAccountForm() {
 
   return (
     <>
-    {validation && navigate('/Home')}
+      {validation && navigate('/Home')}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">
-          <div className="BackArrow">
-            <button onClick={() => navigate(-1)}>go back</button>
-          </div>
+          <BackArrow />
           <h2>Create your account</h2>
           <p>Please enter your account details here</p>
         </div>
