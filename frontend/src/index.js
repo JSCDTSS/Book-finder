@@ -19,7 +19,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App/>} />
+        {/* temporarily pointing '/' to landing page */}
+        {/* <Route path="/" element={<App/>} /> */}
+        <Route path="/" element={<LandingPage/>} />
         <Route path="/Home" element={<Home/>} />
         <Route path="/LandingPage" element={<LandingPage/>} />
         <Route path="/LoginForm" element={<LoginForm/>} />

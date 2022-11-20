@@ -7,7 +7,7 @@ import SplashPage from "./SplashPage"
 function LandingPage() {
     return (
         <>
-        <SplashPage/>
+        {/* <SplashPage/> */}
         <div className="TopContainer">
         <div className="IntroWords">
             <p>Start your reading journey</p>

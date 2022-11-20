@@ -5,14 +5,21 @@ import SignUpImage from "../Images/SignUp.png";
 import TextForm from "./TextForm";
 import { createAccount } from '../utils/backendRequest';
 
-function CreateAccountForm({ Create, error }) {
+function CreateAccountForm() {
   const [details, setDetails] = useState({ 
     username: "", firstName: "", lastName: "", email: "", password: "", 
   });
+  const [errors,setErrors] = useState([])
 
   const submitHandler = (e) => {
     e.preventDefault();
-    createAccount(details);
+    createAccount(details)
+      .then(res => {
+        console.log('success!')
+      })
+      .catch(err => {
+        setErrors(err?.response?.data?.errors)
+      })
     //then redirect to other page
   };
 
@@ -29,8 +36,12 @@ function CreateAccountForm({ Create, error }) {
       </div>
       <div className="MainContainer">
         <div className="form-inner">
-          {error !== "" ? <div className="error">{error}</div> : ""}
-
+          {/* {error !== "" ? <div className="error">{error}</div> : ""} */}
+          <div className="errors">
+            {errors.map(error => {
+              return <div>{error}</div>
+            })}
+          </div>
           <TextForm
             id="username"
             text="Username"

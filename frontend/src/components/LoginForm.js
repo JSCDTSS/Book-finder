@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../Master.css";
-import { Link, useNavigate, } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginImage from "../Images/Login.png";
 import TextForm from "./TextForm";
 import { login } from '../utils/backendRequest';

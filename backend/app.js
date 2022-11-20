@@ -32,8 +32,11 @@ const allowCrossDomain = (req, res, next) => {
 app.use(allowCrossDomain)
 
 MongoClient.connect(uri, config, function (err, client) {
-  if (err) console.log(err)
-  else app.set('database', new Database(client.db('Book-Finder')))
+  if (err) {
+    console.log(err)
+  } else {
+    app.set('database', new Database(client.db('Book-Finder')))
+  }
 })
 
 app.use(express.json())
