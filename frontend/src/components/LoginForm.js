@@ -30,9 +30,7 @@ function LoginForm({ Login }) {
 
   return (
     <>
-      <div className="BackArrow">
-        <button onClick={() => navigate(-1)}>go back</button>
-      </div>
+      <BackArrow />
       {validation && navigate('/Home', { state: 'test' })}
       {error && <p>{error}</p>}
       <form onSubmit={submitHandler}>

@@ -11,6 +11,15 @@ function Home() {
   const location = useLocation()
   console.log(location.state)
 
+  /**
+   * read the user's preferences, make a client side request to get 
+   * googleBooks api based off of the users preferences
+   * 
+   * when the user is authenticated by server in, return a token,
+   * and also 
+   *    account info required to make front end request
+   */
+
   return (
     <>
       <CheckLogin/>
