@@ -15,6 +15,10 @@ function Profile() {
    *   profile picutre
    *   follows
    *   edit button
+   *      when edit button clicked
+   *        load from database,
+   *        display current info
+   *        show form to update that info
    * 
    * show bookshelves
    */
