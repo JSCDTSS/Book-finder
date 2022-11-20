@@ -6,11 +6,12 @@ import TextForm from "./TextForm";
 import { login } from '../utils/backendRequest';
 import BackArrow from "../icons/arrow-left.svg"
 
-function LoginForm({ Login, error }) {
+function LoginForm({ Login }) {
   const [details, setDetails] = useState({
     uniqueId: "",
     password: ""
   });
+  const [error,setError] = useState(false)
   const [validation, setValidation] = useState(false)
 
   const submitHandler = async (e) => {
@@ -20,7 +21,7 @@ function LoginForm({ Login, error }) {
         setValidation(res.data)
       })
       .catch(err => {
-        console.log('err')
+        setError(err.response.data.error)
       })
   };
 
@@ -30,6 +31,7 @@ function LoginForm({ Login, error }) {
   return (
     <>
       {validation && navigate('/Home')}
+      {error && <p>{error}</p>}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">
           <div className="BackArrow">
