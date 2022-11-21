@@ -125,3 +125,9 @@ input {
     float: left;
     margin: 5px;
 }
+
+.SearchResult {
+    border-style: solid;
+    margin: 3px;
+    border-radius: 5px;
+}

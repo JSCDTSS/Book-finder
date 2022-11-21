@@ -25,7 +25,7 @@ const App = () => {
     <PacmanLoader color={'#36D7B7'} isLoading={isLoading}
         css={override} size={150} /> :
     <h1 className="App">
-        This is Main Page
+        {/* This is Main Page */}
         {<ClockLoader color={'#36D7B7'} isLoading={isLoading}
         css={override} size={150} />}
     </h1>

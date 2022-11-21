@@ -1,7 +1,7 @@
 
 
-const axios = require('axios')
-const fs = require('fs')
+import axios from 'axios'
+// const fs = require('fs')
 
 const booksApi = axios.create({
   baseURL: 'https://www.googleapis.com',
@@ -36,7 +36,7 @@ function logInfo(res) {
 }
 
 function parseNames(res) {
-  return res.data.items.map(item => 
+  return res.data.items.map(item =>
     item.volumeInfo.title
   )
 }
@@ -51,15 +51,15 @@ function parseNames(res) {
 //     });
 // }
 
-function writeToFile(path,data){
-  fs.writeFile(
-    `./${path}`,
-    JSON.stringify(data),
-    function (err) {
-      if (err) return console.log(err);
-      console.log('successful');
-    });
-}
+// function writeToFile(path,data){
+//   fs.writeFile(
+//     `./${path}`,
+//     JSON.stringify(data),
+//     function (err) {
+//       if (err) return console.log(err);
+//       console.log('successful');
+//     });
+// }
 
 ////////////////////////
 
@@ -70,7 +70,7 @@ function searchVolumes(params) {
   })
 }
 
-function parseBasicInfo(res){
+function parseBasicInfo(res) {
   return res.data.items.map(item => ({
     title: item.volumeInfo.title,
     subtitle: item.volumeInfo.subtitle,
@@ -87,18 +87,26 @@ const getBookInfo = createPipeAsync(
   searchVolumes, parseBasicInfo
 )
 
-async function getBooksByPreference(preferences){
-  const byAuthors = await getBooksByCategory('inauthor',preferences.authors)
-  const byGenres = await getBooksByCategory('subject',preferences.genres)
-  const byTypes = await getBooksByCategory('subject',preferences.types)
-  console.log([
+async function getBooksByPreference(preferences) {
+  console.log(preferences)
+  let [byAuthors, byGenres, byTypes] = [[], [], []]
+  if (preferences.authors.length) {
+    byAuthors = await getBooksByCategory('inauthor', preferences.authors)
+  }
+  if (preferences.genres.length) {
+    byGenres = await getBooksByCategory('subject', preferences.genres)
+  }
+  if (preferences.types.length) {
+    byTypes = await getBooksByCategory('subject', preferences.types)
+  }
+  return [
     byAuthors,
     byGenres,
     byTypes
-  ].flat(2))
+  ].flat(2)
 }
 
-function getBooksByCategory(fieldType,preferenceCategories){
+function getBooksByCategory(fieldType, preferenceCategories) {
   return Promise.all(preferenceCategories.map(category => {
     return getBookInfo({
       q: `${fieldType}:${category}`
@@ -112,7 +120,7 @@ const testPreferences = {
   types: ['Fiction']
 }
 
-getBooksByPreference(testPreferences)
+export default getBooksByPreference
 
 /**
  * preferences
