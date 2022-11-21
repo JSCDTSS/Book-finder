@@ -34,17 +34,16 @@ img {
 
 .TopContainer {
     height: 20vh;
-    border: solid;
-    border-color: green;
     padding: 20px;
-    margin: 10px 0;
 }
 
 .MainContainer {
     text-align: center;
     height: 70vh;
-    border: solid;
-    border-color: orange;
+}
+
+.BottomContainer {
+    height: 10vh;
 }
 
 .IntroWords {
@@ -123,8 +122,19 @@ input[type=text], textarea {
 .NavBar {
     list-style-type: none;
     height: 10vh;
-    border: solid;
-    border-color: blueviolet;
+    border-top: 2px solid darkgrey;
+}
+
+.NavBar ul {
+    font-size: x-large;
+    padding: inherit;
+    margin: unset;
+}
+
+.NavBar ul li {
+    display: inline;
+    padding: 1em 1em 0em 1.3em;
+    writing-mode: vertical-lr;
 }
 
 /*Sign-Up Page */
@@ -161,7 +171,16 @@ input {
     border-radius: 5px;
 }
 
-li {
-    display: inline;
-    padding: 1em;
+.SearchResults {
+    height: inherit;
 }
+
+.SearchResults ul {
+    height: inherit;
+    margin: unset;
+    list-style-type: none;
+    padding: inherit;
+    overflow:hidden; 
+    overflow-y:scroll;
+}
+

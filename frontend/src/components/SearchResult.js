@@ -1,12 +1,14 @@
 
-export default function SearchResult({item}){
-  function displayItemInfo(){
+export default function SearchResult({ item }) {
+  function displayItemInfo() {
     //todo
     console.log(item.info)
   }
-  
 
-  return <div className='SearchResult'>
-    <p onClick={displayItemInfo}>{item.title}</p>
-  </div>
+
+  return <li>
+    <div className='SearchResult'>
+      <p onClick={displayItemInfo}>{item.title}</p>
+    </div>
+  </li>
 }

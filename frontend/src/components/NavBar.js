@@ -9,18 +9,20 @@ function NavBar() {
   return (
     <>
       <div className="NavBar">
-        <NavButton
-          path="/Home" text="Home" icon={HomeIcon}
-        />
-        <NavButton
-          path="/Search" text="Search" icon={SearchIcon}
-        />
-        <NavButton
-          path="/Bookshelves" text="My Books" icon={BookmarkIcon}
-        />
-        <NavButton
-          path="/Profile" text="My Profile" icon={ProfileIcon}
-        />
+        <ul>
+          <NavButton
+            path="/Home" text="Home" icon={HomeIcon}
+          />
+          <NavButton
+            path="/Search" text="Search" icon={SearchIcon}
+          />
+          <NavButton
+            path="/Bookshelves" text="My Books" icon={BookmarkIcon}
+          />
+          <NavButton
+            path="/Profile" text="My Profile" icon={ProfileIcon}
+          />
+        </ul>
       </div>
     </>
   );

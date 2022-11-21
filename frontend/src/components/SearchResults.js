@@ -1,7 +1,10 @@
 import SearchResult from "./SearchResult";
+import "../Master.css"
 
-export default function SearchResults({items=[]}){
+export default function SearchResults({ items = [] }) {
   return <div className='SearchResults'>
-    {items.map((item,i) => <SearchResult key={i} item={item}/>)}
+    <ul>
+      {items.map((item, i) => <SearchResult key={i} item={item} />)}
+    </ul>
   </div>
 }
