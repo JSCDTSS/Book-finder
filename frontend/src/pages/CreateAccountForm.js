@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SignUpImage from "../Images/SignUp.png";
 import TextForm from "../components/TextForm";
 import { createAccount } from '../utils/backendRequest';
-import BackArrow from "../icons/arrow-left.svg";
+import BackArrow from "../components/BackArrow";
 
 
 function CreateAccountForm() {
@@ -80,7 +80,7 @@ function CreateAccountForm() {
               setDetails={setDetails}
             />
 
-            <input type="submit" value="LOGIN" className="LoginButton" />
+            <input type="submit" value="SUBMIT" className="LoginButton" />
           </div>
           <div>
             <img src={SignUpImage} alt="Man signing up on a tablet" />
