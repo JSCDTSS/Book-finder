@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../Master.css';
-
+import Password from "../Images/Password.png"
 
 function ResetPasswordForm() {
 
@@ -28,6 +28,9 @@ function ResetPasswordForm() {
             <button>Send Email</button>
             </div>
             <div className="BottomContainer">
+            <div>
+            <img src={Password} alt="Phone with lock symbol"/>
+        </div>
             </div>
         </form>
     );

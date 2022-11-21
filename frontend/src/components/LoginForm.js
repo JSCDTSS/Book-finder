@@ -25,7 +25,6 @@ function LoginForm({ Login }) {
       })
   };
 
-
   const navigate = useNavigate();
 
   return (
@@ -37,6 +36,9 @@ function LoginForm({ Login }) {
         <div className="TopContainer">
           <h2>Welcome back!</h2>
           <p>Please enter your account details here</p>
+        <div classname="BackArrow">
+          <img src={BackArrow} onClick={() => navigate(-1)} />
+        </div>
         </div>
         <div className="MainContainer">
           <div className="form-inner">
