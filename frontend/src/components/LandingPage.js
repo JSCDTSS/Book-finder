@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import '../Master.css'; 
 import GuestArrow from'../icons/arrow-right.svg';
 import Logo from "../Images/Logo.png"
-import SplashPage from "./SplashPage"
+// import SplashPage from "./SplashPage"
 
 function LandingPage() {
     return (
@@ -10,7 +10,7 @@ function LandingPage() {
         {/* <SplashPage/> */}
         <div className="TopContainer">
         <div className="IntroWords">
-            <p>Start your reading journey</p>
+            <h1>Start your reading journey</h1>
             <p>Be part of our community...</p>
         </div>
         </div>

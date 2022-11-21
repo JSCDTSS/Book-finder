@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import SignUpImage from "../Images/SignUp.png";
 import TextForm from "./TextForm";
 import { createAccount } from '../utils/backendRequest';
-import BackArrow from "./BackArrow";
+import BackArrow from "../icons/arrow-left.svg";
+
 
 function CreateAccountForm() {
   const [details, setDetails] = useState({
@@ -36,6 +37,9 @@ function CreateAccountForm() {
           <BackArrow />
           <h2>Create your account</h2>
           <p>Please enter your account details here</p>
+        <div className="BackArrow">
+          <img src={BackArrow} onClick={() => navigate(-1)} alt="Navigation Button that goes back one page"/>
+        </div>
         </div>
         <div className="MainContainer">
           <div className="form-inner">
