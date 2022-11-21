@@ -1,16 +1,18 @@
-*{
+* {
     background-color: snow;
     color: black;
     font-family: sans-serif;
     text-align: center;
     line-height: 20px;
     box-sizing: border-box;
-} 
+}
+
 .TopContainer {
     height: 20vh;
     border: solid;
     border-color: green;
 }
+
 .MainContainer {
     text-align: center;
     height: 70vh;
@@ -23,20 +25,23 @@ li {
     display: inline;
     padding: 1em;
 }
+
 .NavBar {
     list-style-type: none;
     height: 10vh;
     border: solid;
     border-color: blueviolet;
 }
-    
+
 /* Landing page */
 .IntroWords {
     text-align: center;
 }
+
 .Login {
     margin: 10% 10%;
 }
+
 .LoginButton {
     background-color: #C91C73;
     border: #C91C73;
@@ -46,36 +51,42 @@ li {
     width: 70%;
     padding: 1em 1em;
 }
+
 .LoginButton:hover {
     background-color: #EBE9E9;
     border: #C91C73;
     color: #C91C73;
     border-style: solid;
 }
+
 .CreateAccount {
     margin: 10% 10%;
 }
+
 .SignUpButton {
-    background-color:#30CADE;
+    background-color: #30CADE;
     border: #30CADE;
     border-radius: 1em;
-    text-align:center;
+    text-align: center;
     width: 70%;
     padding: 1em 1em;
 }
+
 .SignUpButton:hover {
     background-color: #EBE9E9;
     border: #30CADE;
     color: #30CADE;
     border-style: solid;
 }
+
 .Guest {
-    margin: 10% 10%; 
+    margin: 10% 10%;
 }
+
 .GuestButton {
     color: #1E2753;
     border: none;
-    text-align:center;
+    text-align: center;
     width: 70%;
     padding: 1em 1em;
 }
@@ -91,19 +102,26 @@ img {
 /*Guest Account */
 
 input {
-  border-radius:5px
+    border-radius: 5px
 }
 
 /* change these as you see fit */
 .DisplayContainer {
-  border-style: solid;
-  height: 150px;
-  background-color: rgb(182, 182, 144);
-  margin: 5px;
+    border-style: solid;
+    height: 150px;
+    background-color: rgb(182, 182, 144);
+    margin: 5px;
 }
 
 .DisplayContainer p {
-  text-align: left;
-  margin: 5px;
-  background: none;
+    text-align: left;
+    margin: 5px;
+    background: none;
+}
+
+.DisplayItem img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 5px;
 }

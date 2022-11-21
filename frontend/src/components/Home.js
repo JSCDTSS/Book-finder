@@ -35,7 +35,7 @@ function Home() {
           <SearchBar/>
           <DisplayContainer title='Suggested Books'/>
           <DisplayContainer title='Trending Books'/>
-          <DisplayContainer title='Follower Updates'/>
+          {/* <DisplayContainer title='Follower Updates'/> */}
         </div>
         <div className="BottomContainer">
           <NavBar />

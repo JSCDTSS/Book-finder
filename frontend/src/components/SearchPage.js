@@ -18,7 +18,7 @@ function Search() {
         <SearchBar/>
       </div>
       <div className="MainContainer">
-        <SearchResults items={[]}/>
+        <SearchResults/>
       </div>
       <div className="BottomContainer">
         <NavBar />
