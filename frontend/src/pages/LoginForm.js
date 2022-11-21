@@ -29,16 +29,13 @@ function LoginForm({ Login }) {
 
   return (
     <>
-      <BackArrow />
       {validation && navigate('/Home', { state: 'test' })}
       {error && <p>{error}</p>}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">
+        <BackArrow />
           <h2>Welcome back!</h2>
           <p>Please enter your account details here</p>
-        <div classname="BackArrow">
-          <img src={BackArrow} onClick={() => navigate(-1)} alt="Navigation Button that goes back one page"/>
-        </div>
         </div>
         <div className="MainContainer">
           <div className="form-inner">

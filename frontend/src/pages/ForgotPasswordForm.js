@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Master.css';
 import PasswordReset from "../Images/PasswordReset.gif"
 import { useNavigate } from "react-router-dom";
-import BackArrow from "../icons/arrow-left.svg";
+import BackArrow from "../components/BackArrow";
 
 
 function ForgotPasswordForm() {
@@ -12,10 +12,7 @@ function ForgotPasswordForm() {
     return (
         <form>
             <div className="TopContainer">
-                { /* Glitch with backarrow - doesn't stay on page that it has moved back to */}
-            <div className="BackArrow">
-                <img src={BackArrow} onClick={() => navigate(-1)} alt="Navigation Button that goes back one page"/>
-        </div>
+                <BackArrow />
                 <h2>Password recovery</h2>
                 <p>Enter your email to recover your password</p>
             </div>

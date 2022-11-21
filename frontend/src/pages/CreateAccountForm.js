@@ -37,9 +37,6 @@ function CreateAccountForm() {
           <BackArrow />
           <h2>Create your account</h2>
           <p>Please enter your account details here</p>
-        <div className="BackArrow">
-          <img src={BackArrow} onClick={() => navigate(-1)} alt="Navigation Button that goes back one page"/>
-        </div>
         </div>
         <div className="MainContainer">
           <div className="form-inner">
