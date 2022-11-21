@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../Master.css";
 import { useNavigate } from "react-router-dom";
 import SignUpImage from "../Images/SignUp.png";
-import TextForm from "./TextForm";
+import TextForm from "../components/TextForm";
 import { createAccount } from '../utils/backendRequest';
 import BackArrow from "../icons/arrow-left.svg";
 

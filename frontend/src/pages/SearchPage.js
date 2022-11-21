@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import NavBar from './NavBar';
+import NavBar from '../components/NavBar';
 import '../Master.css';
-import SearchBar from './SearchBar';
-import SearchResults from './SearchResults';
+import SearchBar from '../components/SearchBar';
+import SearchResults from '../components/SearchResults';
 import getBooks from '../utils/request'
 
 const testPreferences = {

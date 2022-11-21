@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "../Master.css";
 import { Link, useNavigate } from "react-router-dom";
 import LoginImage from "../Images/Login.png";
-import TextForm from "./TextForm";
+import TextForm from "../components/TextForm";
 import { login } from '../utils/backendRequest';
-import BackArrow from "./BackArrow"
+import BackArrow from "../components/BackArrow"
 
 function LoginForm({ Login }) {
   const [details, setDetails] = useState({

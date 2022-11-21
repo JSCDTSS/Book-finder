@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import NavBar from './NavBar';
+import NavBar from '../components/NavBar';
 import '../Master.css';
 
 import { Link } from "react-router-dom";
-import DisplayContainer from './DisplayContainer';
-import ProfileInfo from './ProfileInfo';
+import DisplayContainer from '../components/DisplayContainer';
+import ProfileInfo from '../components/ProfileInfo';
 
 
 function Profile() {

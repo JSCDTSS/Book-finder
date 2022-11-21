@@ -5,7 +5,7 @@ export default function NavButton({
 }) {
   return <li>
     <Link to={path} state={{ state: 'test' }}>
-      <button>{text}</button><img src={icon} />
+      <img src={icon} alt={text}/>
     </Link>
   </li>
 }
