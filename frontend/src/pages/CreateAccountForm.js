@@ -31,7 +31,7 @@ function CreateAccountForm() {
 
   return (
     <>
-      {validation && navigate('/Home', { state: 'test' })}
+      {validation && navigate('/Home', { state: validation })}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">
           <BackArrow />
