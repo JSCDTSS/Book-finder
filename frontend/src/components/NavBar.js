@@ -7,8 +7,10 @@ import NavButton from './NavButton';
 
 function NavBar() {
   const location = useLocation()
-  console.log(location.state)
   const permissions = location.state.permissions
+  console.log(permissions)
+  const isModerator = permissions.includes('moderator')
+  const isMember = permissions.includes('member')
 
   return (
     <>
@@ -21,16 +23,14 @@ function NavBar() {
             path="/Search" text="Search" icon={SearchIcon}
           />
           <NavButton
-            path="/Bookshelves" text="My Books" icon={BookmarkIcon} 
-            active={true}
+            path="/Bookshelves" text="My Books" icon={BookmarkIcon} active={isMember}
           />
           <NavButton
-            path="/Profile" text="My Profile" icon={ProfileIcon}
+            path="/Profile" text="My Profile" icon={ProfileIcon} active={isMember}
           />
-          {permissions.includes('moderator') ?? <NavButton
+          {isModerator && <NavButton
             path="/Moderation" text="Moderator" icon={ProfileIcon}
           />}
-
         </ul>
       </div>
     </>

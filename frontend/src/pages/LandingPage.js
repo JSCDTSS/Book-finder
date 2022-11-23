@@ -1,41 +1,48 @@
 import { Link } from 'react-router-dom';
-import '../Master.css'; 
-import GuestArrow from'../icons/arrow-right.svg';
+import '../Master.css';
+import GuestArrow from '../icons/arrow-right.svg';
 import Logo from "../Images/Logo.png"
 // import SplashPage from "./SplashPage"
 
 function LandingPage() {
-    return (
-        <>
-        {/* <SplashPage/> */}
-        <div className="TopContainer">
+  return (
+    <>
+      {/* <SplashPage/> */}
+      <div className="TopContainer">
         <div className="IntroWords">
-            <h1>Start your reading journey</h1>
-            <p>Be part of our community...</p>
+          <h1>Start your reading journey</h1>
+          <p>Be part of our community...</p>
         </div>
-        </div>
-        <div className="MainContainer">
+      </div>
+      <div className="MainContainer">
+
         <div className="Login">
-            <Link to="/LoginForm">
-                <button className="LoginButton">Login</button>
-            </Link>
+          <Link to="/LoginForm">
+            <button className="LoginButton">Login</button>
+          </Link>
         </div>
+
         <div className="CreateAccount">
-            <Link to="/CreateAccountForm">
-                <button className="SignUpButton">Sign Up</button>
-            </Link>
+          <Link to="/CreateAccountForm">
+            <button className="SignUpButton">Sign Up</button>
+          </Link>
         </div>
+
         <div className="GuestLogin">
-            <Link to="/app">
-                <button className="GuestButton"><p>Continue as Guest</p><img src={GuestArrow} alt="Guest Account button" /></button>
-            </Link>
+          <Link to="/Home" state={{permissions: ['basic']}}>
+            <button className="GuestButton">
+              <p>Continue as Guest</p>
+              <img src={GuestArrow} alt="Guest Account button" />
+            </button>
+          </Link>
         </div>
+
         <div>
-            <img src={Logo} alt="Five individuals reading"/>
+          <img src={Logo} alt="Five individuals reading" />
         </div>
-        </div>
-        </>
-    );
+      </div>
+    </>
+  );
 }
 
 export default LandingPage;
