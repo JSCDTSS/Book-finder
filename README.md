@@ -146,10 +146,5 @@ GoogleApi
     
 moderators should be able to change the info of another account
 
-## 16/11
-need the frontend with the database
-  login
-  create account
-
-verify if someone is logged in
-  if not, direct them to landing page
+## 23-11
+return relevant info when user logs in

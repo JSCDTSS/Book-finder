@@ -17,8 +17,6 @@ const testPreferences = {
 }
 
 function Home() {
-  const location = useLocation()
-  console.log(location.state)
   const [suggested, setSuggested] = useState('loading')
   const [trending, setTrending] = useState('loading')
 
