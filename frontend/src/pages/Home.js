@@ -51,30 +51,28 @@ function Home() {
 
   return (
     <>
-      <>
-        <CheckLogin />
-        <div className="Home">
-          <div className="TopContainer">
-            <p>Home</p>
-            <img src={Bell} alt="Notification Bell" />
-          </div>
-          <div className="MainContainer">
-
-            <SearchBar />
-            {isLoadingData()
-              ? <SplashPage />
-              : <>
-                <DisplayContainer title='Suggested Books' items={suggested} />
-                <DisplayContainer title='Trending Books' items={trending} />
-                
-              </>
-            }
-          </div>
-          <div className="BottomContainer">
-            <NavBar />
-          </div>
+      <CheckLogin />
+      <div className="Home">
+        <div className="TopContainer">
+          <p>Home</p>
+          <img src={Bell} alt="Notification Bell" />
         </div>
-      </>
+        <div className="MainContainer">
+
+          <SearchBar />
+          {isLoadingData()
+            ? <SplashPage />
+            : <>
+              <DisplayContainer title='Suggested Books' items={suggested} />
+              <DisplayContainer title='Trending Books' items={trending} />
+
+            </>
+          }
+        </div>
+        <div className="BottomContainer">
+          <NavBar />
+        </div>
+      </div>
     </>
   )
 

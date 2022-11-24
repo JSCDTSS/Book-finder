@@ -79,7 +79,7 @@ module.exports = class Accounts {
   }
 
   async addFollower(followerId, followedId) {
-
+    //followers should be a list of who that person is following i.e. follows
     await this.accounts.updateOne(
       { _id: ObjectId(followedId) }, { $push: { followers: followerId } }
     )

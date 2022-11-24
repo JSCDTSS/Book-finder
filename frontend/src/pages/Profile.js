@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import '../Master.css';
 
-import { Link } from "react-router-dom";
 import DisplayContainer from '../components/DisplayContainer';
 import ProfileInfo from '../components/ProfileInfo';
 
 
 function Profile() {
-  const [profileInfo,setProfileInfo] = useState({})
+
+  const [profileInfo, setProfileInfo] = useState({})
   /**
    * show some profile info
    *   name
@@ -28,12 +28,10 @@ function Profile() {
         <p>Profile</p>
       </div>
       <div className="MainContainer">
-        <Link to="/LandingPage">
-          <button className="SignUpButton">landinggggg</button>
-        </Link>
+        <ProfileInfo profileInfo={profileInfo} />
+        <DisplayContainer title='Bookshelves' />
       </div>
-      <ProfileInfo profileInfo={profileInfo}/> 
-      <DisplayContainer title='Bookshelves'/>
+
       <div className="BottomContainer">
         <NavBar />
       </div>

@@ -8,7 +8,6 @@ import NavButton from './NavButton';
 function NavBar() {
   const location = useLocation()
   const permissions = location.state.permissions
-  console.log(permissions)
   const isModerator = permissions.includes('moderator')
   const isMember = permissions.includes('member')
 

@@ -1,5 +1,5 @@
 
-export default function EditProfile(){
+export default function EditProfile() {
 
   /**
    * preferences
@@ -10,7 +10,11 @@ export default function EditProfile(){
    * 
    */
 
-  return <div className='EditProfile'>
-    edit profile page
-  </div>
+  return <>
+    <div>
+      edit profile page
+    </div>
+  </>
+
+
 }
