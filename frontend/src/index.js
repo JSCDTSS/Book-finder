@@ -13,6 +13,7 @@ import SearchPage from './pages/SearchPage';
 import Bookshelves from './pages/Bookshelves.js';
 import Profile from './pages/Profile';
 import reportWebVitals from './reportWebVitals';
+import EditProfile from './pages/EditProfile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,6 +32,7 @@ root.render(
         <Route path="/Search" element={<SearchPage/>} />
         <Route path="/Bookshelves" element={<Bookshelves/>} />
         <Route path="/Profile" element={<Profile/>} />
+        <Route path="/EditProfile" element={<EditProfile/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
