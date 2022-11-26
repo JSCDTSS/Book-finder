@@ -1,24 +1,23 @@
 
 import BackArrow from './../components/BackArrow';
-import { useLocation } from 'react-router-dom';
-import Radio from './../components/Radio';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { updateSelf } from '../utils/backendRequest';
 
 const genreList = [
   'romance', 'educational', 'sci-fi', 'fantasy', 'horror',
   'manga', 'historical', 'spirituality', 'crime', 'travel'
 ]
-const pageBoundsList = [
-  
-]
+
 
 export default function EditProfile() {
   const location = useLocation()
+  const navigate = useNavigate()
   const [preferences, setPreferences] = useState(location.state.preferences)
 
   useEffect(() => {
-    console.log(preferences)
-  },[])
+    console.log(location.state)
+  }, [preferences])
 
   function setGenres(e) {
     setPreferences(prev => {
@@ -29,7 +28,7 @@ export default function EditProfile() {
         newGenres = prev.genres.filter(genre => genre !== e.target.id)
       }
       // for some reason this function triggers twice, so we need to dedup
-      newGenres = [...new Set(newGenres)] 
+      newGenres = [...new Set(newGenres)]
       return {
         ...prev,
         genres: newGenres
@@ -37,6 +36,23 @@ export default function EditProfile() {
     })
   }
 
+  function setLowerBound(e) {
+    if (!isNaN(e.target.value)) {
+      setPreferences(prev => ({
+        ...prev,
+        pagesLowerBound: e.target.value
+      }))
+    }
+  }
+
+  function setUpperBound(e) {
+    if (!isNaN(e.target.value)) {
+      setPreferences(prev => ({
+        ...prev,
+        pagesUpperBound: e.target.value
+      }))
+    }
+  }
 
 
   return <>
@@ -52,9 +68,16 @@ export default function EditProfile() {
       </div>
     )}
     <p>page numbers</p>
-
-
-    <button>save</button>
+    <input type='text' id='lowerBound' value={preferences.pagesLowerBound} onChange={setLowerBound} />
+    <input type='text' id='upperBound' value={preferences.pagesUpperBound} onChange={setUpperBound} />
+    <div></div>
+    <button onClick={() => {
+      updateSelf(location.state.token, preferences)
+        .then(res => {
+          console.log(res.data)
+          navigate('/Profile', {state: res.data})
+        })
+    }}>Update Preferences</button>
   </>
 
 

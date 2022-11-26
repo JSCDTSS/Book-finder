@@ -2,11 +2,13 @@ require('dotenv').config()
 const jwt = require('jsonwebtoken')
 const secret = process.env.TOKEN_SECRET
 
-module.exports = function verify(req, res, next) {
+module.exports = async function verify(req, res, next) {
   try {
+    const { database } = req.app.locals.settings
     const { authorization } = req.headers
     const token = authorization.split(' ')[1]
-    req.account = jwt.verify(token, secret)
+    const accountId = jwt.verify(token, secret)._id
+    req.account = (await database.accounts.list({ _id: accountId }))[0]
     next()
   } catch (err) {
     res.status(401).json({ ok: false, error: 'invalid authorization' })
