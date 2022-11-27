@@ -54,6 +54,14 @@ export default function EditProfile() {
     }
   }
 
+  function updatePreferences() {
+    updateSelf(location.state.token, preferences)
+      .then(res => {
+        console.log(res.data)
+        navigate('/Profile', { state: res.data })
+      })
+  }
+
 
   return <>
     <BackArrow />
@@ -71,13 +79,7 @@ export default function EditProfile() {
     <input type='text' id='lowerBound' value={preferences.pagesLowerBound} onChange={setLowerBound} />
     <input type='text' id='upperBound' value={preferences.pagesUpperBound} onChange={setUpperBound} />
     <div></div>
-    <button onClick={() => {
-      updateSelf(location.state.token, preferences)
-        .then(res => {
-          console.log(res.data)
-          navigate('/Profile', {state: res.data})
-        })
-    }}>Update Preferences</button>
+    <button onClick={updatePreferences}>Update Preferences</button>
   </>
 
 

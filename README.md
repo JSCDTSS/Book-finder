@@ -146,6 +146,24 @@ GoogleApi
     
 moderators should be able to change the info of another account
 
-## 23-11
-return relevant info when user logs in
-fix the account creation issue
+
+
+## 27-11
+@dtss accounts should be made admin on account creation
+give admins an admin role (ban users)
+  functionatily for mod page
+  search users by username/email
+  ban / suspend users
+    inform users upon login if they are suspended
+tokens expiring
+permissions should affect suggested books on home
+search page should have categories
+make bookshelves frontend
+fix edit profile page
+Touch up visuals to closer match wireframes - think about desktop viewing
+get moderator icon
+
+UI/UX
+Security
+Accessibility
+well structured code base
