@@ -5,7 +5,7 @@ import axios from 'axios'
 const booksApi = axios.create({
   baseURL: 'https://www.googleapis.com',
   method: 'get',
-  timeout: 1000
+  timeout: 2000
 })
 
 function createPipeAsync(...functions) {
@@ -18,6 +18,7 @@ function createPipeAsync(...functions) {
 }
 
 function searchVolumes(params) {
+  console.log(params)
   return booksApi.request({
     url: '/books/v1/volumes',
     params,
@@ -32,8 +33,13 @@ function parseBasicInfo(res) {
 }
 
 const getBookInfo = createPipeAsync(
-  searchVolumes, parseBasicInfo
+  searchVolumes, echo, parseBasicInfo
 )
+
+function echo(arg) {
+  console.log(arg)
+  return arg
+}
 
 async function getBooksByPreference(preferences) {
   let [byAuthors, byGenres, byTitles] = [[], [], []]
@@ -44,7 +50,7 @@ async function getBooksByPreference(preferences) {
     byGenres = await getBooksByCategory('subject', preferences.genres)
   }
   if (preferences?.titles?.length) {
-    byTitles = await getBooksByCategory('', preferences.titles)
+    byTitles = await getBooksByCategory('intitle', preferences.titles)
   }
   return [
     byAuthors,
@@ -56,25 +62,10 @@ async function getBooksByPreference(preferences) {
 function getBooksByCategory(fieldType, preferenceCategories) {
   return Promise.all(preferenceCategories.map(category => {
     return getBookInfo({
-      q: `${fieldType}:${category}`
+      q: `${fieldType}:${category}`,
+      maxResults: 40
     })
   }))
 }
 
 export default getBooksByPreference
-
-/**
- * preferences
- *      genres
- *      authors
- *      types (fiction, non fiction)
- *
- * pages can't be queried for, so we filter afterwards
- *
- * when the user does a search, return books most appropriate to their search parameters
- * when the user enters the home page, return books more appropraite to their preferences
- */
-
-// genre: subject:<NAME>
-// title: pride+prejudice
-// title+author: flowers+inauthor:keyes

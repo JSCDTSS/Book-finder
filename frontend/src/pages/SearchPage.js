@@ -15,13 +15,10 @@ function Search() {
   const [searchType, setSearchType] = useState('genres')
 
   function makeRequest() {
-    const tempReq = { [searchType]: [searchValue] }
+    const request = { [searchType]: [searchValue] }
 
-
-    console.log(tempReq)
-    getBooks(tempReq)
+    getBooks(request)
       .then(res => {
-        console.log(res)
         setSearchResults(res)
       })
 

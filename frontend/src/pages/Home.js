@@ -6,44 +6,26 @@ import Bell from '../icons/bell.svg';
 import CheckLogin from '../components/CheckLogin';
 import SearchBar from '../components/SearchBar';
 import DisplayContainer from '../components/DisplayContainer';
-import TestRequest from '../components/TestRequest';
-import getBooks from '../utils/request'
+import getBooksByPreferences from '../utils/getBookPreferences';
 import SplashPage from './SplashPage'
-
-const testPreferences = {
-  authors: ['Brittany Nightshade'],
-  genres: ['Fantasy'],
-  types: ['Fiction']
-}
 
 function Home() {
   const [suggested, setSuggested] = useState('loading')
   const [trending, setTrending] = useState('loading')
+  const preferences = useLocation()?.state?.preferences
 
   useEffect(() => {
-    getBooks(testPreferences)
+    getBooksByPreferences(preferences)
       .then(books => {
+        console.log(books)
         setSuggested(
-          books.slice(0, 3).map(book => ({
-            image: book.imageLinks.thumbnail
-          }))
+          books.slice(0, 3)
         )
         setTrending(
-          books.slice(3, 6).map(book => ({
-            image: book.imageLinks?.thumbnail
-          }))
+          books.slice(3, 6)
         )
       })
   }, [])
-
-  /**
-   * read the user's preferences, make a client side request to get 
-   * googleBooks api based off of the users preferences
-   * 
-   * when the user is authenticated by server in, return a token,
-   * and also 
-   *    account info required to make front end request
-   */
 
   function isLoadingData() {
     return suggested === 'loading' || trending === 'loading'

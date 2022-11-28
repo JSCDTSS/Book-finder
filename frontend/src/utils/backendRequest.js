@@ -24,7 +24,6 @@ export function login(params) {
 }
 
 export function updateSelf(token,preferences) {
-  console.log(preferences)
   return backendRequest.request({
     url: '/accounts/update-self',
     method: 'post',

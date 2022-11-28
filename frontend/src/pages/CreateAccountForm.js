@@ -18,7 +18,6 @@ function CreateAccountForm() {
     e.preventDefault();
     createAccount(details)
       .then(res => {
-        console.log('success!')
         setValidation(res.data)
       })
       .catch(err => {

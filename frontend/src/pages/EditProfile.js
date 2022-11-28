@@ -15,10 +15,6 @@ export default function EditProfile() {
   const navigate = useNavigate()
   const [preferences, setPreferences] = useState(location.state.preferences)
 
-  useEffect(() => {
-    console.log(location.state)
-  }, [preferences])
-
   function setGenres(e) {
     setPreferences(prev => {
       let newGenres = prev.genres
@@ -57,7 +53,6 @@ export default function EditProfile() {
   function updatePreferences() {
     updateSelf(location.state.token, preferences)
       .then(res => {
-        console.log(res.data)
         navigate('/Profile', { state: res.data })
       })
   }
