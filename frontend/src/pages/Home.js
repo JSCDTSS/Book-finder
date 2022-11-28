@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import {useLocation} from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import '../Master.css';
 import Bell from '../icons/bell.svg';
