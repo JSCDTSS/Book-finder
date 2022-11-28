@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import '../Master.css';
-import { Link, useLocation } from "react-router-dom";
 import Bell from '../icons/bell.svg';
 import CheckLogin from '../components/CheckLogin';
 import SearchBar from '../components/SearchBar';
 import DisplayContainer from '../components/DisplayContainer';
-import TestRequest from '../components/TestRequest';
 import getBooks from '../utils/request'
 import SplashPage from './SplashPage'
 

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './index.css';
-import App from './app';
 import Home from './pages/Home';
 import CreateAccountForm from './pages/CreateAccountForm';
 import ForgotPasswordForm from './pages/ForgotPasswordForm';
@@ -12,11 +11,6 @@ import LoginForm from './pages/LoginForm';
 import SearchPage from './pages/SearchPage';
 import Bookshelves from './pages/Bookshelves';
 import Profile from './pages/Profile';
-import BookLanding from './pages/BookLanding';
-import BookPreferences from './pages/BookPreferences';
-import BookType from './pages/BookType';
-import BookGenre from './pages/BookGenre';
-import BookPages from './pages/BookPages';
 import reportWebVitals from './reportWebVitals';
 import EditProfile from './pages/EditProfile';
 
@@ -34,11 +28,6 @@ root.render(
         <Route path="/CreateAccountForm" element={<CreateAccountForm/>} />
         <Route path="/ForgotPasswordForm" element={<ForgotPasswordForm/>} />
         <Route path="/ResetPasswordForm" element={<ResetPasswordForm/>} />
-        <Route path='BookLanding' element={<BookLanding/>} />
-        <Route path="/BookPreferences" element={<BookPreferences/>} />
-        <Route path="/BookType" element={<BookType/>} />
-        <Route path="/BookGenre" element={<BookGenre/>} />
-        <Route path="/BookPages" element={<BookPages/>} />
         <Route path="/Search" element={<SearchPage/>} />
         <Route path="/Bookshelves" element={<Bookshelves/>} />
         <Route path="/Profile" element={<Profile/>} />
