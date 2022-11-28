@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import '../Master.css';
-import { Link, useLocation } from "react-router-dom";
 import Bell from '../icons/bell.svg';
 import CheckLogin from '../components/CheckLogin';
 import SearchBar from '../components/SearchBar';
@@ -19,10 +18,14 @@ function Home() {
       .then(books => {
         console.log(books)
         setSuggested(
-          books.slice(0, 3)
+          books.slice(0, 30).map(book => ({
+            image: book.imageLinks.thumbnail
+          }))
         )
         setTrending(
-          books.slice(3, 6)
+          books.slice(30, 60).map(book => ({
+            image: book.imageLinks?.thumbnail
+          }))
         )
       })
   }, [])
@@ -36,7 +39,7 @@ function Home() {
       <CheckLogin />
       <div className="Home">
         <div className="TopContainer">
-          <p>Home</p>
+          <h1>Home</h1>
           <img src={Bell} alt="Notification Bell" />
         </div>
         <div className="MainContainer">
@@ -45,8 +48,14 @@ function Home() {
           {isLoadingData()
             ? <SplashPage />
             : <>
-              <DisplayContainer title='Suggested Books' items={suggested} />
-              <DisplayContainer title='Trending Books' items={trending} />
+              <div className='HomeContentTitle'>
+                <p>Suggested Books</p>
+              </div>
+              <DisplayContainer items={suggested} />
+              <div className='HomeContentTitle'>
+                <p>Popular Books</p>
+              </div>
+              <DisplayContainer items={trending} />
 
             </>
           }

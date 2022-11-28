@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Master.css";
 import { Link, useNavigate } from "react-router-dom";
 import LoginImage from "../Images/Login.png";
@@ -29,7 +29,9 @@ function LoginForm({ Login }) {
 
   return (
     <>
+    {useEffect(() => {
       {validation && navigate('/Home', { state: validation })}
+      }, [validation])}
       {error && <p>{error}</p>}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">
@@ -38,7 +40,7 @@ function LoginForm({ Login }) {
           <p>Please enter your account details here</p>
         </div>
         <div className="MainContainer">
-          <div className="form-inner">
+          <div className="FormInner">
             {error !== "" ? <div className="error">{error}</div> : ""}
 
             <TextForm
@@ -55,7 +57,7 @@ function LoginForm({ Login }) {
               setDetails={setDetails}
             />
 
-            <input type="submit" value="LOGIN" className="LoginButton" />
+            <input type="submit" value="Login" className="LoginButton" />
 
             <div className="CreateAccountButton">
               <Link to="/CreateAccountForm">
