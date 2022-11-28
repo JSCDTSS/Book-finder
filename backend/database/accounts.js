@@ -49,10 +49,10 @@ module.exports = class Accounts {
     else throw new Error('failed update')
   }
 
-  async getByUniqueId(uniqueId) {
+  async getByUniqueId(uniqueId, projection = {}) {
     const filter = uniqueId.includes('@')
       ? { email: uniqueId } : { username: uniqueId }
-    const accounts = await this.list(filter)
+    const accounts = await this.list(filter, projection)
 
     switch (accounts.length) {
       case 1:
@@ -71,7 +71,7 @@ module.exports = class Accounts {
     return (result?.acknowledged)
   }
 
-  async removeBookshelf(ownerId,bookshelfId){
+  async removeBookshelf(ownerId, bookshelfId) {
     const result = await this.accounts.updateOne(
       { _id: ObjectId(ownerId) }, { $pull: { bookshelves: bookshelfId } }
     )
@@ -79,7 +79,7 @@ module.exports = class Accounts {
   }
 
   async addFollower(followerId, followedId) {
-
+    //followers should be a list of who that person is following i.e. follows
     await this.accounts.updateOne(
       { _id: ObjectId(followedId) }, { $push: { followers: followerId } }
     )

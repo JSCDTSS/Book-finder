@@ -31,7 +31,7 @@ function CreateAccountForm() {
 
   return (
     <>
-      {validation && navigate('/Home', { state: 'test' })}
+      {validation && navigate('/Home', { state: validation })}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">
           <BackArrow />
@@ -40,7 +40,6 @@ function CreateAccountForm() {
         </div>
         <div className="MainContainer">
           <div className="form-inner">
-            {/* {error !== "" ? <div className="error">{error}</div> : ""} */}
             <div className="errors">
               {errors.map((error, i) => {
                 return <div key={i}>{error}</div>

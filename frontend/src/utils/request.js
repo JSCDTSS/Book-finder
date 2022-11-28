@@ -1,7 +1,6 @@
 
 
 import axios from 'axios'
-// const fs = require('fs')
 
 const booksApi = axios.create({
   baseURL: 'https://www.googleapis.com',
@@ -9,16 +8,6 @@ const booksApi = axios.create({
   timeout: 1000
 })
 
-/* 
-    a pipe is a function that is composed of other functions,
-    eg. suppose we have a variable v, and functions f,g and h
-
-    const newPipe = createPipe(f,g,h)
-
-    if we called newPipe(v), we would essentially do the following
-    return f(g(h(v)))
-    so we call f on v, then g on the result, then on the next result
-*/
 function createPipeAsync(...functions) {
   return function (initialValue) {
     return functions.reduce(
@@ -28,41 +17,6 @@ function createPipeAsync(...functions) {
   }
 }
 
-function logInfo(res) {
-  console.log(`total items: ${res.data.totalItems}`)
-  res.data.items.forEach(item => {
-    console.log(item)
-  })
-}
-
-function parseNames(res) {
-  return res.data.items.map(item =>
-    item.volumeInfo.title
-  )
-}
-
-// function saveResponseData(res) {
-//   fs.writeFile(
-//     './exampleData.json',
-//     JSON.stringify(res.data),
-//     function (err) {
-//       if (err) return console.log(err);
-//       console.log('Hello World');
-//     });
-// }
-
-// function writeToFile(path,data){
-//   fs.writeFile(
-//     `./${path}`,
-//     JSON.stringify(data),
-//     function (err) {
-//       if (err) return console.log(err);
-//       console.log('successful');
-//     });
-// }
-
-////////////////////////
-
 function searchVolumes(params) {
   return booksApi.request({
     url: '/books/v1/volumes',
@@ -71,15 +25,9 @@ function searchVolumes(params) {
 }
 
 function parseBasicInfo(res) {
+  if (!res.data.items) return []
   return res.data.items.map(item => ({
-    title: item.volumeInfo.title,
-    subtitle: item.volumeInfo.subtitle,
-    authors: item.volumeInfo.authors,
-    imageLinks: item.volumeInfo.imageLinks,
-    industryIdentifiers: item.volumeInfo.industryIdentifiers,
-    averageRating: item.volumeInfo.averageRating,
-    ratingsCount: item.volumeInfo.ratingsCount,
-    pageCount: item.volumeInfo.pageCount
+    ...item.volumeInfo
   }))
 }
 
@@ -88,21 +36,20 @@ const getBookInfo = createPipeAsync(
 )
 
 async function getBooksByPreference(preferences) {
-  console.log(preferences)
-  let [byAuthors, byGenres, byTypes] = [[], [], []]
-  if (preferences.authors.length) {
+  let [byAuthors, byGenres, byTitles] = [[], [], []]
+  if (preferences?.authors?.length) {
     byAuthors = await getBooksByCategory('inauthor', preferences.authors)
   }
-  if (preferences.genres.length) {
+  if (preferences?.genres?.length) {
     byGenres = await getBooksByCategory('subject', preferences.genres)
   }
-  if (preferences.types.length) {
-    byTypes = await getBooksByCategory('subject', preferences.types)
+  if (preferences?.titles?.length) {
+    byTitles = await getBooksByCategory('', preferences.titles)
   }
   return [
     byAuthors,
     byGenres,
-    byTypes
+    byTitles
   ].flat(2)
 }
 
@@ -112,12 +59,6 @@ function getBooksByCategory(fieldType, preferenceCategories) {
       q: `${fieldType}:${category}`
     })
   }))
-}
-
-const testPreferences = {
-  authors: ['Brittany Nightshade'],
-  genres: ['Fantasy'],
-  types: ['Fiction']
 }
 
 export default getBooksByPreference

@@ -26,7 +26,7 @@ module.exports = function (app) {
   app.post('/accounts/create', checkNewAccountValid, createAccount, authenticate)
 
   app.get('/accounts/list', verify, searchAccounts)
-  app.post('/accounts/update-self', verify, updateAccount)
+  app.post('/accounts/update-self', verify, updateAccount, authenticate)
   app.post('/accounts/update-other', verify, updateAccountOther)
 
   app.get('/bookshelves/user', verify, getUserBookshelves)

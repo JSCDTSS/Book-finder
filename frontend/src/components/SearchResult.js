@@ -2,7 +2,7 @@
 export default function SearchResult({ item }) {
   function displayItemInfo() {
     //todo
-    console.log(item.info)
+    console.log(item.description)
   }
 
 

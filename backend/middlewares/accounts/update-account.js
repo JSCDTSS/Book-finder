@@ -1,10 +1,9 @@
 
-module.exports = async function (req, res) {
+module.exports = async function (req, res, next) {
   const { database } = req.app.locals.settings
   const newAccountInfo = req.body
-  const accountId = req.account._id
-
-  const result = await database.accounts.update(accountId, newAccountInfo)
-  res.json({ ok: result })
-  
+  console.log(newAccountInfo)
+  await database.accounts.update(req.account._id, newAccountInfo)
+  req.account = (await database.accounts.list({_id: req.account._id}))[0]
+  next()
 }
