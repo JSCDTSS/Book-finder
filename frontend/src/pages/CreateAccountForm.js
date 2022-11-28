@@ -39,7 +39,7 @@ function CreateAccountForm() {
           <p>Please enter your account details here</p>
         </div>
         <div className="MainContainer">
-          <div className="form-inner">
+          <div className="FormInner">
             <div className="errors">
               {errors.map((error, i) => {
                 return <div key={i}>{error}</div>
@@ -76,7 +76,7 @@ function CreateAccountForm() {
               setDetails={setDetails}
             />
 
-            <input type="submit" value="SUBMIT" className="LoginButton" />
+            <input type="submit" value="Submit" className="LoginButton" />
           </div>
           <div>
             <img src={SignUpImage} alt="Man signing up on a tablet" />

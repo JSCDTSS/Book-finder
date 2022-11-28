@@ -16,7 +16,7 @@ function LandingPage() {
       </div>
       <div className="LandingBackImage">
         <div className="MainContainer">
-          <div className="LandingFormInner">
+          <div className="FormInner">
 
             <div className="Login">
               <Link to="/LoginForm">

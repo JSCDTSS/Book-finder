@@ -40,7 +40,7 @@ function LoginForm({ Login }) {
           <p>Please enter your account details here</p>
         </div>
         <div className="MainContainer">
-          <div className="form-inner">
+          <div className="FormInner">
             {error !== "" ? <div className="error">{error}</div> : ""}
 
             <TextForm
@@ -57,7 +57,7 @@ function LoginForm({ Login }) {
               setDetails={setDetails}
             />
 
-            <input type="submit" value="LOGIN" className="LoginButton" />
+            <input type="submit" value="Login" className="LoginButton" />
 
             <div className="CreateAccountButton">
               <Link to="/CreateAccountForm">
