@@ -53,6 +53,9 @@ img {
 .BottomContainer {
     display: flex;
     height: 10vh;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .IntroWords {
@@ -132,18 +135,22 @@ input[type=text], textarea {
     list-style-type: none;
     height: 10vh;
     border-top: 2px solid #A9A9A9;
+    width: inherit;
+    display: flex;
+    align-items: center;
 }
 
 .NavBar ul {
     font-size: x-large;
     padding: inherit;
     margin: unset;
+    justify-content: space-around;
+    width: 100%;
+    display: flex;
 }
 
 .NavBar ul li {
     display: inline;
-    padding: 1em 1em 0em 1.3em;
-    writing-mode: vertical-lr;
 }
 
 /*Sign-Up Page */
