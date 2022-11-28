@@ -117,14 +117,17 @@ img {
 .Guest {
     margin: 10% 10%;
 }
+
 .GuestButton , .ForgotPasswordButton{
     color: #1E2753;
     background-color: #FFFAFA;
     border: none;
-    text-align: center;
-    padding: 1em 1em;
-    align-content: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 input[type=text], textarea {
     font-weight: bold;
     padding: 10px;
