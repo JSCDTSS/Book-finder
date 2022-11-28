@@ -9,10 +9,12 @@ const tempItem = {
 
 export default function DisplayContainer({title='',items=[tempItem,tempItem,tempItem]}){
   return <div className='DisplayContainer'>
+    <ul>
     {title && <p>{title}</p>}
     <div className='Content'>
       {items.map((item,i) => <DisplayItem item={item} key={i}/>)}
     </div>
+    </ul>
   </div>
 
 }

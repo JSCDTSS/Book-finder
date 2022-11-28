@@ -30,7 +30,7 @@ function LoginForm({ Login }) {
   return (
     <>
     {useEffect(() => {
-      {validation && navigate('/Home', { state: 'test' })}
+      {validation && navigate('/Home', { state: validation })}
       }, [validation])}
       {error && <p>{error}</p>}
       <form onSubmit={submitHandler}>

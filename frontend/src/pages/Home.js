@@ -11,7 +11,7 @@ import getBooks from '../utils/request'
 import SplashPage from './SplashPage'
 
 const testPreferences = {
-  authors: ['Brittany Nightshade'],
+  authors: [''],
   genres: ['Fantasy'],
   types: ['Fiction']
 }
@@ -24,12 +24,12 @@ function Home() {
     getBooks(testPreferences)
       .then(books => {
         setSuggested(
-          books.slice(0, 3).map(book => ({
+          books.slice(0, 10).map(book => ({
             image: book.imageLinks.thumbnail
           }))
         )
         setTrending(
-          books.slice(3, 6).map(book => ({
+          books.slice(10, 20).map(book => ({
             image: book.imageLinks?.thumbnail
           }))
         )
@@ -54,7 +54,7 @@ function Home() {
       <CheckLogin />
       <div className="Home">
         <div className="TopContainer">
-          <p>Home</p>
+          <h1>Home</h1>
           <img src={Bell} alt="Notification Bell" />
         </div>
         <div className="MainContainer">
@@ -63,8 +63,14 @@ function Home() {
           {isLoadingData()
             ? <SplashPage />
             : <>
-              <DisplayContainer title='Suggested Books' items={suggested} />
-              <DisplayContainer title='Trending Books' items={trending} />
+              <div className='HomeContentTitle'>
+                <p>Suggested Books</p>
+              </div>
+              <DisplayContainer items={suggested} />
+              <div className='HomeContentTitle'>
+                <p>Trending Books</p>
+              </div>
+              <DisplayContainer items={trending} />
 
             </>
           }
