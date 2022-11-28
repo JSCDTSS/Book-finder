@@ -10,8 +10,13 @@ import ResetPasswordForm from './pages/ResetPasswordForm';
 import LandingPage from './pages/LandingPage';
 import LoginForm from './pages/LoginForm';
 import SearchPage from './pages/SearchPage';
-import Bookshelves from './pages/Bookshelves.js';
+import Bookshelves from './pages/Bookshelves';
 import Profile from './pages/Profile';
+import BookLanding from './pages/BookLanding';
+import BookPreferences from './pages/BookPreferences';
+import BookType from './pages/BookType';
+import BookGenre from './pages/BookGenre';
+import BookPages from './pages/BookPages';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,6 +33,11 @@ root.render(
         <Route path="/CreateAccountForm" element={<CreateAccountForm/>} />
         <Route path="/ForgotPasswordForm" element={<ForgotPasswordForm/>} />
         <Route path="/ResetPasswordForm" element={<ResetPasswordForm/>} />
+        <Route path='BookLanding' element={<BookLanding/>} />
+        <Route path="/BookPreferences" element={<BookPreferences/>} />
+        <Route path="/BookType" element={<BookType/>} />
+        <Route path="/BookGenre" element={<BookGenre/>} />
+        <Route path="/BookPages" element={<BookPages/>} />
         <Route path="/Search" element={<SearchPage/>} />
         <Route path="/Bookshelves" element={<Bookshelves/>} />
         <Route path="/Profile" element={<Profile/>} />
