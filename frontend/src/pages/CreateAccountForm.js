@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../Master.css";
 import { useNavigate } from "react-router-dom";
-import SignUpImage from "../Images/SignUp.png";
 import TextForm from "../components/TextForm";
 import { createAccount } from '../utils/backendRequest';
 import BackArrow from "../components/BackArrow";
@@ -37,48 +36,47 @@ function CreateAccountForm() {
           <h2>Create your account</h2>
           <p>Please enter your account details here</p>
         </div>
-        <div className="MainContainer">
-          <div className="FormInner">
-            <div className="errors">
-              {errors.map((error, i) => {
-                return <div key={i}>{error}</div>
-              })}
-            </div>
-            <TextForm
-              id="username"
-              text="Username"
-              details={details}
-              setDetails={setDetails}
-            />
-            <TextForm
-              id="firstName"
-              text="First Name"
-              details={details}
-              setDetails={setDetails}
-            />
-            <TextForm
-              id="lastName"
-              text="Last Name"
-              details={details}
-              setDetails={setDetails}
-            />
-            <TextForm
-              id="email"
-              text="Email"
-              details={details}
-              setDetails={setDetails}
-            />
-            <TextForm
-              id="password"
-              text="Password"
-              details={details}
-              setDetails={setDetails}
-            />
+        <div className="CreateBackImage">
+          <div className="MainContainer">
+            <div className="FormInner">
+              <div className="errors">
+                {errors.map((error, i) => {
+                  return <div key={i}>{error}</div>
+                })}
+              </div>
+              <TextForm
+                id="username"
+                text="Username"
+                details={details}
+                setDetails={setDetails}
+              />
+              <TextForm
+                id="firstName"
+                text="First Name"
+                details={details}
+                setDetails={setDetails}
+              />
+              <TextForm
+                id="lastName"
+                text="Last Name"
+                details={details}
+                setDetails={setDetails}
+              />
+              <TextForm
+                id="email"
+                text="Email"
+                details={details}
+                setDetails={setDetails}
+              />
+              <TextForm
+                id="password"
+                text="Password"
+                details={details}
+                setDetails={setDetails}
+              />
 
-            <input type="submit" value="Submit" className="LoginButton" />
-          </div>
-          <div>
-            <img src={SignUpImage} alt="Man signing up on a tablet" />
+              <input type="submit" value="Submit" className="LoginButton" />
+            </div>
           </div>
         </div>
       </form>

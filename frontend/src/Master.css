@@ -30,11 +30,12 @@ img {
     justify-content: space-between;
     align-items: baseline;
     max-height: 20vh;
-    padding: 20px;
+    padding: 0 20px;
 }
 
-.TopContainer h2 {
+.TopContainer h1, h2 {
     flex-grow: 2;
+    margin-top: 5vh;
 }
 
 .MainContainer {
@@ -57,6 +58,22 @@ img {
 
 .LandingBackImage {
     background-image: url('Images/Logo.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 80vh;
+}
+
+.LoginBackImage {
+    background-image: url('Images/Login.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 80vh;
+}
+
+.CreateBackImage {
+    background-image: url('Images/SignUp.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: bottom;

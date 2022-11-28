@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "localtunnel": "^2.0.2",
-    "yarn": "^1.22.19",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.10.14"
-  }
-}
