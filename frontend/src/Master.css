@@ -184,3 +184,10 @@ input {
     overflow-y:scroll;
 }
 
+/* sam did some more temp stuff
+    it styles the button that is currently selected
+    on search page
+*/
+.selected {
+    border-radius: 10px;;
+}

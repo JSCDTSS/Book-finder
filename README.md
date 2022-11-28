@@ -150,6 +150,7 @@ moderators should be able to change the info of another account
 
 ## 27-11
 @dtss accounts should be made admin on account creation
+
 give admins an admin role (ban users)
   functionatily for mod page
   search users by username/email
@@ -157,13 +158,19 @@ give admins an admin role (ban users)
     inform users upon login if they are suspended
 tokens expiring
 permissions should affect suggested books on home
-search page should have categories
 make bookshelves frontend
-fix edit profile page
 Touch up visuals to closer match wireframes - think about desktop viewing
 get moderator icon
+hide password on password field
+add a modal to books being displayed
+address vulnerabilities (npm audit)
 
 UI/UX
 Security
 Accessibility
 well structured code base
+
+styling
+
+during walkthrough
+    show change in database

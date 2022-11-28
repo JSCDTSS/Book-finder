@@ -1,36 +1,27 @@
 import React, { useState } from 'react';
-import NavBar from '../components/NavBar';
+
 import '../Master.css';
+import Arrow from '../icons/arrow-right.svg';
+import getBooks from '../utils/request';
+
+import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
 import SearchResults from '../components/SearchResults';
-import getBooks from '../utils/request';
-import Arrow from '../icons/arrow-right.svg';
-
-const testPreferences = {
-  authors: [],
-  genres: [],
-  types: []
-}
+import SearchButtons from './SearchButtons';
 
 function Search() {
   const [searchValue, setSearchValue] = useState('')
   const [searchResults, setSearchResults] = useState([])
-  /**
-   * make client side request based off search criteria to 
-   * googleBooks api 
-   */
+  const [searchType, setSearchType] = useState('genres')
 
   function makeRequest() {
-    const tempReq = {
-      ...testPreferences,
-      genres: [searchValue]
-    }
-    if (!searchValue) {
-      tempReq.genres = []
-    }
+    const tempReq = { [searchType]: [searchValue] }
+
+
     console.log(tempReq)
     getBooks(tempReq)
       .then(res => {
+        console.log(res)
         setSearchResults(res)
       })
 
@@ -43,11 +34,15 @@ function Search() {
   return (
     <div className="Search">
       <div className="TopContainer">
-        <SearchBar value={searchValue} setValue={updateSearchBar} />
+        <SearchBar
+          value={searchValue} setValue={updateSearchBar}
+        />
+        <SearchButtons
+          type={searchType} setType={setSearchType} />
         <img src={Arrow} onClick={makeRequest} alt="Search button" />
       </div>
       <div className="MainContainer">
-          <SearchResults items={searchResults} />
+        <SearchResults items={searchResults} />
       </div>
       <div className="BottomContainer">
         <NavBar />
