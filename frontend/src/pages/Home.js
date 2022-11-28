@@ -68,7 +68,7 @@ function Home() {
               </div>
               <DisplayContainer items={suggested} />
               <div className='HomeContentTitle'>
-                <p>Trending Books</p>
+                <p>Popular Books</p>
               </div>
               <DisplayContainer items={trending} />
 

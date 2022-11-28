@@ -1,5 +1,5 @@
 /* Universal Styling Choices */
-*{
+body{
     background-color: #FFFAFA;
     color: #000000;
     font-family: sans-serif;
@@ -24,15 +24,6 @@ img {
     /* margin-top: 2em; */
 }
 
-
-/* Landing, Log in, Account creation pages */
-
-/* .BackArrow button {
-    align-items: left;
-    align-self: left;
-    align-content: left;
-} */
-
 .TopContainer {
     display: flex;
     flex-wrap: wrap;
@@ -40,6 +31,10 @@ img {
     align-items: baseline;
     max-height: 20vh;
     padding: 20px;
+}
+
+.TopContainer h2 {
+    flex-grow: 2;
 }
 
 .MainContainer {
@@ -58,12 +53,24 @@ img {
     width: 100%;
 }
 
-.IntroWords {
-    text-align: center;
+/* Landing, Log in, Account creation pages */
+
+.LandingBackImage {
+    background-image: url('Images/Logo.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 80vh;
 }
 
-.Login {
-    margin: 10% 10%;
+.LandingFormInner {
+    width: 70%;
+}
+
+.IntroWords {
+    text-align: center;
+    width: fill-available;
+    padding-top: 3vh;
 }
 
 .LoginButton {
@@ -73,7 +80,8 @@ img {
     border-radius: 1em;
     transition-duration: 0.4s;
     text-align: center;
-    width: 70%;
+    height: 6vh;
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
     box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
@@ -86,17 +94,14 @@ img {
     border-style: solid;
 }
 
-.CreateAccount {
-    margin: 10% 10%;
-}
-
 .SignUpButton {
     font-weight: bold;
     background-color:#30CADE;
     border: #30CADE;
     border-radius: 1em;
     text-align: center;
-    width: 70%;
+    height: 6vh;
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
     box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
@@ -114,9 +119,9 @@ img {
 }
 .GuestButton , .ForgotPasswordButton{
     color: #1E2753;
+    background-color: #FFFAFA;
     border: none;
     text-align: center;
-    width: 70%;
     padding: 1em 1em;
     align-content: center;
 }

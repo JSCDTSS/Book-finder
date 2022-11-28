@@ -14,33 +14,34 @@ function LandingPage() {
           <p>Be part of our community...</p>
         </div>
       </div>
-      <div className="MainContainer">
+      <div className="LandingBackImage">
+        <div className="MainContainer">
+          <div className="LandingFormInner">
 
-        <div className="Login">
-          <Link to="/LoginForm">
-            <button className="LoginButton">Login</button>
-          </Link>
-        </div>
+            <div className="Login">
+              <Link to="/LoginForm">
+                <button className="LoginButton">Login</button>
+              </Link>
+            </div>
 
-        <div className="CreateAccount">
-          <Link to="/CreateAccountForm">
-            <button className="SignUpButton">Sign Up</button>
-          </Link>
-        </div>
+            <div className="CreateAccount">
+              <Link to="/CreateAccountForm">
+                <button className="SignUpButton">Sign Up</button>
+              </Link>
+            </div>
 
-        <div className="GuestLogin">
-          <Link to="/Home" state={{permissions: ['basic']}}>
-            <button className="GuestButton">
-              <p>Continue as Guest</p>
-              <img src={GuestArrow} alt="Guest Account button" />
-            </button>
-          </Link>
-        </div>
-
-        <div>
-          <img src={Logo} alt="Five individuals reading" />
+            <div className="GuestLogin">
+              <Link to="/Home" state={{ permissions: ['basic'] }}>
+                <button className="GuestButton">
+                  <p>Continue as Guest</p>
+                  <img src={GuestArrow} alt="Guest Account button" />
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
+
     </>
   );
 }
