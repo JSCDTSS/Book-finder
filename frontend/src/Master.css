@@ -274,14 +274,6 @@ input {
     margin-left: 10px;
 }
 
-.SearchResult {
-    width: inherit;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 2vw;
-}
-
 .SearchContent li {
     border-bottom: 2px solid #A9A9A9;
     background-color: rgba(255, 250, 250, 0.95);
@@ -289,6 +281,15 @@ input {
 
 .SearchContent li:nth-child(odd) {
     background-color: rgba(234, 234, 234, 0.95);
+}
+
+
+.SearchResult > .ListItem {
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2vw;
 }
 
 .SearchResult img {
@@ -413,4 +414,5 @@ input {
 
 .ModalBox p {
     margin: 0 10%;
+    margin-bottom: 30px;
 }

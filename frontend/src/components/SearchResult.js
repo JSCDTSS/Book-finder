@@ -34,10 +34,12 @@ export default function SearchResult({ item }) {
 
   return <li>
     <div className="SearchResult">
-      <p onClick={displayItemInfo}>{item.title}</p>
-      <img src={item?.imageLinks?.smallThumbnail} alt={item.alt} onClick={handleOpen} />
+      <div className='ListItem' onClick={handleOpen} >
+        <p onClick={displayItemInfo}>{item.title}</p>
+        <img src={item?.imageLinks?.smallThumbnail} alt={item.alt} />
+      </div>
 
-      <Modal
+      <Modal 
         open={open}
         onClose={handleClose}
       >

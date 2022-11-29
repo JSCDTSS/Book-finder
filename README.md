@@ -150,19 +150,21 @@ moderators should be able to change the info of another account
 
 ## 27-11
 
+show message when no results found
+show margin on modal
+
 create an admin account for Mick
 
 tokens expiring
 
 @dtss accounts should be made admin on account creation
+
 make home search bar work
 
 Touch up visuals to closer match wireframes - think about desktop viewing
-get moderator icon
 hide password on password field
 address vulnerabilities (npm audit)
 
-make bookshelves frontend
 
 UI/UX
 Security
