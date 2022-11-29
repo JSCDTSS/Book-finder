@@ -7,13 +7,13 @@ export default function SearchButtons({type,setType}){
   return <>
   
   <button id='genres'
-      onClick={log} className={type === 'genres' ? 'selected' : ''}
+      onClick={log} className={type === 'genres' ? 'selected' : 'notSelected'}
     >Genre</button>
     <button id='authors'
-      onClick={log} className={type === 'authors' ? 'selected' : ''}
+      onClick={log} className={type === 'authors' ? 'selected' : 'notSelected'}
     >Author</button>
     <button id='titles'
-      onClick={log} className={type === 'titles' ? 'selected' : ''}
+      onClick={log} className={type === 'titles' ? 'selected' : 'notSelected'}
     >Title</button>
     </>
 }

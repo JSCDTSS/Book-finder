@@ -33,12 +33,16 @@ function Search() {
     <CheckPermission permission='basic'>
       <div className="Search">
         <div className="TopContainer">
-          <SearchBar
-            value={searchValue} setValue={updateSearchBar}
-          />
-          <SearchButtons
-            type={searchType} setType={setSearchType} />
-          <img src={Arrow} onClick={makeRequest} alt="Search button" />
+          <div className='sBar'>
+            <SearchBar
+              value={searchValue} setValue={updateSearchBar}
+            />
+            <img src={Arrow} onClick={makeRequest} alt="Search button" />
+          </div>
+          <div className='sButtons'>
+            <SearchButtons
+              type={searchType} setType={setSearchType} />
+          </div>
         </div>
         <div className="MainContainer">
           <SearchResults items={searchResults} />

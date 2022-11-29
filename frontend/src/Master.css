@@ -10,7 +10,7 @@ body {
     background-size: 70%;
     background-repeat: repeat;
     background-position: top;
-} 
+}
 
 h1 {
     font-weight: bold;
@@ -72,8 +72,9 @@ h2 {
     background-image: url('Images/Background.gif');
     background-size: 70%;
     background-repeat: repeat;
-    background-position: top; 
+    background-position: top;
 }
+
 /* Landing, Log in, Account creation pages */
 
 .LandingBackImage {
@@ -210,14 +211,14 @@ input {
 
 .HomeContentTitle {
     width: 100%;
-    height: 20px;
     margin: 0 6vw;
 }
 
 .HomeContentTitle p {
-    width: 100%;
+    max-width: 40%;
+    background-color: #FFFFFF;
     text-align: left;
-    margin: 0;
+    margin: inherit;
 }
 
 .DisplayContainer {
@@ -263,6 +264,16 @@ input {
     max-height: 5vh;
 }
 
+.sBar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.sBar img {
+    margin-left: 10px;
+}
+
 .SearchResult {
     width: inherit;
     display: flex;
@@ -273,12 +284,18 @@ input {
 
 .SearchContent li {
     border-bottom: 2px solid #A9A9A9;
+    background-color: rgba(255, 250, 250, 0.95);
+}
+
+.SearchContent li:nth-child(odd) {
+    background-color: rgba(234, 234, 234, 0.95);
 }
 
 .SearchResult img {
     width: 25vw;
     height: 18vh;
     margin: 5px;
+    border: 1px solid #A9A9A9;
 }
 
 .SearchResults {
@@ -295,21 +312,44 @@ input {
     overflow-y: scroll;
 }
 
-/* sam did some more temp stuff
-    it styles the button that is currently selected
-    on search page
-*/
+.sButtons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 .selected {
-    border-radius: 10px;
     font-weight: bold;
     background-color: #C91C73;
     border: #C91C73;
+    width: 20vw;
+    height: 3.5vh;
+}
+
+#authors {
+    border-radius: none
+}
+
+#titles {
+    border-radius: 0 15px 0 0;
+}
+
+#genres {
+    border-radius: 15px 0 0 0;
+}
+
+.notSelected {
+    font-weight: bold;
+    background-color: #FFFAFA;
+    border: 1px solid #C91C73;
+    width: 20vw;
+    height: 3.5vh;
 }
 
 /* Bookshelf Styling */
 /* Profile Page */
 
-  .ProfileInfo {
+.ProfileInfo {
     border: 2px solid #A9A9A9;
     height: 150px;
     width: 300px;
@@ -329,7 +369,27 @@ input {
 
 .ModalBox {
     background-color: #FFFAFA;
-    border: 2px solid #A9A9A9;
+    border: none;
+    max-height: 50%;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: absolute;
+    top: 25%;
+}
+
+.ModalClose {
+    font-weight: bold;
+    border-style: solid;
+    border-color: #A9A9A9;
+    border-top: none;
+    border-left: none;
+    transition-duration: 0.4s;
+    text-align: center;
+    padding: 10px;
 }
 
 .ModalBox h4 {
@@ -340,8 +400,12 @@ input {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+    margin: 2% 10% 10%;
+
+    width: 100%;
+    flex-grow: 2;
 }
 
 .ModalBox p {
-    margin: 10%;
+    margin: 0 10%;
 }
