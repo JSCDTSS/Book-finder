@@ -319,7 +319,6 @@ input {
 }
 
 .selected {
-    border-radius: 10px;
     font-weight: bold;
     background-color: #C91C73;
     border: #C91C73;
@@ -327,8 +326,19 @@ input {
     height: 3.5vh;
 }
 
+#authors {
+    border-radius: none
+}
+
+#titles {
+    border-radius: 0 15px 0 0;
+}
+
+#genres {
+    border-radius: 15px 0 0 0;
+}
+
 .notSelected {
-    border-radius: 10px;
     font-weight: bold;
     background-color: #FFFAFA;
     border: 1px solid #C91C73;
