@@ -298,6 +298,11 @@ input {
     border: 1px solid #A9A9A9;
 }
 
+.SearchResult p {
+    margin: 5px;
+    text-align: left;
+}
+
 .SearchResults {
     height: inherit;
     width: inherit;

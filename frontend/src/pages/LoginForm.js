@@ -29,7 +29,6 @@ function LoginForm() {
   return (
     <>
       {validation && navigate('/Home', { state: validation })}
-      {error && <p>{error}</p>}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">
           <BackArrow />
