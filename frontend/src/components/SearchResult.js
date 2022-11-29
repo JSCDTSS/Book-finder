@@ -2,6 +2,7 @@
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
+import '../Master.css';
 
 const style = {
   position: 'absolute',
@@ -40,11 +41,11 @@ export default function SearchResult({ item }) {
         open={open}
         onClose={handleClose}
       >
-        <Box sx={style}>
-          <h2>{item.title}</h2>
+        <Box className='ModalBox'>
+          <h4>{item.title}</h4>
           <p>{item.description}</p>
           <button onClick={handleClose}>Close</button>
-          <img src={item?.imageLinks?.thumbnail} alt={item.alt} />
+          {/*<img src={item?.imageLinks?.thumbnail} alt={item.alt} />*/}
         </Box>
       </Modal>
     </div>

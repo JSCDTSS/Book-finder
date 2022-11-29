@@ -1,12 +1,12 @@
 /* Universal Styling Choices */
-body{
+body {
     background-color: #FFFAFA;
     color: #000000;
     font-family: sans-serif;
     text-align: center;
     line-height: 20px;
     box-sizing: border-box;
-} 
+}
 
 h1 {
     font-weight: bold;
@@ -33,7 +33,8 @@ img {
     padding: 0 20px;
 }
 
-.TopContainer h1, h2 {
+.TopContainer h1,
+h2 {
     flex-grow: 2;
     margin-top: 5vh;
 }
@@ -105,7 +106,7 @@ img {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
 .LoginButton:hover {
@@ -117,7 +118,7 @@ img {
 
 .SignUpButton {
     font-weight: bold;
-    background-color:#30CADE;
+    background-color: #30CADE;
     border: #30CADE;
     border-radius: 1em;
     text-align: center;
@@ -125,7 +126,7 @@ img {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
 .SignUpButton:hover {
@@ -139,7 +140,8 @@ img {
     margin: 10% 10%;
 }
 
-.GuestButton , .ForgotPasswordButton{
+.GuestButton,
+.ForgotPasswordButton {
     color: #1E2753;
     background-color: #FFFAFA;
     border: none;
@@ -149,12 +151,13 @@ img {
     justify-content: center;
 }
 
-input[type=text], textarea {
+input[type=text],
+textarea {
     font-weight: bold;
     padding: 10px;
     margin: 10px 0;
     border: 2px solid #EBE9E9;
-    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
     border-radius: 10px;
     width: 70%;
 }
@@ -276,8 +279,8 @@ input {
     margin: unset;
     list-style-type: none;
     padding: inherit;
-    overflow:hidden; 
-    overflow-y:scroll;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 /* sam did some more temp stuff
@@ -285,5 +288,27 @@ input {
     on search page
 */
 .selected {
-    border-radius: 10px;;
+    border-radius: 10px;
+    ;
+}
+
+/* Modal */
+
+.ModalBox {
+    background-color: #FFFAFA;
+    border: 2px solid #A9A9A9;
+}
+
+.ModalBox h4 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.ModalBox p {
+    margin: 10%;
 }
