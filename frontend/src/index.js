@@ -13,6 +13,7 @@ import Bookshelves from './pages/Bookshelves';
 import Profile from './pages/Profile';
 import reportWebVitals from './reportWebVitals';
 import EditProfile from './pages/EditProfile';
+import Moderation from './pages/Moderation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -32,6 +33,7 @@ root.render(
         <Route path="/Bookshelves" element={<Bookshelves/>} />
         <Route path="/Profile" element={<Profile/>} />
         <Route path="/EditProfile" element={<EditProfile/>} />
+        <Route path="/Moderation" element={<Moderation/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

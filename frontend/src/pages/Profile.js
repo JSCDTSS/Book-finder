@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import NavBar from '../components/NavBar';
-import '../Master.css';
+import React, { useState } from "react";
+import NavBar from "../components/NavBar";
+import "../Master.css";
 // import Hamburger from '../icons/hamburger.svg';
-import DisplayContainer from '../components/DisplayContainer';
-import ProfileInfo from '../components/ProfileInfo';
-
+import DisplayContainer from "../components/DisplayContainer";
+import ProfileInfo from "../components/ProfileInfo";
+import CheckPermission from "../components/CheckPermission";
 
 function Profile() {
-
-  const [profileInfo, setProfileInfo] = useState({})
+  const [profileInfo, setProfileInfo] = useState({});
   /**
    * show some profile info
    *   name
@@ -19,36 +18,37 @@ function Profile() {
    *        load from database,
    *        display current info
    *        show form to update that info
-   * 
+   *
    * show bookshelves
    */
   return (
-    <div className="profile">
-      <div className="TopContainer">
-        <h2>Profile</h2>
-        {/* <img src={Hamburger} alt="Hamburger Menu" /> */}
+    <CheckPermission permission="member" redirect="/Home">
+      <div className="profile">
+        <div className="TopContainer">
+          <h2>Profile</h2>
+          {/* <img src={Hamburger} alt="Hamburger Menu" /> */}
         </div>
 
-      <div className="MainContainer">
-      <ProfileInfo profileInfo={profileInfo} />
-        <div ClassName='HomeContentTitle'>
-          <p>Favourites</p>
+        <div className="MainContainer">
+          <ProfileInfo profileInfo={profileInfo} />
+          <div ClassName="HomeContentTitle">
+            <p>Favourites</p>
+          </div>
+          <DisplayContainer />
+          <div ClassName="HomeContentTitle">
+            <p>Bookshelves</p>
+          </div>
+          <DisplayContainer />
+          <div ClassName="HomeContentTitle">
+            <p>Groups</p>
+          </div>
+          <DisplayContainer />
         </div>
-        <DisplayContainer />
-        <div ClassName='HomeContentTitle'>
-          <p>Bookshelves</p>
+        <div className="BottomContainer">
+          <NavBar />
         </div>
-        <DisplayContainer />
-        <div ClassName='HomeContentTitle'>
-          <p>Groups</p>
-        </div>
-        <DisplayContainer />
       </div>
-
-      <div className="BottomContainer">
-        <NavBar />
-      </div>
-    </div>
+    </CheckPermission>
   );
 }
 

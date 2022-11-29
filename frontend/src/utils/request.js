@@ -33,7 +33,7 @@ function parseBasicInfo(res) {
 }
 
 const getBookInfo = createPipeAsync(
-  searchVolumes, echo, parseBasicInfo
+  searchVolumes, parseBasicInfo
 )
 
 function echo(arg) {

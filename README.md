@@ -150,20 +150,17 @@ moderators should be able to change the info of another account
 
 ## 27-11
 
-permissions should affect suggested books on home
-
 give admins an admin role (ban users)
   functionatily for mod page
   search users by username/email
   ban / suspend users
     inform users upon login if they are suspended
-    
-add a modal to books being displayed
+
+tokens expiring
 
 @dtss accounts should be made admin on account creation
 make home search bar work
 
-tokens expiring
 Touch up visuals to closer match wireframes - think about desktop viewing
 get moderator icon
 hide password on password field
