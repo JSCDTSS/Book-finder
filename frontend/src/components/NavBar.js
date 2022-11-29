@@ -3,6 +3,7 @@ import HomeIcon from '../icons/home-alt.svg';
 import SearchIcon from '../icons/search.svg';
 import BookmarkIcon from '../icons/bookmark.svg';
 import ProfileIcon from '../icons/profile.svg';
+import ModeratorIcon from '../icons/eye.svg';
 import NavButton from './NavButton';
 
 function NavBar() {
@@ -28,7 +29,7 @@ function NavBar() {
             path="/Profile" text="My Profile" icon={ProfileIcon} active={isMember}
           />
           {isModerator && <NavButton
-            path="/Moderation" text="Moderator" icon={ProfileIcon}
+            path="/Moderation" text="Moderator" icon={ModeratorIcon}
           />}
         </ul>
       </div>

@@ -5,7 +5,7 @@ export default function ProfileInfo() {
   const location = useLocation()
 
   return <div className="ProfileInfo">
-    <p>{location.state.username}</p>
+    <h3>{location.state.username}</h3>
     <p>Follows: {location.state.following.length}</p>
     <p>Followers: {location.state.followedBy.length}</p>
 

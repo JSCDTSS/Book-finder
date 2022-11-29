@@ -8,7 +8,8 @@ function Bookshelves() {
     return (
         <div className="Bookshelves">
             <div className="TopContainer">
-                <p>this is Bookshelves page</p>
+                <h2>My Bookshelves</h2>
+                <p>All your favourite books in one place...</p>
             </div>
             <div className="MainContainer">
             </div>
@@ -18,5 +19,4 @@ function Bookshelves() {
         </div>
     );
 }
-
 export default Bookshelves;
