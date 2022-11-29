@@ -12,27 +12,25 @@ function NavBar() {
   const isMember = permissions.includes('member')
 
   return (
-    <>
-      <div className="NavBar">
-        <ul>
-          <NavButton
-            path="/Home" text="Home" icon={HomeIcon}
-          />
-          <NavButton
-            path="/Search" text="Search" icon={SearchIcon}
-          />
-          <NavButton
-            path="/Bookshelves" text="My Books" icon={BookmarkIcon} active={isMember}
-          />
-          <NavButton
-            path="/Profile" text="My Profile" icon={ProfileIcon} active={isMember}
-          />
-          {isModerator && <NavButton
-            path="/Moderation" text="Moderator" icon={ProfileIcon}
-          />}
-        </ul>
-      </div>
-    </>
+    <div className="NavBar">
+      <ul>
+        <NavButton
+          path="/Home" text="Home" icon={HomeIcon}
+        />
+        <NavButton
+          path="/Search" text="Search" icon={SearchIcon}
+        />
+        <NavButton
+          path="/Bookshelves" text="My Books" icon={BookmarkIcon} active={isMember}
+        />
+        <NavButton
+          path="/Profile" text="My Profile" icon={ProfileIcon} active={isMember}
+        />
+        {isModerator && <NavButton
+          path="/Moderation" text="Moderator" icon={ProfileIcon}
+        />}
+      </ul>
+    </div>
   );
 }
 

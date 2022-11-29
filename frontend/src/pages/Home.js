@@ -3,11 +3,11 @@ import NavBar from '../components/NavBar';
 import '../Master.css';
 import { useLocation } from "react-router-dom";
 import Bell from '../icons/bell.svg';
-import CheckLogin from '../components/CheckLogin';
 import SearchBar from '../components/SearchBar';
 import DisplayContainer from '../components/DisplayContainer';
 import getBooksByPreferences from '../utils/getBookPreferences';
 import SplashPage from './SplashPage'
+import CheckPermission from '../components/CheckPermission';
 
 function Home() {
   const [suggested, setSuggested] = useState('loading')
@@ -17,27 +17,21 @@ function Home() {
   useEffect(() => {
     getBooksByPreferences(preferences)
       .then(books => {
-        console.log(books)
         setSuggested(
-          books.slice(0, 30).map(book => ({
-            image: book.imageLinks.thumbnail
-          }))
+          books.slice(0, 30)
         )
         setTrending(
-          books.slice(30, 60).map(book => ({
-            image: book.imageLinks?.thumbnail
-          }))
+          books.slice(30, 60)
         )
       })
-  }, [])
+  }, [preferences])
 
   function isLoadingData() {
     return suggested === 'loading' || trending === 'loading'
   }
 
   return (
-    <>
-      <CheckLogin />
+    <CheckPermission permission='basic'>
       <div className="Home">
         <div className="TopContainer">
           <h3>Home</h3>
@@ -65,7 +59,7 @@ function Home() {
           <NavBar />
         </div>
       </div>
-    </>
+    </CheckPermission>
   )
 
 }
