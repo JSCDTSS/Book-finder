@@ -53,6 +53,7 @@ function LoginForm() {
                 text="Password"
                 details={details}
                 setDetails={setDetails}
+                isPassword
               />
 
               <input type="submit" value="Login" className="LoginButton" />

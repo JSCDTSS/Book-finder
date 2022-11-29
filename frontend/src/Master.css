@@ -167,7 +167,8 @@ h2 {
     justify-content: center;
 }
 
-input[type=text],
+input[type=text], 
+input[type=password],
 textarea {
     font-weight: bold;
     padding: 10px;

@@ -73,6 +73,7 @@ function CreateAccountForm() {
                 text="Password"
                 details={details}
                 setDetails={setDetails}
+                isPassword
               />
 
               <input type="submit" value="Submit" className="LoginButton" />
