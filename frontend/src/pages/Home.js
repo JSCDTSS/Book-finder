@@ -45,13 +45,12 @@ function Home() {
             : <>
               <div className='HomeContentTitle'>
                 <p>Suggested Books</p>
+                <DisplayContainer items={suggested} />
               </div>
-              <DisplayContainer items={suggested} />
               <div className='HomeContentTitle'>
                 <p>Popular Books</p>
+                <DisplayContainer items={trending} />
               </div>
-              <DisplayContainer items={trending} />
-
             </>
           }
         </div>
