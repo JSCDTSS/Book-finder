@@ -24,7 +24,6 @@ const port = 3001
 const app = express()
 
 const allowCrossDomain = (req, res, next) => {
-  console.log('here')
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
   res.header('Access-Control-Allow-Headers', '*')

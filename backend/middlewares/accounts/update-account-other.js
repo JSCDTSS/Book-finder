@@ -2,9 +2,8 @@
 
 module.exports = async function (req, res) {
   const { database } = req.app.locals.settings
-
-  console.log(req.account)
-  if (!req.account.permissions.includes('admin')) {
+  
+  if (!req.account.permissions.includes('moderator')) {
     return res.status(403).json({
       ok: false, error: 'insufficient permissions'
     })

@@ -15,8 +15,6 @@ module.exports = async function (req, res) {
     followedBy
   } = req.account
 
-  console.log(req.account)
-
   const tokenBody = { _id }
   const token = jwt.sign(tokenBody, secret)
   

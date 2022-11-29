@@ -9,11 +9,16 @@ module.exports = async function (req, res, next) {
     req.account = await database.accounts.getByUniqueId(loginInfo.uniqueId)
     const isPasswordValid =
       await bcrypt.compare(loginInfo.password, req.account.password)
-    if (isPasswordValid) {
-      next()
-    } else {
-      res.status(401).json({ error: 'invalid credentials' })
+
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: 'invalid credentials' })
     }
+    if (req.account.isSuspended) {
+      return res.status(403).json({ error: 'this account is suspended' })
+    }
+
+    next()
+
   } catch (error) {
     res.status(404).json({ error: error.toString() })
   }

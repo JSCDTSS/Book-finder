@@ -35,3 +35,25 @@ export function updateSelf(token,preferences) {
     data: { preferences }
   })
 }
+
+export function listUsers(token,params){
+  return backendRequest.request({
+    url: '/accounts/list',
+    method: 'get',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    params
+  })
+}
+
+export function updateOtherUser(token,data){
+  return backendRequest.request({
+    url: '/accounts/update-other',
+    method: 'post',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    data
+  })
+}

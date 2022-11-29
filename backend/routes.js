@@ -39,5 +39,4 @@ module.exports = function (app) {
   app.post('/accounts/follow', verify, follow)
   app.post('/accounts/unfollow', verify, unfollow)
 
-
 }

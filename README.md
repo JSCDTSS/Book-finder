@@ -150,11 +150,7 @@ moderators should be able to change the info of another account
 
 ## 27-11
 
-give admins an admin role (ban users)
-  functionatily for mod page
-  search users by username/email
-  ban / suspend users
-    inform users upon login if they are suspended
+create an admin account for Mick
 
 tokens expiring
 
@@ -177,3 +173,6 @@ styling
 
 during walkthrough
     show change in database
+
+ask about the screenshotted wireframes
+lucid chart
