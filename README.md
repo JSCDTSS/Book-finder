@@ -150,7 +150,6 @@ moderators should be able to change the info of another account
 
 ## 27-11
 
-show link to book
 hide password on password field
 
 create an admin account for Mick

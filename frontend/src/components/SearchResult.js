@@ -19,23 +19,19 @@ const style = {
 export default function SearchResult({ item }) {
   const [open, setOpen] = useState(false)
 
-  function displayItemInfo() {
-    //todo
-    console.log(item.description)
-  }
-
   function handleClose() {
     setOpen(false)
   }
 
   function handleOpen() {
+    console.log(item)
     setOpen(true)
   }
 
   return <li>
     <div className="SearchResult">
       <div className='ListItem' onClick={handleOpen} >
-        <p onClick={displayItemInfo}>{item.title}</p>
+        <p>{item.title}</p>
         <img src={item?.imageLinks?.smallThumbnail} alt={item.alt} />
       </div>
 
@@ -46,6 +42,9 @@ export default function SearchResult({ item }) {
         <Box className='ModalBox'>
           <button className='ModalClose' onClick={handleClose}>Close</button>
           <h4>{item.title}</h4>
+          {item.canonicalVolumeLink && <p>
+            <a href={item.canonicalVolumeLink}>Find this book on Google Books</a>
+          </p>}
           <p>{item.description}</p>
         </Box>
       </Modal>
