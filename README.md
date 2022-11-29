@@ -150,8 +150,8 @@ moderators should be able to change the info of another account
 
 ## 27-11
 
-show message when no results found
-show margin on modal
+show link to book
+hide password on password field
 
 create an admin account for Mick
 
@@ -164,7 +164,6 @@ make home search bar work
 Touch up visuals to closer match wireframes - think about desktop viewing
 hide password on password field
 address vulnerabilities (npm audit)
-
 
 UI/UX
 Security

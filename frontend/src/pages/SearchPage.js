@@ -14,6 +14,7 @@ function Search() {
   const [searchValue, setSearchValue] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [searchType, setSearchType] = useState('genres')
+  const [hasSearched, setHasSearched] = useState(false)
 
   function makeRequest() {
     const request = { [searchType]: [searchValue] }
@@ -21,6 +22,7 @@ function Search() {
     getBooks(request)
       .then(res => {
         setSearchResults(res)
+        setHasSearched(true)
       })
 
   }
@@ -45,7 +47,7 @@ function Search() {
           </div>
         </div>
         <div className="MainContainer">
-          <SearchResults items={searchResults} />
+          <SearchResults items={searchResults} hasSearched={hasSearched}/>
         </div>
         <div className="BottomContainer">
           <NavBar />
