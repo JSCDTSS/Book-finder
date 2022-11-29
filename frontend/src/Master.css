@@ -38,6 +38,10 @@ img {
     margin-top: 5vh;
 }
 
+.TopContainer h3 {
+    margin-top: 5vh;
+}
+
 .MainContainer {
     display: flex;
     flex-wrap: wrap;
@@ -196,6 +200,7 @@ input {
 .HomeContentTitle p {
     width: 100%;
     text-align: left;
+    margin: 0;
 }
 
 .DisplayContainer {
