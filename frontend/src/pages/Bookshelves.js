@@ -1,19 +1,17 @@
-import React from 'react';
-import CheckPermission from '../components/CheckPermission';
-import NavBar from '../components/NavBar';
-import '../Master.css';
-
+import React from "react";
+import CheckPermission from "../components/CheckPermission";
+import NavBar from "../components/NavBar";
+import "../Master.css";
 
 function Bookshelves() {
-
   return (
-    <CheckPermission permission='member' redirect='/Home'>
+    <CheckPermission permission="member" redirect="/Home">
       <div className="Bookshelves">
         <div className="TopContainer">
-          <p>this is Bookshelves page</p>
+          <h2>My Bookshelves</h2>
+          <p>All your favourite books in one place...</p>
         </div>
-        <div className="MainContainer">
-        </div>
+        <div className="MainContainer"></div>
         <div className="BottomContainer">
           <NavBar />
         </div>
@@ -21,5 +19,4 @@ function Bookshelves() {
     </CheckPermission>
   );
 }
-
 export default Bookshelves;
