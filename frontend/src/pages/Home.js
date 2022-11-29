@@ -34,7 +34,7 @@ function Home() {
     <CheckPermission permission='basic'>
       <div className="Home">
         <div className="TopContainer">
-          <h1>Home</h1>
+          <h3>Home</h3>
           <img src={Bell} alt="Notification Bell" />
         </div>
         <div className="MainContainer">
