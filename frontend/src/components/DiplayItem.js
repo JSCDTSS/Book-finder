@@ -30,15 +30,15 @@ export default function DisplayItem({ item }) {
     <img src={item?.imageLinks?.smallThumbnail} alt={item.alt} onClick={handleOpen} />
 
     <Modal
-      open={open}
-      onClose={handleClose}
-    >
-      <Box sx={style}>
-        <h2>{item.title}</h2>
-        <p>{item.description}</p>
-        <button onClick={handleClose}>Close</button>
-        <img src={item?.imageLinks?.thumbnail} alt={item.alt} />
-      </Box>
-    </Modal>
+        open={open}
+        onClose={handleClose}
+      >
+        <Box className='ModalBox'>
+          <button className='ModalClose' onClick={handleClose}>Close</button>
+          <h4>{item.title}</h4>
+          <p>{item.description}</p>
+        </Box>
+      </Modal>
   </div>
 }
+

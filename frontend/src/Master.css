@@ -10,7 +10,7 @@ body {
     background-size: 70%;
     background-repeat: repeat;
     background-position: top;
-} 
+}
 
 h1 {
     font-weight: bold;
@@ -72,8 +72,9 @@ h2 {
     background-image: url('Images/Background.gif');
     background-size: 70%;
     background-repeat: repeat;
-    background-position: top; 
+    background-position: top;
 }
+
 /* Landing, Log in, Account creation pages */
 
 .LandingBackImage {
@@ -273,12 +274,19 @@ input {
 
 .SearchContent li {
     border-bottom: 2px solid #A9A9A9;
+    background-color: #FFFAFA;
+
+}
+
+.SearchContent li:nth-child(odd) {
+    background-color: #EAEAEA;
 }
 
 .SearchResult img {
     width: 25vw;
     height: 18vh;
     margin: 5px;
+    border: 1px solid #A9A9A9;
 }
 
 .SearchResults {
@@ -309,7 +317,7 @@ input {
 /* Bookshelf Styling */
 /* Profile Page */
 
-  .ProfileInfo {
+.ProfileInfo {
     border: 2px solid #A9A9A9;
     height: 150px;
     width: 300px;
@@ -329,7 +337,27 @@ input {
 
 .ModalBox {
     background-color: #FFFAFA;
-    border: 2px solid #A9A9A9;
+    border: none;
+    max-height: 50%;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: absolute;
+    top: 25%;
+}
+
+.ModalClose {
+    font-weight: bold;
+    border-style: solid;
+    border-color: #A9A9A9;
+    border-top: none;
+    border-left: none;
+    transition-duration: 0.4s;
+    text-align: center;
+    padding: 10px;
 }
 
 .ModalBox h4 {
@@ -340,8 +368,12 @@ input {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+    margin: 2% 10% 10%;
+
+    width: 100%;
+    flex-grow: 2;
 }
 
 .ModalBox p {
-    margin: 10%;
+    margin: 0 10%;
 }
