@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../Master.css";
 import { Link, useNavigate } from "react-router-dom";
 import TextForm from "../components/TextForm";
 import { login } from '../utils/backendRequest';
 import BackArrow from "../components/BackArrow"
 
-function LoginForm({ Login }) {
+function LoginForm() {
   const [details, setDetails] = useState({
     uniqueId: "",
     password: ""
@@ -28,9 +28,7 @@ function LoginForm({ Login }) {
 
   return (
     <>
-      {useEffect(() => {
-        { validation && navigate('/Home', { state: validation }) }
-      }, [validation])}
+      {validation && navigate('/Home', { state: validation })}
       {error && <p>{error}</p>}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">

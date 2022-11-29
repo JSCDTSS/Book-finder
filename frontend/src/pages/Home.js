@@ -17,19 +17,14 @@ function Home() {
   useEffect(() => {
     getBooksByPreferences(preferences)
       .then(books => {
-        console.log(books)
         setSuggested(
-          books.slice(0, 30).map(book => ({
-            image: book.imageLinks.thumbnail
-          }))
+          books.slice(0, 30)
         )
         setTrending(
-          books.slice(30, 60).map(book => ({
-            image: book.imageLinks?.thumbnail
-          }))
+          books.slice(30, 60)
         )
       })
-  }, [])
+  }, [preferences])
 
   function isLoadingData() {
     return suggested === 'loading' || trending === 'loading'
