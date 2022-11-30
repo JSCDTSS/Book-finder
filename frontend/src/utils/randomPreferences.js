@@ -1,8 +1,5 @@
 
-const genreList = [
-  'romance', 'educational', 'sci-fi', 'fantasy', 'horror',
-  'manga', 'historical', 'spirituality', 'crime', 'travel'
-]
+import {genreList} from '../constants'
 
 export default function randomPreference() {
   const randomInt = Math.floor(Math.random() * genreList.length)

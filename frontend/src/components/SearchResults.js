@@ -1,7 +1,9 @@
 import SearchResult from "./SearchResult";
 import "../Master.css"
 
-export default function SearchResults({ title = '', items = [], hasSearched }) {
+export default function SearchResults({
+  title = '', items = [], hasSearched
+}) {
   return <div className='SearchResults'>
     <ul>
       {title && <p>{title}</p>}

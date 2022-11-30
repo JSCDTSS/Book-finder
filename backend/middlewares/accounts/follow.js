@@ -1,4 +1,7 @@
 
+/**
+ * Follow feature for future release
+ */
 module.exports = async (req, res) => {
   const { database } = req.app.locals.settings
   const { followerId } = req.body

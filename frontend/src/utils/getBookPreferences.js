@@ -1,4 +1,4 @@
-import searchBooks from './request'
+import searchBooks from './googleRequest'
 
 function removeWhiteSpace(array) {
   if (!array) return []
@@ -23,9 +23,3 @@ export default async function getBooksByPreferences(preferences) {
   }))
   return booksByWeight.sort((a,b) => b.weight - a.weight)
 }
-
-/**
- * books that match all preferences should be ordered first
- * then books that match two
- * then 1 ...
- */

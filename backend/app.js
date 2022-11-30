@@ -10,9 +10,6 @@ const password = process.env.MONGODB_PASSWORD
 const usernameEncoded = encodeURIComponent(userName)
 const passwordEncoded = encodeURIComponent(password)
 
-console.log(userName)
-console.log(password)
-
 const uri = `mongodb+srv://${usernameEncoded}:${passwordEncoded}@cluster0.n2dsm1v.mongodb.net/?retryWrites=true&w=majority`;
 
 const config =   {
@@ -32,9 +29,7 @@ const allowCrossDomain = (req, res, next) => {
 app.use(allowCrossDomain)
 
 MongoClient.connect(uri, config, function (err, client) {
-  if (err) {
-    console.log(err)
-  } else {
+  if (!err) {
     app.set('database', new Database(client.db('Book-Finder')))
   }
 })
@@ -42,6 +37,5 @@ MongoClient.connect(uri, config, function (err, client) {
 app.use(express.json())
 routes(app)
 app.listen(port)
-console.log("Express on " + port)
 
 module.exports = app

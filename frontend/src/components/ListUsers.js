@@ -18,7 +18,6 @@ export default function ListUsers() {
     setSearchValue(e.target.value)
   }
   
-
   function makeReq() {
     const search = searchValue ?
       {username: searchValue} : ''
@@ -34,7 +33,6 @@ export default function ListUsers() {
   function handleChange(e) {
     setSelectedUser(e.target.value)
   }
-
 
   return <div>
 

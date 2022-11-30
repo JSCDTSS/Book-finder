@@ -8,37 +8,19 @@ const booksApi = axios.create({
   timeout: 2000
 })
 
-function createPipeAsync(...functions) {
-  return function (initialValue) {
-    return functions.reduce(
-      (input, _function) => input.then(_function),
-      Promise.resolve(initialValue)
-    )
-  }
-}
-
 function searchVolumes(params) {
-  console.log(params)
   return booksApi.request({
     url: '/books/v1/volumes',
     params,
   })
 }
 
-function parseBasicInfo(res) {
+async function getBookInfo(params) {
+  const res = await searchVolumes(params)
   if (!res.data.items) return []
   return res.data.items.map(item => ({
     ...item.volumeInfo
   }))
-}
-
-const getBookInfo = createPipeAsync(
-  searchVolumes, parseBasicInfo
-)
-
-function echo(arg) {
-  console.log(arg)
-  return arg
 }
 
 async function getBooksByPreference(preferences) {
@@ -52,11 +34,7 @@ async function getBooksByPreference(preferences) {
   if (preferences?.titles?.length) {
     byTitles = await getBooksByCategory('intitle', preferences.titles)
   }
-  return [
-    byAuthors,
-    byGenres,
-    byTitles
-  ].flat(2)
+  return [byAuthors, byGenres, byTitles].flat(2)
 }
 
 function getBooksByCategory(fieldType, preferenceCategories) {

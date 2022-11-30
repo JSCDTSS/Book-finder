@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import '../Master.css';
 import { useLocation } from "react-router-dom";
-import Bell from '../icons/bell.svg';
-import SearchBar from '../components/SearchBar';
 import DisplayContainer from '../components/DisplayContainer';
 import getBooksByPreferences from '../utils/getBookPreferences';
 import { SpinningCircles } from 'react-loading-icons'
@@ -19,7 +17,6 @@ function Home() {
     const searchPreferences = preferences || randomPreference()
     getBooksByPreferences(searchPreferences)
       .then(books => {
-        console.log(books)
         setSuggested(
           books.slice(0, 30)
         )
@@ -40,15 +37,12 @@ function Home() {
         <div className="Home">
           <div className="TopContainer">
             <h3>Home</h3>
-            <img src={Bell} alt="Notification Bell" />
           </div>
           <div className="MainContainer">
-
-            <SearchBar />
             {isLoadingData()
-
-              ? <div>
-                <SpinningCircles fill='#000' />
+            
+              ? <div className='SpinningCircles'>
+                <SpinningCircles fill='#000' width={100} />
               </div>
               : <>
                 <div className='HomeContentTitle'>

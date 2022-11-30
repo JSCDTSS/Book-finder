@@ -22,7 +22,6 @@ module.exports = class Accounts {
       })
     }
     catch (err) {
-      console.log(err)
       throw new Error('failed to list accounts')
     }
   }
@@ -33,7 +32,6 @@ module.exports = class Accounts {
     if (result.insertedId) {
       return result.insertedId.toString()
     } else {
-      console.log(newAccount)
       throw new Error('failed to create account')
     }
   }
@@ -63,6 +61,10 @@ module.exports = class Accounts {
         throw new Error('database error: duplicate uniqueIds found')
     }
   }
+  
+  /**
+   * Bookshelves for future release
+   */
 
   async addBookshelf(ownerId, bookshelfId) {
     const result = await this.accounts.updateOne(
@@ -78,8 +80,11 @@ module.exports = class Accounts {
     return result?.acknowledged
   }
 
+  /*
+    Follow Feature for future release
+  */
+
   async addFollower(followerId, followedId) {
-    //followers should be a list of who that person is following i.e. follows
     await this.accounts.updateOne(
       { _id: ObjectId(followedId) }, { $push: { followers: followerId } }
     )

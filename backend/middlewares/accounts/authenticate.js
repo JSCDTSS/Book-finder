@@ -11,8 +11,6 @@ module.exports = async function (req, res) {
     email,
     permissions,
     preferences,
-    followers: following,
-    followedBy
   } = req.account
 
   const tokenBody = { _id }
@@ -25,8 +23,6 @@ module.exports = async function (req, res) {
     lastName,
     email,
     permissions,
-    preferences,
-    following,
-    followedBy
+    preferences
   })
 }

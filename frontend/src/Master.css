@@ -1,438 +1,446 @@
 /* Universal Styling Choices */
 body {
-    background-color: #FFFAFA;
-    color: #000000;
-    font-family: sans-serif;
-    text-align: center;
-    line-height: 20px;
-    box-sizing: border-box;
+  background-color: #FFFAFA;
+  color: #000000;
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 20px;
+  box-sizing: border-box;
 }
 
 .bgContainer {
-    background-image: url('Images/Background.gif');
-    background-size: 70%;
-    background-repeat: repeat;
-    background-position: top;
+  background-image: url('Images/Background.gif');
+  background-size: 70%;
+  background-repeat: repeat;
+  background-position: top;
 }
 
 h1 {
-    font-weight: bold;
-    font-size: x-large;
-    margin: 0;
+  font-weight: bold;
+  font-size: x-large;
+  margin: 0;
 }
 
 p {
-    font-style: italic;
-    font-size: large;
+  font-style: italic;
+  font-size: large;
 }
 
 img {
-    max-width: 100vw;
-    /* margin-top: 2em; */
+  max-width: 100vw;
 }
 
 .TopContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    max-height: 20vh;
-    padding: 0 20px;
-    background: #FFFAFA;
-    opacity: 90%;
-    border-bottom: 2px solid #A9A9A9;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  max-height: 20vh;
+  padding: 0 20px;
+  background: #FFFAFA;
+  opacity: 90%;
+  border-bottom: 2px solid #A9A9A9;
 
 }
 
 .TopContainer h1,
 h2 {
-    flex-grow: 2;
-    margin-top: 5vh;
+  flex-grow: 2;
+  margin-top: 5vh;
 }
 
 .TopContainer h3 {
-    margin-top: 5vh;
+  margin-top: 5vh;
+  font-size: 24px;
 }
 
 .MainContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
 }
 
 .BottomContainer {
-    display: flex;
-    height: 10vh;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  display: flex;
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Landing, Log in, Account creation pages */
 
 .LandingBackImage {
-    background-image: url('Images/Logo.png'), url('Images/Background.gif');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    height: 80vh;
+  background-image: url('Images/Logo.png'), url('Images/Background.gif');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 80vh;
 }
 
 .LoginBackImage {
-    background-image: url('Images/Login.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    height: 80vh;
+  background-image: url('Images/Login.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 80vh;
 }
 
 .CreateBackImage {
-    background-image: url('Images/SignUp.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    height: 80vh;
+  background-image: url('Images/SignUp.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 80vh;
 }
 
 .FormInner {
-    width: 70%;
+  width: 70%;
 }
 
 .IntroWords {
-    text-align: center;
-    width: fill-available;
-    padding-top: 3vh;
+  text-align: center;
+  width: fill-available;
+  padding-top: 3vh;
 }
 
 .LoginButton {
-    font-weight: bold;
-    background-color: #C91C73;
-    border: #C91C73;
-    border-radius: 1em;
-    transition-duration: 0.4s;
-    text-align: center;
-    height: 6vh;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  font-weight: bold;
+  background-color: #C91C73;
+  border: #C91C73;
+  border-radius: 1em;
+  transition-duration: 0.4s;
+  text-align: center;
+  height: 6vh;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
 .LoginButton:hover {
-    background-color: #EBE9E9;
-    border: #C91C73;
-    color: #C91C73;
-    border-style: solid;
+  background-color: #EBE9E9;
+  border: #C91C73;
+  color: #C91C73;
+  border-style: solid;
 }
 
 .SignUpButton {
-    font-weight: bold;
-    background-color: #30CADE;
-    border: #30CADE;
-    border-radius: 1em;
-    text-align: center;
-    height: 6vh;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  font-weight: bold;
+  background-color: #30CADE;
+  border: #30CADE;
+  border-radius: 1em;
+  text-align: center;
+  height: 6vh;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
 .SignUpButton:hover {
-    background-color: #EBE9E9;
-    border: #30CADE;
-    color: #30CADE;
-    border-style: solid;
+  background-color: #EBE9E9;
+  border: #30CADE;
+  color: #30CADE;
+  border-style: solid;
 }
 
 .Guest {
-    margin: 10% 10%;
+  margin: 10% 10%;
 }
 
 .GuestButton,
 .ForgotPasswordButton {
-    color: #1E2753;
-    background-color: #FFFAFA;
-    border: none;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  color: #1E2753;
+  background-color: #FFFAFA;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-input[type=text], 
+input[type=text],
 input[type=password],
 textarea {
-    font-weight: bold;
-    padding: 10px;
-    margin: 10px 0;
-    border: 2px solid #EBE9E9;
-    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-    border-radius: 10px;
-    width: 70%;
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #EBE9E9;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  width: 70%;
+}
+
+.Error {
+  margin: 10px;
+  color: red;
+  font-size: 20px;
 }
 
 /*NavBar */
 .NavBar {
-    list-style-type: none;
-    height: 10vh;
-    border-top: 2px solid #A9A9A9;
-    width: inherit;
-    display: flex;
-    align-items: center;
-    background-color: #FFFAFA;
+  list-style-type: none;
+  height: 10vh;
+  border-top: 2px solid #A9A9A9;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  background-color: #FFFAFA;
 }
 
 .NavBar ul {
-    font-size: x-large;
-    padding: inherit;
-    margin: unset;
-    justify-content: space-around;
-    width: 100%;
-    display: flex;
+  font-size: x-large;
+  padding: inherit;
+  margin: unset;
+  justify-content: space-around;
+  width: 100%;
+  display: flex;
 }
 
 .NavBar ul li {
-    display: inline;
+  display: inline;
 }
 
-/*Guest Account */
-input {
-    border-radius: 5px
+.NavButton.inactive img {
+  opacity: 0.3
 }
 
 /* Home Page */
 
+.SpinningCircles {
+  position: absolute;
+  top: 40%;
+}
+
 .HomeBackground {
-    background-image: url('Images/Background.gif');
-    background-size: 70%;
-    background-repeat: repeat;
-    background-position: top;
+  background-image: url('Images/Background.gif');
+  background-size: 70%;
+  background-repeat: repeat;
+  background-position: top;
 }
 
 .HomeContentTitle {
-    width: 100%;
-    margin: 0 6vw;
+  width: 100%;
+  margin: 0 6vw;
 }
 
 .HomeContentTitle p {
-    max-width: 40%;
-    background-color: #FFFFFF;
-    text-align: left;
-    margin: inherit;
+  max-width: 50%;
+  background-color: #FFFFFF;
+  text-align: left;
+  margin: inherit;
+  font-size: 20px;
+  padding: 5px;
 }
 
 .DisplayContainer {
-    border: 2px solid #A9A9A9;
-    height: 150px;
-    background-color: #FFFAFA;
-    margin: 1vw 6vw;
-    flex-grow: 3;
-    justify-content: space-evenly;
-    overflow: hidden;
-    overflow-x: scroll;
+  border: 2px solid #A9A9A9;
+  height: 50%;
+  background-color: #FFFAFA;
+  margin: 1vw 6vw;
+  flex-grow: 3;
+  overflow: hidden;
+  overflow-x: scroll;
 }
 
-.DisplayContainer p {
-    text-align: left;
-    margin: 5px;
-    background: none;
-}
 
-.DisplayContainer ul {
-    height: inherit;
-    margin: unset;
-    list-style-type: none;
-    padding: inherit;
+.DisplayContainerTitle {
+  font-size: 24px;
 }
 
 .DisplayItem img {
-    width: 25vw;
-    height: 18vh;
-    float: left;
-    margin: 5px;
+  width: 25vw;
+  height: 18vh;
+  float: left;
+  margin: 5px;
 }
 
 .Content {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 /* Search Page */
 .SearchBar {
-    max-height: 5vh;
+  max-height: 5vh;
 }
 
-.sBar {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+.SearchBar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.sBar img {
-    margin-left: 10px;
+.SearchBar img {
+  margin-left: 10px;
 }
 
 .SearchContent li {
-    border-bottom: 2px solid #A9A9A9;
-    background-color: rgba(255, 250, 250, 0.95);
+  border-bottom: 2px solid #A9A9A9;
+  background-color: rgba(255, 250, 250, 0.95);
 }
 
 .SearchContent li:nth-child(odd) {
-    background-color: rgba(234, 234, 234, 0.95);
+  background-color: rgba(234, 234, 234, 0.95);
 }
 
 
-.SearchResult > .ListItem {
-    width: inherit;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 2vw;
+.SearchResult>.ListItem {
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2vw;
 }
 
 .SearchResult img {
-    width: 25vw;
-    height: 18vh;
-    margin: 5px;
-    border: 1px solid #A9A9A9;
+  width: 25vw;
+  height: 18vh;
+  margin: 5px;
+  border: 1px solid #A9A9A9;
 }
 
 .SearchResult p {
-    margin: 5px;
-    text-align: left;
+  margin: 5px;
+  text-align: left;
 }
 
 .SearchResults {
-    height: inherit;
-    width: inherit;
+  height: inherit;
+  width: inherit;
 }
 
 .SearchResults ul {
-    height: inherit;
-    margin: unset;
-    list-style-type: none;
-    padding: inherit;
-    overflow: hidden;
-    overflow-y: scroll;
+  height: inherit;
+  margin: unset;
+  list-style-type: none;
+  padding: inherit;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
-.sButtons {
-    display: flex;
-    width: 100%;
-    justify-content: center;
+.SearchButtons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .selected {
-    font-weight: bold;
-    background-color: #C91C73;
-    border: #C91C73;
-    width: 20vw;
-    height: 3.5vh;
+  font-weight: bold;
+  background-color: #C91C73;
+  border: #C91C73;
+  width: 20vw;
+  height: 3.5vh;
 }
 
 #authors {
-    border-radius: none
+  border-radius: none
 }
 
 #titles {
-    border-radius: 0 15px 0 0;
+  border-radius: 0 15px 0 0;
 }
 
 #genres {
-    border-radius: 15px 0 0 0;
+  border-radius: 15px 0 0 0;
 }
 
 .notSelected {
-    font-weight: bold;
-    background-color: #FFFAFA;
-    border: 1px solid #C91C73;
-    width: 20vw;
-    height: 3.5vh;
+  font-weight: bold;
+  background-color: #FFFAFA;
+  border: 1px solid #C91C73;
+  width: 20vw;
+  height: 3.5vh;
+}
+
+.ListItem .Text .Title {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.ListItem .Text .Author {
+  font-size: 16px
 }
 
 /* Profile Page */
 
 .ProfileInfo {
-    border: 2px solid #A9A9A9;
-    height: 40%;
-    width: 80%;
-    background-color: #FFFAFA;
-    margin: 1vw 6vw;
-    display: flex;
-    flex-grow: 3;
-    background-image: url(http://localhost:3000/static/media/ProfileTurner.d3d791e….svg);
-    background-size: 20%;
-    background-repeat: no-repeat;
-    justify-content: space-evenly;
-    align-items: center;
-    ;
+  border: 2px solid #A9A9A9;
+  height: 40%;
+  width: 80%;
+  background-color: #FFFAFA;
+  margin: 1vw 6vw;
+  display: flex;
+  flex-grow: 3;
+  background-image: url(http://localhost:3000/static/media/ProfileTurner.d3d791e….svg);
+  background-size: 20%;
+  background-repeat: no-repeat;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.EditProfile {
-    font-weight: bold;
-    background-color: #C91C73;
-    border: #C91C73;
-    width: 33vw;
-    height: 5vh;
-    border-radius: 15px 15px 15px 15px;
+.EditProfile,
+.UpdatePreferences {
+  font-weight: bold;
+  background-color: #C91C73;
+  border: #C91C73;
+  width: 33vw;
+  height: 5vh;
+  border-radius: 15px 15px 15px 15px;
 }
 
 .ProfileImage {
-    height: 60px;
+  height: 60px;
 }
 
 .ProfileInfoText {
-    flex-grow: 2;
+  flex-grow: 2;
 }
 
 /* Modal */
 
 .ModalBox {
-    background-color: #FFFAFA;
-    border: none;
-    max-height: 50%;
-    width: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    position: absolute;
-    top: 25%;
+  background-color: #FFFAFA;
+  border: none;
+  max-height: 50%;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  position: absolute;
+  top: 25%;
 }
 
 .ModalClose {
-    font-weight: bold;
-    border-style: solid;
-    border-color: #A9A9A9;
-    border-top: none;
-    border-left: none;
-    transition-duration: 0.4s;
-    text-align: center;
-    padding: 10px;
+  font-weight: bold;
+  border-style: solid;
+  border-color: #A9A9A9;
+  border-top: none;
+  border-left: none;
+  transition-duration: 0.4s;
+  text-align: center;
+  padding: 10px;
 }
 
 .ModalBox h4 {
-    display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    margin: 2% 10% 10%;
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  margin: 2% 10% 10%;
 
-    width: 100%;
-    flex-grow: 2;
+  width: 100%;
+  flex-grow: 2;
 }
 
 .ModalBox p {
-    margin: 0 10%;
-    margin-bottom: 30px;
-}
-
-.NavButton.inactive img {
-  opacity: 0.3
+  margin: 0 10%;
+  margin-bottom: 30px;
 }

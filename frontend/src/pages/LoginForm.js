@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Master.css";
 import { Link, useNavigate } from "react-router-dom";
 import TextForm from "../components/TextForm";
@@ -24,55 +24,52 @@ function LoginForm() {
       })
   };
 
+  useEffect(() => {
+    if (validation) {
+      navigate('/Home', { state: validation })
+    }
+  }, [validation])
+
   const navigate = useNavigate();
 
   return (
-    <>
-      {validation && navigate('/Home', { state: validation })}
-      {/* {error && <p>{error}</p>} */}
-      <form onSubmit={submitHandler}>
-        <div className="TopContainer">
-          <BackArrow />
-          <h2>Welcome back!</h2>
-          <p>Please enter your account details here</p>
-        </div>
-        <div className="LoginBackImage">
-          <div className="MainContainer">
-            <div className="FormInner">
-              {error !== "" ? <div className="error">{error}</div> : ""}
+    <form onSubmit={submitHandler}>
+      <div className="TopContainer">
+        <BackArrow />
+        <h2>Welcome back!</h2>
+        <p>Please enter your account details here</p>
+      </div>
+      <div className="LoginBackImage">
+        <div className="MainContainer">
+          <div className="FormInner">
+            {error !== "" ? <div className="Error">{error}</div> : ""}
 
-              <TextForm
-                id="uniqueId"
-                text="Username/Email"
-                details={details}
-                setDetails={setDetails}
-              />
+            <TextForm
+              id="uniqueId"
+              text="Username/Email"
+              details={details}
+              setDetails={setDetails}
+            />
 
-              <TextForm
-                id="password"
-                text="Password"
-                details={details}
-                setDetails={setDetails}
-                isPassword
-              />
+            <TextForm
+              id="password"
+              text="Password"
+              details={details}
+              setDetails={setDetails}
+              isPassword
+            />
 
-              <input type="submit" value="Login" className="LoginButton" />
+            <input type="submit" value="Login" className="LoginButton" />
 
-              <div className="CreateAccountButton">
-                <Link to="/CreateAccountForm">
-                  <button className="SignUpButton">New user? Create Account</button>
-                </Link>
-              </div>
-              <div className="ForgotPasswordButton">
-                <Link to="/ForgotPasswordForm">
-                  <button className="ForgotPasswordButton">Forgot Password?</button>
-                </Link>
-              </div>
+            <div className="CreateAccountButton">
+              <Link to="/CreateAccountForm">
+                <button className="SignUpButton">New user? Create Account</button>
+              </Link>
             </div>
           </div>
         </div>
-      </form>
-    </>
+      </div>
+    </form>
   );
 }
 

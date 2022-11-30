@@ -1,14 +1,9 @@
 
 import BackArrow from './../components/BackArrow';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { updateSelf } from '../utils/backendRequest';
-
-const genreList = [
-  'romance', 'educational', 'sci-fi', 'fantasy', 'horror',
-  'manga', 'historical', 'spirituality', 'crime', 'travel'
-]
-
+import { genreList } from '../constants'
 
 export default function EditProfile() {
   const location = useLocation()
@@ -23,31 +18,13 @@ export default function EditProfile() {
       } else {
         newGenres = prev.genres.filter(genre => genre !== e.target.id)
       }
-      // for some reason this function triggers twice, so we need to dedup
+      // this is to dedup
       newGenres = [...new Set(newGenres)]
       return {
         ...prev,
         genres: newGenres
       }
     })
-  }
-
-  function setLowerBound(e) {
-    if (!isNaN(e.target.value)) {
-      setPreferences(prev => ({
-        ...prev,
-        pagesLowerBound: e.target.value
-      }))
-    }
-  }
-
-  function setUpperBound(e) {
-    if (!isNaN(e.target.value)) {
-      setPreferences(prev => ({
-        ...prev,
-        pagesUpperBound: e.target.value
-      }))
-    }
   }
 
   function updatePreferences() {
@@ -57,10 +34,19 @@ export default function EditProfile() {
       })
   }
 
+  function setBound(e, preference) {
+    if (!isNaN(e.target.value)) {
+      setPreferences(prev => ({
+        ...prev,
+        [preference]: e.target.value
+      }))
+    }
+  }
+
 
   return <>
     <BackArrow />
-    <p>genres</p>
+    <h2>Genres</h2>
     {genreList.map(genre =>
       <div key={genre} >
         <label>{genre}</label>
@@ -70,11 +56,22 @@ export default function EditProfile() {
         />
       </div>
     )}
-    <p>page numbers</p>
-    <input type='text' id='lowerBound' value={preferences.pagesLowerBound} onChange={setLowerBound} />
-    <input type='text' id='upperBound' value={preferences.pagesUpperBound} onChange={setUpperBound} />
-    <div></div>
-    <button onClick={updatePreferences}>Update Preferences</button>
+    <h2>Page Numbers</h2>
+    <p>Lower Bound</p>
+    <input
+      type='text'
+      id='lowerBound'
+      value={preferences.pagesLowerBound}
+      onChange={e => setBound(e, 'pagesLowerBound')}
+    />
+    <p>Upper Bound</p>
+    <input
+      type='text'
+      id='upperBound'
+      value={preferences.pagesUpperBound}
+      onChange={e => setBound(e, 'pagesUpperBound')}
+    />
+    <button className='UpdatePreferences' onClick={updatePreferences}>Update Preferences</button>
   </>
 
 

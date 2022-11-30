@@ -15,7 +15,6 @@ export default function TextForm({ id, text, details, setDetails, isPassword=fal
           value={details[id]}
         />
       </div>
-
     </div>
   )
 }

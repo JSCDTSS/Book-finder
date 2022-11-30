@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import '../Master.css';
 import Arrow from '../icons/arrow-right.svg';
-import getBooks from '../utils/request';
+import getBooks from '../utils/googleRequest';
 
 import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
@@ -18,43 +18,51 @@ function Search() {
 
   function makeRequest() {
     const request = { [searchType]: [searchValue] }
-
     getBooks(request)
       .then(res => {
         setSearchResults(res)
         setHasSearched(true)
       })
-
   }
 
   function updateSearchBar(e) {
     setSearchValue(e.target.value)
   }
 
+  function keyPressHandler(e) {
+    if (e.key === 'Enter') {
+      makeRequest()
+    }
+  }
+
   return (
     <div className="bgContainer">
-    <CheckPermission permission='basic'>
-      <div className="Search">
-        <div className="TopContainer">
-          <div className='sBar'>
-            <SearchBar
-              value={searchValue} setValue={updateSearchBar}
-            />
-            <img src={Arrow} onClick={makeRequest} alt="Search button" />
+      <CheckPermission permission='basic'>
+        <div className="Search">
+
+          <div className="TopContainer">
+            <div className='SearchBar' onKeyPress={e => keyPressHandler(e)}>
+              <SearchBar
+                value={searchValue} setValue={updateSearchBar}
+              />
+              <img src={Arrow} onClick={makeRequest} alt="Search button" />
+            </div>
+            <div className='SearchButtons'>
+              <SearchButtons
+                type={searchType} setType={setSearchType} />
+            </div>
           </div>
-          <div className='sButtons'>
-            <SearchButtons
-              type={searchType} setType={setSearchType} />
+
+          <div className="MainContainer">
+            <SearchResults items={searchResults} hasSearched={hasSearched} />
           </div>
+
+          <div className="BottomContainer">
+            <NavBar />
+          </div>
+          
         </div>
-        <div className="MainContainer">
-          <SearchResults items={searchResults} hasSearched={hasSearched}/>
-        </div>
-        <div className="BottomContainer">
-          <NavBar />
-        </div>
-      </div>
-    </CheckPermission>
+      </CheckPermission>
     </div>
   );
 }

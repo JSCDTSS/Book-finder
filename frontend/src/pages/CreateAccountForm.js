@@ -12,6 +12,7 @@ function CreateAccountForm() {
   });
   const [errors, setErrors] = useState([])
   const [validation, setValidation] = useState(false)
+  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -22,10 +23,7 @@ function CreateAccountForm() {
       .catch(err => {
         setErrors(err?.response?.data?.errors)
       })
-    //then redirect to other page
   };
-
-  const navigate = useNavigate();
 
   return (
     <>
@@ -39,7 +37,7 @@ function CreateAccountForm() {
         <div className="CreateBackImage">
           <div className="MainContainer">
             <div className="FormInner">
-              <div className="errors">
+              <div className="Error">
                 {errors.map((error, i) => {
                   return <div key={i}>{error}</div>
                 })}

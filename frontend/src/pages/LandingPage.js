@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../Master.css';
 import GuestArrow from '../icons/arrow-right.svg';
-// import SplashPage from "./SplashPage"
 
 function LandingPage() {
   return (
     <>
-      {/* <SplashPage/> */}
       <div className="TopContainer">
         <div className="IntroWords">
           <h1>Start your reading journey</h1>

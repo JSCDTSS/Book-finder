@@ -4,17 +4,16 @@ import { updateOtherUser } from "../utils/backendRequest"
 
 export default function BanUserButton({ selectedUser }) {
   const location = useLocation()
-  const [isSuspended,setIsSuspended] = useState(selectedUser.isSuspended)
+  const [isSuspended, setIsSuspended] = useState(selectedUser.isSuspended)
 
   function changeSuspension() {
-    console.log('ok')
     updateOtherUser(location.state.token, {
       uniqueId: selectedUser.username,
       fields: {
         isSuspended: !isSuspended
       }
     }).then(res => {
-      if (res.data.ok){
+      if (res.data.ok) {
         setIsSuspended(prev => !prev)
       }
     })

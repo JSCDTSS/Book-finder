@@ -1,6 +1,9 @@
 
 const { ObjectId } = require('mongodb')
 
+/**
+ * Bookshelves for future release
+ */
 module.exports = class Bookshelves {
   constructor(database) {
     this.database = database
@@ -22,7 +25,6 @@ module.exports = class Bookshelves {
       })
     }
     catch (err) {
-      console.log(err)
       throw new Error('failed to list bookshelves')
     }
   }
@@ -48,7 +50,6 @@ module.exports = class Bookshelves {
     return result?.acknowledged
   }
 
-  //
   async removeBook(bookshelfId) {
     const result = await this.bookshelves.updateOne(
       { _id: ObjectId(bookshelfId) }, { $push: { books: book } }

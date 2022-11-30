@@ -16,7 +16,6 @@ module.exports = async function (req, res, next) {
     followers: [],
     followedBy: []
   })
-  console.log(accountId)
   if (accountId) {
     const data = await database.accounts.list({ _id: accountId })
     req.account = data[0]
