@@ -6,6 +6,9 @@ body {
     text-align: center;
     line-height: 20px;
     box-sizing: border-box;
+}
+
+.bgContainer {
     background-image: url('Images/Background.gif');
     background-size: 70%;
     background-repeat: repeat;
@@ -67,18 +70,10 @@ h2 {
     width: 100%;
 }
 
-
-.HomeBackground {
-    background-image: url('Images/Background.gif');
-    background-size: 70%;
-    background-repeat: repeat;
-    background-position: top;
-}
-
 /* Landing, Log in, Account creation pages */
 
 .LandingBackImage {
-    background-image: url('Images/Logo.png');
+    background-image: url('Images/Logo.png'), url('Images/Background.gif');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -210,6 +205,13 @@ input {
 
 /* Home Page */
 
+.HomeBackground {
+    background-image: url('Images/Background.gif');
+    background-size: 70%;
+    background-repeat: repeat;
+    background-position: top;
+}
+
 .HomeContentTitle {
     width: 100%;
     margin: 0 6vw;
@@ -229,9 +231,6 @@ input {
     margin: 1vw 6vw;
     flex-grow: 3;
     justify-content: space-evenly;
-    background-image: url('Images/PageTurner.svg');
-    background-size: 20%;
-    background-repeat: no-repeat;
     overflow: hidden;
     overflow-x: scroll;
 }
@@ -353,23 +352,39 @@ input {
     height: 3.5vh;
 }
 
-/* Bookshelf Styling */
 /* Profile Page */
 
 .ProfileInfo {
     border: 2px solid #A9A9A9;
-    height: 150px;
-    width: 300px;
+    height: 40%;
+    width: 80%;
     background-color: #FFFAFA;
     margin: 1vw 6vw;
+    display: flex;
     flex-grow: 3;
-    justify-content: space-evenly;
-    background-image: url('Images/ProfileTurner.svg');
+    background-image: url(http://localhost:3000/static/media/ProfileTurner.d3d791e….svg);
     background-size: 20%;
     background-repeat: no-repeat;
-    overflow: hidden;
-    overflow-x: scroll;
+    justify-content: space-evenly;
+    align-items: center;
     ;
+}
+
+.EditProfile {
+    font-weight: bold;
+    background-color: #C91C73;
+    border: #C91C73;
+    width: 33vw;
+    height: 5vh;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.ProfileImage {
+    height: 60px;
+}
+
+.ProfileInfoText {
+    flex-grow: 2;
 }
 
 /* Modal */

@@ -32,6 +32,7 @@ function Search() {
   }
 
   return (
+    <div className="bgContainer">
     <CheckPermission permission='basic'>
       <div className="Search">
         <div className="TopContainer">
@@ -54,6 +55,7 @@ function Search() {
         </div>
       </div>
     </CheckPermission>
+    </div>
   );
 }
 

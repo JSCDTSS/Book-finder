@@ -10,6 +10,8 @@ function ForgotPasswordForm() {
     const navigate = useNavigate();
 
     return (
+        <div className="bgContainer">
+
         <form>
             <div className="TopContainer">
                 <BackArrow />
@@ -34,6 +36,7 @@ function ForgotPasswordForm() {
          
             </div>
         </form>
+        </div>
     );
 }
 

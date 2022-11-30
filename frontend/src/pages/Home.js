@@ -31,6 +31,8 @@ function Home() {
   }
 
   return (
+    <div className="bgContainer">
+
     <CheckPermission permission='basic'>
       <div className="Home">
         <div className="TopContainer">
@@ -59,6 +61,7 @@ function Home() {
         </div>
       </div>
     </CheckPermission>
+    </div>
   )
 
 }

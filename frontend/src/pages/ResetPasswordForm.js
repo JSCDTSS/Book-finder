@@ -5,6 +5,8 @@ import Password from "../Images/Password.png"
 function ResetPasswordForm() {
 
     return (
+        <div className="bgContainer">
+
         <form>
             <div className="TopContainer">
                 <p>Password recovery</p>
@@ -33,6 +35,7 @@ function ResetPasswordForm() {
         </div>
             </div>
         </form>
+        </div>
     );
 }
 

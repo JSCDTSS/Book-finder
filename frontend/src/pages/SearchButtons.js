@@ -5,7 +5,6 @@ export default function SearchButtons({type,setType}){
   }
   
   return <>
-  
   <button id='genres'
       onClick={log} className={type === 'genres' ? 'selected' : 'notSelected'}
     >Genre</button>
