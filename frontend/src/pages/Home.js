@@ -6,7 +6,7 @@ import Bell from '../icons/bell.svg';
 import SearchBar from '../components/SearchBar';
 import DisplayContainer from '../components/DisplayContainer';
 import getBooksByPreferences from '../utils/getBookPreferences';
-import SplashPage from './SplashPage'
+import { SpinningCircles } from 'react-loading-icons'
 import CheckPermission from '../components/CheckPermission';
 import randomPreference from './../utils/randomPreferences';
 
@@ -44,7 +44,10 @@ function Home() {
 
           <SearchBar />
           {isLoadingData()
-            ? <SplashPage />
+          
+            ? <div>
+                <SpinningCircles fill='#000'/>
+              </div>
             : <>
               <div className='HomeContentTitle'>
                 <p>Suggested Books</p>
@@ -62,6 +65,7 @@ function Home() {
         </div>
       </div>
     </CheckPermission>
+
   )
 
 }
