@@ -417,3 +417,7 @@ input {
     margin: 0 10%;
     margin-bottom: 30px;
 }
+
+.NavButton.inactive img {
+  opacity: 0.3
+}

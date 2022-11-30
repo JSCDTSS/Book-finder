@@ -5,7 +5,7 @@ export default function NavButton({
 }) {
   const location = useLocation()
 
-  return <li>
+  return <li className={`NavButton ${active ? 'active' : 'inactive'}`}>
     {active
       ? <Link to={path} state={location.state}>
         <img src={icon} alt={text} />

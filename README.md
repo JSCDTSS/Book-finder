@@ -150,7 +150,12 @@ moderators should be able to change the info of another account
 
 ## 27-11
 
-hide password on password field
+default preferences for guests
+gray out buttons guests shouldnt have
+make home search bar work
+
+address vulnerabilities (npm audit)
+investigate issues 
 
 create an admin account for Mick
 
@@ -158,18 +163,11 @@ tokens expiring
 
 @dtss accounts should be made admin on account creation
 
-make home search bar work
-
-Touch up visuals to closer match wireframes - think about desktop viewing
-hide password on password field
-address vulnerabilities (npm audit)
-
 UI/UX
 Security
 Accessibility
 well structured code base
 
-styling
 
 during walkthrough
     show change in database
