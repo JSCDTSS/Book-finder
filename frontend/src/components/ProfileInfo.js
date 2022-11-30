@@ -7,10 +7,10 @@ export default function ProfileInfo() {
 
   return <div className="ProfileInfo">
     <img className="ProfileImage" src={ProfileImage} alt="Profile Image" />
-    <div ClassName="ProfileInfoText">
+    <div className="ProfileInfoText">
       <h3>{location.state.username}</h3>
-      <p>Follows: {location.state.following.length}</p>
-      <p>Followers: {location.state.followedBy.length}</p>
+      <p>Follows: 0</p>
+      <p>Followers: 0</p>
       <Link to='/EditProfile' state={location.state}>
         <button className='EditProfile'>Edit Preferences</button>
       </Link>

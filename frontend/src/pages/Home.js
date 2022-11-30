@@ -12,9 +12,9 @@ function Home() {
   const [suggested, setSuggested] = useState('loading')
   const [trending, setTrending] = useState('loading')
   const preferences = useLocation()?.state?.preferences
-
   useEffect(() => {
-    const searchPreferences = preferences || randomPreference()
+    const searchPreferences = checkPreferencesAreSet()
+      ? preferences : randomPreference()
     getBooksByPreferences(searchPreferences)
       .then(books => {
         setSuggested(
@@ -25,6 +25,10 @@ function Home() {
         )
       })
   }, [preferences])
+
+  function checkPreferencesAreSet() {
+    return Boolean(preferences?.genres?.length)
+  }
 
   function isLoadingData() {
     return suggested === 'loading' || trending === 'loading'
@@ -40,7 +44,7 @@ function Home() {
           </div>
           <div className="MainContainer">
             {isLoadingData()
-            
+
               ? <div className='SpinningCircles'>
                 <SpinningCircles fill='#000' width={100} />
               </div>

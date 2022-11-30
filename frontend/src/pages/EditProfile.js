@@ -76,12 +76,3 @@ export default function EditProfile() {
 
 
 }
-
-/**
- * page numbers
- *    < 60
- *    60-100
- *    101-200
- *    201+
- * 
- */

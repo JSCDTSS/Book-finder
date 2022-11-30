@@ -57,7 +57,7 @@ module.exports = class Accounts {
         return accounts[0]
       case 0:
         throw new Error('couldn\'t find account')
-      default: // this should never happen
+      default:
         throw new Error('database error: duplicate uniqueIds found')
     }
   }

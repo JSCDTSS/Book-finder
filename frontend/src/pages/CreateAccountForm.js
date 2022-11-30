@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Master.css";
 import { useNavigate } from "react-router-dom";
 import TextForm from "../components/TextForm";
@@ -25,9 +25,15 @@ function CreateAccountForm() {
       })
   };
 
+  useEffect(() => {
+    if (validation) {
+      navigate('/Home', { state: validation })
+    }
+  }, [validation])
+
   return (
     <>
-      {validation && navigate('/Home', { state: validation })}
+      {/* {validation && navigate('/Home', { state: validation })} */}
       <form onSubmit={submitHandler}>
         <div className="TopContainer">
           <BackArrow />

@@ -1,12 +1,8 @@
 
 import DisplayItem from './DiplayItem';
 
-export default function DisplayContainer({ title = '', items = [] }) {
+export default function DisplayContainer({ items = [] }) {
   return <div className='DisplayContainer'>
-    {title && <p className='DisplayContainerTitle'>
-      {title}
-    </p>}
-
     <div className='Content'>
       {items.map((item, i) => <DisplayItem item={item} key={i} />)}
     </div>

@@ -224,7 +224,7 @@ textarea {
 
 .HomeContentTitle {
   width: 100%;
-  margin: 0 6vw;
+  margin: 2vh 6vw 0 6vw;
 }
 
 .HomeContentTitle p {
@@ -244,11 +244,6 @@ textarea {
   flex-grow: 3;
   overflow: hidden;
   overflow-x: scroll;
-}
-
-
-.DisplayContainerTitle {
-  font-size: 24px;
 }
 
 .DisplayItem img {

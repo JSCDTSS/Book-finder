@@ -5,19 +5,19 @@ module.exports = async function (req, res, next) {
 
   const errors = []
 
-  if (!isEmailValid(newAccount.email)){
+  if (!isEmailValid(newAccount.email)) {
     errors.push('invalid email')
   }
-  if (!isUsernameValid(newAccount.username)){
+  if (!isUsernameValid(newAccount.username)) {
     errors.push('invalid username')
   }
-  if (!isPasswordValid(newAccount.password)){
+  if (!isPasswordValid(newAccount.password)) {
     errors.push('invalid password')
   }
-  if (await doesUsernameExist(database,newAccount.username)){
+  if (await doesUsernameExist(database, newAccount.username)) {
     errors.push('username exists')
   }
-  if (await doesEmailExist(database,newAccount.username)){
+  if (await doesEmailExist(database, newAccount.username)) {
     errors.push('email exists')
   }
 
@@ -25,17 +25,18 @@ module.exports = async function (req, res, next) {
   else next()
 }
 
-async function doesUsernameExist(database,username){
+async function doesUsernameExist(database, username) {
   const duplicates = await database.accounts.list({ username })
   return Boolean(duplicates.length)
 }
 
-async function doesEmailExist(database,email){
-  const duplicates = await database.accounts.list({ email })
+async function doesEmailExist(database, email) {
+  const duplicates = await database.accounts.list({
+    email: email.toLowerCase()
+  })
   return Boolean(duplicates.length)
 }
 
-// can add other checks later
 function isEmailValid(email) {
   return email.includes('@')
 }

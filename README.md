@@ -150,10 +150,8 @@ moderators should be able to change the info of another account
 
 ## 27-11
 
-make home search bar work
-fix loading icon on home
+give cat overview of security features
 
-address vulnerabilities (npm audit)
 investigate issues 
 
 create an admin account for Mick

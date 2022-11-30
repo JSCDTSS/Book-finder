@@ -4,6 +4,7 @@ module.exports = async function (req, res, next) {
 
   const accountId = await database.accounts.create({
     ...req.body,
+    email: req.body.email.toLowerCase(),
     permissions: ['member', 'basic'],
     bookshelves: [],
     preferences: {
