@@ -5,6 +5,7 @@ import "../Master.css";
 
 function Bookshelves() {
   return (
+    <div className="bgContainer">
     <CheckPermission permission="member" redirect="/Home">
       <div className="Bookshelves">
         <div className="TopContainer">
@@ -17,6 +18,7 @@ function Bookshelves() {
         </div>
       </div>
     </CheckPermission>
+    </div>
   );
 }
 export default Bookshelves;

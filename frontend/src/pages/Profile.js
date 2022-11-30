@@ -22,33 +22,23 @@ function Profile() {
    * show bookshelves
    */
   return (
+    <div className="bgContainer">
+
     <CheckPermission permission="member" redirect="/Home">
       <div className="profile">
         <div className="TopContainer">
           <h2>Profile</h2>
-          {/* <img src={Hamburger} alt="Hamburger Menu" /> */}
         </div>
 
         <div className="MainContainer">
           <ProfileInfo profileInfo={profileInfo} />
-          <div ClassName="HomeContentTitle">
-            <p>Favourites</p>
-          </div>
-          <DisplayContainer />
-          <div ClassName="HomeContentTitle">
-            <p>Bookshelves</p>
-          </div>
-          <DisplayContainer />
-          <div ClassName="HomeContentTitle">
-            <p>Groups</p>
-          </div>
-          <DisplayContainer />
         </div>
         <div className="BottomContainer">
           <NavBar />
         </div>
       </div>
     </CheckPermission>
+    </div>
   );
 }
 

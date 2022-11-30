@@ -34,38 +34,40 @@ function Home() {
   }
 
   return (
-    <CheckPermission permission='basic'>
-      <div className="Home">
-        <div className="TopContainer">
-          <h3>Home</h3>
-          <img src={Bell} alt="Notification Bell" />
-        </div>
-        <div className="MainContainer">
+    <div className="bgContainer">
 
-          <SearchBar />
-          {isLoadingData()
-          
-            ? <div>
-                <SpinningCircles fill='#000'/>
-              </div>
-            : <>
-              <div className='HomeContentTitle'>
-                <p>Suggested Books</p>
-                <DisplayContainer items={suggested} />
-              </div>
-              <div className='HomeContentTitle'>
-                <p>Popular Books</p>
-                <DisplayContainer items={trending} />
-              </div>
-            </>
-          }
-        </div>
-        <div className="BottomContainer">
-          <NavBar />
-        </div>
-      </div>
-    </CheckPermission>
+      <CheckPermission permission='basic'>
+        <div className="Home">
+          <div className="TopContainer">
+            <h3>Home</h3>
+            <img src={Bell} alt="Notification Bell" />
+          </div>
+          <div className="MainContainer">
 
+            <SearchBar />
+            {isLoadingData()
+
+              ? <div>
+                <SpinningCircles fill='#000' />
+              </div>
+              : <>
+                <div className='HomeContentTitle'>
+                  <p>Suggested Books</p>
+                  <DisplayContainer items={suggested} />
+                </div>
+                <div className='HomeContentTitle'>
+                  <p>Popular Books</p>
+                  <DisplayContainer items={trending} />
+                </div>
+              </>
+            }
+          </div>
+          <div className="BottomContainer">
+            <NavBar />
+          </div>
+        </div>
+      </CheckPermission>
+    </div>
   )
 
 }
