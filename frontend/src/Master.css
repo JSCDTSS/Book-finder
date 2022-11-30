@@ -43,6 +43,10 @@ img {
 
 }
 
+.TopContainer p {
+    width: 100%;
+}
+
 .TopContainer h1,
 h2 {
   flex-grow: 2;
@@ -266,6 +270,7 @@ textarea {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin: 2vw 0;
 }
 
 .SearchBar img {
