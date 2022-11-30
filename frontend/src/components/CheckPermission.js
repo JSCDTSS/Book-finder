@@ -16,7 +16,5 @@ export default function CheckPermission({ permission, redirect = '/', children }
     }
   }, [permission, location, redirect, navigate])
 
-  return <>
-    {loaded ? <>{children}</> : <></>}
-  </>
+  return loaded && children
 }
