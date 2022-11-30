@@ -8,6 +8,7 @@ import DisplayContainer from '../components/DisplayContainer';
 import getBooksByPreferences from '../utils/getBookPreferences';
 import SplashPage from './SplashPage'
 import CheckPermission from '../components/CheckPermission';
+import randomPreference from './../utils/randomPreferences';
 
 function Home() {
   const [suggested, setSuggested] = useState('loading')
@@ -15,8 +16,10 @@ function Home() {
   const preferences = useLocation()?.state?.preferences
 
   useEffect(() => {
-    getBooksByPreferences(preferences)
+    const searchPreferences = preferences || randomPreference()
+    getBooksByPreferences(searchPreferences)
       .then(books => {
+        console.log(books)
         setSuggested(
           books.slice(0, 30)
         )

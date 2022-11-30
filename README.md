@@ -150,9 +150,8 @@ moderators should be able to change the info of another account
 
 ## 27-11
 
-default preferences for guests
-gray out buttons guests shouldnt have
 make home search bar work
+fix loading icon on home
 
 address vulnerabilities (npm audit)
 investigate issues 
