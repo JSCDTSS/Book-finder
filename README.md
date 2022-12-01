@@ -1,4 +1,18 @@
 
+## install instructions
+
+open terminal for frontend and backend
+in frontend terminal
+    navigate to frontend
+    npm i
+in backend terminal
+    navigate to backend
+    npm i
+in frontend terminal
+    npm start
+in backend terminal
+    npm run server    
+
 ## google books requests
 in request.js, I've made a function that sends a get request to the api endpoint (https://www.googleapis.com/books/v1/volumes). 
 
