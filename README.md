@@ -71,9 +71,6 @@ GoogleApi
 
     
 
-
-
-
 ## mongo commands
 
     insertOne(JSON)
@@ -95,9 +92,6 @@ GoogleApi
     find( { name: {$eq: "sally" }})
     find( { name: {$neq: "sally" }})
     
-## best practises
-
-    pagination - limit size of returns
 
 ## api documentation
 
@@ -150,7 +144,7 @@ moderators should be able to change the info of another account
 
 ## 27-11
 
-give cat overview of security features
+
 
 investigate issues 
 
